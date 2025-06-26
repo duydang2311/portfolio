@@ -6,9 +6,9 @@
       "devDependencies": {
         "@eslint/compat": "^1.2.5",
         "@eslint/js": "^9.18.0",
+        "@fontsource/fira-sans": "^5.2.6",
         "@fontsource/inter": "^5.2.6",
         "@fontsource/inter-tight": "^5.2.6",
-        "@fontsource/poppins": "^5.2.6",
         "@icons-pack/svelte-simple-icons": "^5.0.0",
         "@neoconfetti/svelte": "^2.0.0",
         "@sveltejs/adapter-cloudflare": "^7.0.4",
@@ -131,11 +131,11 @@
 
     "@fastify/busboy": ["@fastify/busboy@2.1.1", "", {}, "sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA=="],
 
+    "@fontsource/fira-sans": ["@fontsource/fira-sans@5.2.6", "", {}, "sha512-WsqXZCzlbifRoOLppDr6pwMRrZ4U+e+mv+oRZLrZOvkTv/q63B1CIUW+lfaaJuP15YBhOV1OCxS+n1pP8d3IhQ=="],
+
     "@fontsource/inter": ["@fontsource/inter@5.2.6", "", {}, "sha512-CZs9S1CrjD0jPwsNy9W6j0BhsmRSQrgwlTNkgQXTsAeDRM42LBRLo3eo9gCzfH4GvV7zpyf78Ozfl773826csw=="],
 
     "@fontsource/inter-tight": ["@fontsource/inter-tight@5.2.6", "", {}, "sha512-4rsygbvEQIbDYs+uMgMToxIb6PGNEuvAeHHc1isM2x7genkwUX+Omona47wFfozF308WRwu3lRSQF3l/BUH/kg=="],
-
-    "@fontsource/poppins": ["@fontsource/poppins@5.2.6", "", {}, "sha512-NFr0121+vWCfzLDVvSZOzwAjRUaNj6QHA9gtUh/KHHoWf1Qn23EkwVFs63XZ6UtF5K1b3UNmCx77YEMGgV7BOQ=="],
 
     "@humanfs/core": ["@humanfs/core@0.19.1", "", {}, "sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA=="],
 

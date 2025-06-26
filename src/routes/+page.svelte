@@ -6,35 +6,38 @@
 </script>
 
 <main>
-    <Section class="max-w-102 py-20 px-4 mx-auto w-fit h-screen">
-        <h2 class="uppercase font-display text-base-fg-muted">Full-stack Developer</h2>
-        <div
-            class="text-7xl mt-4 font-display font-black text-base-fg-dark dark:text-base-fg-light"
-        >
-            <p>Creating</p>
-            <p>Digital</p>
-            <p>Experiences</p>
-        </div>
-        <p class="mt-8">
-            Crafting innovative solutions through code, design, and strategic thinking. Specialized
-            in modern web technologies and user-centered development.
-        </p>
-        <div class="flex gap-4 mt-8 items-center">
-            <a
-                href="#works"
-                class="capitalize px-6 h-12 rounded-full bg-primary text-primary-fg font-display content-center"
+    <Section class="py-20 px-4 content-center">
+        <div class="mx-auto w-fit">
+            <h2 class="text-p uppercase font-display text-base-fg-muted">Software Engineer</h2>
+            <div
+                class="text-7xl md:text-9xl mt-4 font-display font-black text-base-fg-dark dark:text-base-fg-light"
             >
-                View works
-            </a>
-            <a
-                target="_blank"
-                href="https://github.com/duydang2311"
-                class="size-12 p-2 rounded-full bg-base border border-base-border-light"
-            >
-                <GitHub />
-            </a>
+                <p class="text-nowrap">Next-gen</p>
+                <p class="text-center">Codecraft</p>
+            </div>
+            <p class="mt-8 text-pretty">
+                Learning to write code that works, reads well, and feels right — so it's not awkward
+                when we meet again.
+            </p>
+            <div class="flex gap-4 mt-8 items-center">
+                <a
+                    href="#works"
+                    class="capitalize px-6 h-12 rounded-full bg-primary text-primary-fg font-display content-center font-medium"
+                >
+                    View works
+                </a>
+                <a
+                    target="_blank"
+                    href="https://github.com/duydang2311"
+                    class="size-12 p-2 rounded-full border border-base-border-light dark:border-base-border-dark bg-base-light"
+                >
+                    <GitHub />
+                </a>
+            </div>
         </div>
     </Section>
-    <About />
-    <Experience />
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(36rem,1fr))] gap-16">
+        <About />
+        <Experience />
+    </div>
 </main>

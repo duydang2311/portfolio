@@ -1,51 +1,62 @@
 <script lang="ts">
     import Section from '$lib/components/Section.svelte';
     import type { Snippet } from 'svelte';
+    import { ExternalLink } from 'lucide-svelte';
 </script>
 
 {#snippet exp(title: string, company: string, start: string, end: string, body: Snippet)}
-    <div class="flex justify-between gap-4">
+    <div class="relative flex justify-between items-baseline gap-4 pb-2">
         <div>
             <h3>{title}</h3>
-            <p class="text-base-fg-muted text-sm">{company}</p>
+            <!-- <p class="text-base-fg-muted text-sm">{company}</p> -->
+            <a
+                href="https://www.futurify.io/"
+                target="_blank"
+                class="inline-block group text-link hover:text-link-fg bg-gradient-to-r from-link to-link -mx-1 px-1
+                bg-no-repeat transition-[color_background-size] [background-size:0%_100%] hover:[background-size:100%_100%]"
+            >
+                <span>
+                    {company}
+                </span>
+                <ExternalLink class="hidden group-hover:inline" />
+            </a>
         </div>
-        <p class="text-base-fg-muted text-sm">
+        <p class="text-base-fg-muted text-sm text-nowrap">
             {start} — {end}
         </p>
+        <div
+            class="absolute inset-x-0 bottom-0 h-px bg-base-border-light dark:bg-base-border-dark"
+        ></div>
+        <div
+            class="absolute h-12 left-0 -bottom-10 w-px bg-gradient-to-b from-base-border-light dark:from-base-border-dark to-transparent"
+        ></div>
     </div>
-    <div class="text-sm mt-2">
-    {@render body()}
+    <div class="text-sm mt-4 px-2">
+        {@render body()}
     </div>
 {/snippet}
 
 {#snippet futurify()}
-<ul class="list-disc pl-4">
-    <li>
-        Responsible for implementing new features and fixing application bugs as assigned, resulted in more than 30 tasks
-        resolved in 3 months of internship.
-    </li>
-    <li>
-        Integrated Amazon S3 with presigned URL for building a file uploading/storing service.
-    </li>
-    <li>
-        Optimized React application by preventing unnecessary re-renders in various components.
-    </li>
-    <li>
-        Utilized Git and BitBucket for source control in trunk-based development style.
-    </li>
-    <li>
-        In charge of developing a mail system to send/manage emails in-application using SMTP and IMAP protocols,
-        Google Pub/Sub and Webhooks.
-    </li>
-</ul>
-
+    <ul class="list-disc pl-4 space-y-4">
+        <li>Delivered 30+ feature updates and bug fixes over a 3-month internship.</li>
+        <li>Integrated Amazon S3 with presigned URLs for file uploads.</li>
+        <li>Improved React performance by reducing unnecessary re-renders.</li>
+        <li>Used Git and Bitbucket with trunk-based development.</li>
+        <li>Built an in-app mail system using SMTP, IMAP, Pub/Sub, and webhooks.</li>
+    </ul>
 {/snippet}
 
-<Section class="container mx-auto">
-    <h2 class="text-2xl font-semibold">Experience</h2>
-    <ul class="mt-4">
+<Section>
+    <h2 class="font-semibold">Experience</h2>
+    <ul class="mt-2">
         <li>
-    {@render exp('Full-stack Developer Intern', 'Futurify Company', 'Aug', 'Nov 2023', futurify)}
+            {@render exp(
+                'Full-stack Developer Intern',
+                'Futurify Company',
+                'Aug',
+                'Nov 2023',
+                futurify
+            )}
         </li>
     </ul>
 </Section>

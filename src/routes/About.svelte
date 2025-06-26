@@ -4,7 +4,7 @@
 
 {#snippet primary(name: string)}
     <div
-        class="rounded-full px-4 py-2 font-display bg-base-fg text-base border border-base-border-light content-center"
+        class="rounded-full px-4 py-2 font-display bg-base-fg-light text-base border border-base-border-light content-center"
     >
         {name}
     </div>
@@ -18,11 +18,13 @@
     </div>
 {/snippet}
 
-<Section class="container mx-auto">
-    <h2 class="text-2xl font-semibold">About</h2>
-    <p class="font-display mt-2">
-        I'm a passionate developer who believes in the power of clean code and thoughtful design to
-        solve complex problems.
+<Section>
+    <h2 class="font-semibold">About</h2>
+    <p class="mt-2">
+        I’m a developer driven by curiosity and a love for clean, thoughtful code. I’ve built a
+        strong foundation through side projects and open source work, focusing on modern web
+        technologies and user-centered design. While I’ve enjoyed coding for fun, I’m now excited to
+        take the next step and contribute professionally.
     </p>
     <div class="flex *:flex-1 justify-between gap-8 mt-8 *:text-pretty">
         <p>
@@ -36,75 +38,33 @@
             magnam quaerat voluptates corporis repudiandae dolores ut!
         </p>
     </div>
-    <div class="group relative flex justify-around mt-8 text-sm overflow-hidden h-10 w-full">
-        {#each { length: 2 } as _}
-            <div
-                class="group-hover:animate-paused marquee absolute flex flex-row-reverse gap-2 text-nowrap inset-y-0 last:pr-8"
-            >
-                {#each ['.NET', 'ASP.NET Core', 'Svelte', 'SvelteKit', 'TypeScript', 'PostgreSQL', 'MongoDB', 'Cloudflare', 'React', 'WebSocket', 'Git', 'ABC'] as name}
+    <div class="flex overflow-hidden mt-8 gap-2 group" style:--_marquee-gap="0.5rem">
+        <ul
+            class="flex gap-2 shrink-0 min-w-full overflow-hidden [animation:marquee_20s_linear_infinite] group-hover:animate-paused"
+            {@attach (node) => {
+                node.insertAdjacentElement('afterend', node.cloneNode(true) as HTMLElement);
+            }}
+        >
+            {#each ['.NET', 'ASP.NET Core', 'Svelte', 'SvelteKit', 'TypeScript', 'PostgreSQL', 'MongoDB', 'Cloudflare', 'React', 'WebSocket', 'Git', 'ABC'] as name (name)}
+                <li>
                     {@render primary(name)}
-                {/each}
-                {#each ['Go', 'Flutter'] as name}
+                </li>
+            {/each}
+            {#each ['Go', 'Flutter'] as name (name)}
+                <li>
                     {@render secondary(name)}
-                {/each}
-            </div>
-        {/each}
+                </li>
+            {/each}
+        </ul>
     </div>
-    <div class="relative h-8 flex overflow-hidden gap-8 mt-4 px-4 text-sm font-display">
-        {#each { length: 2 } as _, i}
-            <div
-                class="marquee-2 flex gap-8 absolute inset-y-0 overflow-hidden last:pr-8"
-            >
-                {#each { length: 8 } as _}
-                    <div class="flex items-center gap-2">
-                        <div class="h-2 w-8 bg-base-fg rounded-full"></div>
-                        <span class="text-base-fg">Primary</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <div class="h-2 w-8 bg-base-fg-muted rounded-full"></div>
-                        <span class="text-base-fg-muted">Secondary</span>
-                    </div>
-                {/each}
-            </div>
-        {/each}
-    </div>
+    <ul class="mt-2 flex gap-8">
+        <li class="flex items-center gap-2">
+            <div class="h-2 w-8 bg-base-fg-light rounded-full"></div>
+            <span class="text-base-fg">Primary</span>
+        </li>
+        <li class="flex items-center gap-2">
+            <div class="h-2 w-8 bg-base-fg-muted rounded-full"></div>
+            <span class="text-base-fg-muted">Secondary</span>
+        </li>
+    </ul>
 </Section>
-
-<style>
-    @keyframes marquee {
-        0% {
-            transform: translateX(-100%);
-        }
-        100% {
-            transform: translateX(100%);
-        }
-    }
-
-    @keyframes marquee-2 {
-        0% {
-            transform: translateX(100%);
-        }
-        100% {
-            transform: translateX(-100%);
-        }
-    }
-    @layer components {
-        .marquee {
-            overflow: hidden;
-            animation: marquee 30s linear infinite;
-        }
-        .marquee:nth-child(2) {
-            transform: translateX(-100%);
-            animation-delay: 15s;
-        }
-
-        .marquee-2 {
-            overflow: hidden;
-            animation: marquee-2 30s linear infinite;
-        }
-        .marquee-2:nth-child(2) {
-            transform: translateX(100%);
-            animation-delay: 15s;
-        }
-    }
-</style>
