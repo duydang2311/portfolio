@@ -1,6 +1,4 @@
 @import 'tailwindcss';
-@import '@fontsource/inter-tight';
-@import '@fontsource/fira-sans';
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
