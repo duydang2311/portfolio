@@ -61,7 +61,7 @@
             </ul>
         </div>
     </div>
-    <ul class="mt-2 flex gap-8">
+    <ul class="mt-4 flex gap-x-8 flex-wrap">
         <li class="flex items-center gap-2">
             <div class="h-2 w-8 bg-base-fg-light rounded-full"></div>
             <span class="text-base-fg">Primary</span>

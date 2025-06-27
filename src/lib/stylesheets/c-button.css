@@ -1,0 +1,26 @@
+.c-button {
+    --_text: var(--color-base-fg);
+    --_text-hover: var(--color-base-fg-hover);
+    --_text-active: var(--color-base-fg);
+    --_bg: transparent;
+    --_bg-hover: transparent;
+    --_bg-active: transparent;
+}
+
+.c-button {
+    color: var(--_text);
+    background-color: var(--_bg);
+    transition-property: color, background-color;
+    transition-duration: var(--default-transition-duration);
+    transition-timing-function: var(--default-transition-timing-function);
+
+    &:where(:hover) {
+        color: var(--_text-hover);
+        background-color: var(--_bg-hover);
+    }
+
+    &:where(:active) {
+        color: var(--_text-active);
+        background-color: var(--_bg-active);
+    }
+}

@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@import '$lib/stylesheets/c-button.css' layer(components);
+
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
@@ -12,28 +14,34 @@
     --color-base-border: oklch(90% 0.001 29.16);
     --color-base-border-light: oklch(94% 0.001 29.16);
     --color-base-border-dark: oklch(86% 0.001 29.16);
+    --color-base-hover: oklch(92% 0.001 29.16);
+    --color-base-active: oklch(96% 0.001 29.16);
 
     --color-base-fg: oklch(18% 0.001 29.16);
     --color-base-fg-dark: oklch(14% 0.001 29.16);
     --color-base-fg-light: oklch(22% 0.001 29.16);
     --color-base-fg-muted: oklch(68% 0.001 29.16);
+    --color-base-fg-hover: oklch(42% 0.001 29.16);
+    --color-base-fg-active: oklch(24% 0.001 29.16);
 
     --color-primary: oklch(48.69% 0.1995 29.16);
     --color-primary-fg: oklch(96.69% 0.02 29.16);
 
-    --color-link: oklch(49.76% 0.2856 275.56);
+    --color-link: oklch(47.83% 0.2196 262.56);
     --color-link-fg: oklch(96.69% 0.02 29.16);
 
-    --text-h1: 5.61rem;
-    --text-h2: 4.209rem;
-    --text-h3: 1.602rem;
-    --text-h4: 1.424rem;
-    --text-h5: 1.266rem;
-    --text-h6: 1.125rem;
-    --text-p: 1rem;
+    --text-xs: clamp(0.7901rem, 0.7506rem + 0.1975vw, 0.9877rem);
+    --text-sm: clamp(0.8889rem, 0.8444rem + 0.2222vw, 1.1111rem);
+    --text-p: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+    --text-h6: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+    --text-h5: clamp(1.125rem, 1.0688rem + 0.2813vw, 1.4063rem);
+    --text-h4: clamp(1.2656rem, 1.2023rem + 0.3164vw, 1.582rem);
+    --text-h3: clamp(1.4238rem, 1.3526rem + 0.356vw, 1.7798rem);
+    --text-h2: clamp(1.6018rem, 1.5217rem + 0.4005vw, 2.0023rem);
+    --text-h1: clamp(1.802rem, 1.7119rem + 0.4505vw, 2.2525rem);
 
     --default-font-family: var(--font-body);
-    --default-transition-duration: 150ms;
+    --default-transition-duration: 75ms;
     --default-transition-timing-function: ease-in-out;
 }
 
@@ -44,17 +52,21 @@
 @layer base {
     :root {
         @variant dark {
-            --color-base: oklch(18% 0.008 29.16);
-            --color-base-dark: oklch(14% 0.008 29.16);
-            --color-base-light: oklch(22% 0.008 29.16);
-            --color-base-border: oklch(30% 0.008 29.16);
-            --color-base-border-light: oklch(34% 0.008 29.16);
-            --color-base-border-dark: oklch(24% 0.008 29.16);
+            --color-base: oklch(18% 0.004 29.16);
+            --color-base-dark: oklch(14% 0.004 29.16);
+            --color-base-light: oklch(24% 0.004 29.16);
+            --color-base-border: oklch(30% 0.004 29.16);
+            --color-base-border-light: oklch(34% 0.004 29.16);
+            --color-base-border-dark: oklch(24% 0.004 29.16);
+            --color-base-hover: oklch(26% 0.004 29.16);
+            --color-base-active: oklch(22% 0.004 29.16);
 
-            --color-base-fg: oklch(90% 0.008 29.16);
-            --color-base-fg-dark: oklch(80% 0.008 29.16);
-            --color-base-fg-light: oklch(100% 0.008 29.16);
-            --color-base-fg-muted: oklch(58% 0.008 29.16);
+            --color-base-fg: oklch(90% 0.004 29.16);
+            --color-base-fg-dark: oklch(80% 0.004 29.16);
+            --color-base-fg-light: oklch(100% 0.004 29.16);
+            --color-base-fg-muted: oklch(58% 0.004 29.16);
+            --color-base-fg-hover: oklch(66% 0.004 29.16);
+            --color-base-fg-active: oklch(86% 0.004 29.16);
 
             --color-primary: oklch(69.21% 0.1997 29.16);
             --color-primary-fg: oklch(18.21% 0.02 29.16);
@@ -63,13 +75,24 @@
             --color-link-fg: oklch(18.21% 0.02 29.16);
         }
 
-        font-size: 20px;
+        /* @variant max-sm {
+            --text-h1: 2.847rem;
+            --text-h2: 2.135rem;
+            --text-h3: 1.602rem;
+            --text-h4: 1.424rem;
+            --text-h5: 1.266rem;
+            --text-h6: 1.125rem;
+            --text-p: 1rem;
+        } */
+
+        font-size: 16px;
         background-color: var(--color-base);
         color: var(--color-base-fg);
     }
 
     body {
         font-size: var(--text-p);
+        line-height: 1.5;
     }
 
     h1,
@@ -80,6 +103,14 @@
     h6,
     button {
         font-family: var(--font-display);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         color: var(--color-base-fg-dark);
         @variant dark {
             color: var(--color-base-fg-light);
