@@ -20,7 +20,7 @@
                 : colorScheme.current === 'dark'
                   ? 'system'
                   : 'light';
-        localStorage.setItem('theme', colorScheme.current);
+        localStorage.setItem('color_scheme', colorScheme.current);
 
         const dark = isDarkColorScheme(colorScheme.current);
         if (dark) {

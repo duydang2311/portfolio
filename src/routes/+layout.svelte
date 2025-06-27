@@ -6,6 +6,7 @@
     import { setRuntime } from '$lib/common/runtime';
     import { createRef, watch } from '@duydang2311/svutils';
     import type { LayoutProps } from './$types';
+    import { isDarkColorScheme } from '$lib/common/utils';
 
     const { data, children }: LayoutProps = $props();
     const colorScheme = createRef(() => data.colorScheme as 'light' | 'dark' | 'system');
@@ -13,6 +14,12 @@
     setRuntime({
         colorScheme,
     });
+
+    if (isDarkColorScheme(colorScheme.current)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
 
     watch(() => colorScheme.current)(() => {
         if (colorScheme.current !== 'system') {
