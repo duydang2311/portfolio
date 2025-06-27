@@ -42,14 +42,14 @@
             <div class="flex gap-4 mt-8 items-center justify-center sm:justify-start">
                 <a
                     href="#works"
-                    class="capitalize px-6 h-12 rounded-full bg-primary text-primary-fg font-display content-center font-medium"
+                    class="c-button c-button--filled c-button--primary capitalize px-6 h-12 rounded-full content-center"
                 >
                     View works
                 </a>
                 <a
                     target="_blank"
                     href="https://github.com/duydang2311"
-                    class="size-12 p-2 rounded-full border border-base-border-light dark:border-base-border-dark bg-base-light"
+                    class="c-button c-button--filled c-button--outlined size-12 p-2 rounded-full"
                 >
                     <GitHub />
                 </a>

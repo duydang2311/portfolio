@@ -25,7 +25,12 @@
     --color-base-fg-active: oklch(24% 0.001 29.16);
 
     --color-primary: oklch(48.69% 0.1995 29.16);
+    --color-primary-hover: oklch(42.69% 0.1995 29.16);
+    --color-primary-active: oklch(46.69% 0.1995 29.16);
+    --color-primary-border: oklch(48.69% 0.1995 29.16);
+
     --color-primary-fg: oklch(96.69% 0.02 29.16);
+    --color-primary-fg-hover: oklch(90.69% 0.02 29.16);
 
     --color-link: oklch(47.83% 0.2196 262.56);
     --color-link-fg: oklch(96.69% 0.02 29.16);

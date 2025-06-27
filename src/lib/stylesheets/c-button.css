@@ -5,14 +5,51 @@
     --_bg: transparent;
     --_bg-hover: transparent;
     --_bg-active: transparent;
+    --_border: transparent;
+
+    &:where(.c-button--filled) {
+        --_bg: var(--color-base-light);
+        --_bg-hover: var(--color-base-hover);
+        --_bg-active: var(--color-base-active);
+    }
+
+    &:where(.c-button--outlined) {
+        --_border: var(--color-base-border);
+    }
+}
+
+.c-button--primary {
+    --_text: var(--color-primary);
+    --_text-hover: var(--color-primary-hover);
+    --_text-active: var(--color-primary-active);
+    --_bg: transparent;
+    --_bg-hover: transparent;
+    --_bg-active: transparent;
+    --_border: transparent;
+
+    &:where(.c-button--filled) {
+        --_text: var(--color-primary-fg);
+        --_text-hover: var(--color-primary-fg);
+        --_text-active: var(--color-primary-fg);
+        --_bg: var(--color-primary);
+        --_bg-hover: var(--color-primary-hover);
+        --_bg-active: var(--color-primary-active);
+    }
+
+    &:where(.c-button--outlined) {
+        --_border: var(--color-primary-border);
+    }
 }
 
 .c-button {
     color: var(--_text);
     background-color: var(--_bg);
-    transition-property: color, background-color;
+    border: 1px solid var(--_border);
+    transition-property: color, background-color, border-color;
     transition-duration: var(--default-transition-duration);
     transition-timing-function: var(--default-transition-timing-function);
+    font-family: var(--font-display);
+    font-weight: 500;
 
     &:where(:hover) {
         color: var(--_text-hover);

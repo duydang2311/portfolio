@@ -21,24 +21,10 @@
 <Section>
     <h2 class="font-semibold">About</h2>
     <p class="mt-2">
-        <!-- I'm an early-career developer who’s learned by building side projects, open source, and
-        lots of hands-on experimentation. I enjoy diving into new tools, fine-tuning my development
-        setup, and exploring how things work behind the scenes. While I’m still growing, I’m eager
-        to contribute, learn from others, and be part of something real. -->
         I'm an early-career software engineer, learning by doing and staying curious along the way. I
         enjoy building things from scratch, exploring modern tools, tweaking my dev environment, and
         refining how I work. There's a lot to learn, and I'm here for it.
     </p>
-    <!-- <div class="flex *:flex-1 justify-between gap-8 mt-8 *:text-pretty">
-        <p>
-            With a growing foundation in full-stack development, I focus on building software that
-            balances functionality with thoughtful user experience.
-        </p>
-        <p>
-            Constantly playing with new technologies, working on hobby projects, and figuring
-            out better ways to build software — one step at a time.
-        </p>
-    </div> -->
     <div class="mt-8">
         <h3>Core Stack</h3>
         <div class="flex overflow-hidden gap-2 group mt-2" style:--_marquee-gap="0.5rem">
