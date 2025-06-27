@@ -5,6 +5,7 @@
     import { isDarkColorScheme } from '$lib/common/utils';
     import { watch } from '@duydang2311/svutils';
     import MorphSVGPlugin from 'gsap/dist/MorphSVGPlugin';
+    import { onMount } from 'svelte';
 
     const { buttonClass }: { buttonClass?: string } = $props();
     const { colorScheme } = useRuntime();
@@ -29,6 +30,34 @@
             document.documentElement.removeAttribute('data-theme');
         }
     };
+
+    onMount(() => {
+        if (colorScheme.current === 'dark') {
+            gsap.set('.ray', {
+                opacity: 0,
+            });
+            gsap.set('#theme-core', {
+                morphSVG: '#moon',
+            });
+        } else if (colorScheme.current === 'light') {
+            gsap.set('.laptop', {
+                opacity: 0,
+            });
+            gsap.set('#theme-core', {
+                morphSVG: '#sun-core',
+            });
+            gsap.set('.ray', {
+                opacity: 1,
+            });
+        } else {
+            gsap.set('#theme-core', {
+                morphSVG: '#laptop-core',
+            });
+            gsap.set('.laptop', {
+                opacity: 1,
+            });
+        }
+    });
 
     watch(() => colorScheme.current)(() => {
         const tl = gsap.timeline();
