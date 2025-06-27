@@ -4,16 +4,24 @@
     import { ExternalLink } from 'lucide-svelte';
 </script>
 
-{#snippet exp(title: string, company: string, start: string, end: string, body: Snippet)}
-    <div class="relative flex justify-between items-baseline gap-4 pb-2">
+{#snippet exp(
+    title: string,
+    company: string,
+    companyHref: string,
+    start: string,
+    end: string,
+    body: Snippet
+)}
+    <div
+        class="relative flex flex-col @xl:flex-row justify-between items-baseline gap-x-4 gap-y-2 pb-2"
+    >
         <div>
             <h3>{title}</h3>
-            <!-- <p class="text-base-fg-muted text-sm">{company}</p> -->
             <a
-                href="https://www.futurify.io/"
+                href={companyHref}
                 target="_blank"
                 class="inline-block group text-link hover:text-link-fg bg-gradient-to-r from-link to-link -mx-1 px-1
-                bg-no-repeat transition-[color_background-size] [background-size:0%_100%] hover:[background-size:100%_100%]"
+                bg-no-repeat transition-[color_background-size_box-shadow] [background-size:0%_100%] hover:[background-size:100%_100%]"
             >
                 <span>
                     {company}
@@ -46,13 +54,14 @@
     </ul>
 {/snippet}
 
-<Section>
+<Section class="@container">
     <h2 class="font-semibold">Experience</h2>
     <ul class="mt-2">
         <li>
             {@render exp(
                 'Full-stack Developer Intern',
                 'Futurify Company',
+                'https://www.futurify.io/',
                 'Aug',
                 'Nov 2023',
                 futurify

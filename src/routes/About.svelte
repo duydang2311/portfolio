@@ -21,41 +21,45 @@
 <Section>
     <h2 class="font-semibold">About</h2>
     <p class="mt-2">
-        I’m a developer driven by curiosity and a love for clean, thoughtful code. I’ve built a
-        strong foundation through side projects and open source work, focusing on modern web
-        technologies and user-centered design. While I’ve enjoyed coding for fun, I’m now excited to
-        take the next step and contribute professionally.
+        <!-- I'm an early-career developer who’s learned by building side projects, open source, and
+        lots of hands-on experimentation. I enjoy diving into new tools, fine-tuning my development
+        setup, and exploring how things work behind the scenes. While I’m still growing, I’m eager
+        to contribute, learn from others, and be part of something real. -->
+        I'm an early-career software engineer, learning by doing and staying curious along the way. I
+        enjoy building things from scratch, exploring modern tools, tweaking my dev environment, and
+        refining how I work. There's a lot to learn, and I'm here for it.
     </p>
-    <div class="flex *:flex-1 justify-between gap-8 mt-8 *:text-pretty">
+    <!-- <div class="flex *:flex-1 justify-between gap-8 mt-8 *:text-pretty">
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, necessitatibus ad
-            ab ducimus quod reiciendis nostrum saepe nulla? Blanditiis voluptatibus similique ab
-            veritatis enim. Pariatur praesentium deleniti soluta consequuntur officia.
+            With a growing foundation in full-stack development, I focus on building software that
+            balances functionality with thoughtful user experience.
         </p>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, incidunt enim aliquid
-            facere non nemo officiis, a assumenda ex asperiores praesentium quibusdam aspernatur
-            magnam quaerat voluptates corporis repudiandae dolores ut!
+            Constantly playing with new technologies, working on hobby projects, and figuring
+            out better ways to build software — one step at a time.
         </p>
-    </div>
-    <div class="flex overflow-hidden mt-8 gap-2 group" style:--_marquee-gap="0.5rem">
-        <ul
-            class="flex gap-2 shrink-0 min-w-full overflow-hidden [animation:marquee_20s_linear_infinite] group-hover:animate-paused"
-            {@attach (node) => {
-                node.insertAdjacentElement('afterend', node.cloneNode(true) as HTMLElement);
-            }}
-        >
-            {#each ['.NET', 'ASP.NET Core', 'Svelte', 'SvelteKit', 'TypeScript', 'PostgreSQL', 'MongoDB', 'Cloudflare', 'React', 'WebSocket', 'Git', 'ABC'] as name (name)}
-                <li>
-                    {@render primary(name)}
-                </li>
-            {/each}
-            {#each ['Go', 'Flutter'] as name (name)}
-                <li>
-                    {@render secondary(name)}
-                </li>
-            {/each}
-        </ul>
+    </div> -->
+    <div class="mt-8">
+        <h3>Core Stack</h3>
+        <div class="flex overflow-hidden gap-2 group mt-2" style:--_marquee-gap="0.5rem">
+            <ul
+                class="flex gap-2 shrink-0 min-w-full overflow-hidden [animation:marquee_20s_linear_infinite] group-hover:animate-paused"
+                {@attach (node) => {
+                    node.insertAdjacentElement('afterend', node.cloneNode(true) as HTMLElement);
+                }}
+            >
+                {#each ['.NET', 'ASP.NET Core', 'Svelte', 'SvelteKit', 'JavaScript', 'TypeScript', 'PostgreSQL', 'MongoDB', 'Cloudflare', 'React', 'WebSocket'] as name (name)}
+                    <li>
+                        {@render primary(name)}
+                    </li>
+                {/each}
+                {#each ['Go', 'Flutter'] as name (name)}
+                    <li>
+                        {@render secondary(name)}
+                    </li>
+                {/each}
+            </ul>
+        </div>
     </div>
     <ul class="mt-2 flex gap-8">
         <li class="flex items-center gap-2">

@@ -13,7 +13,7 @@
                 class="text-7xl md:text-9xl mt-4 font-display font-black text-base-fg-dark dark:text-base-fg-light"
             >
                 <p class="text-nowrap">Next-gen</p>
-                <p class="text-center">Codecraft</p>
+                <p class="text-right">Codecraft</p>
             </div>
             <p class="mt-8 text-pretty">
                 Learning to write code that works, reads well, and feels right — so it's not awkward
@@ -36,7 +36,7 @@
             </div>
         </div>
     </Section>
-    <div class="grid grid-cols-[repeat(auto-fit,minmax(36rem,1fr))] gap-16">
+    <div class="contents 2xl:flex 2xl:*:min-w-0 2xl:gap-16 2xl:*:flex-1">
         <About />
         <Experience />
     </div>
