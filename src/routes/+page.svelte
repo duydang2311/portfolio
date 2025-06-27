@@ -1,4 +1,5 @@
 <script lang="ts">
+    import BgSquares from '$lib/components/BgSquares.svelte';
     import GitHub from '$lib/components/icons/GitHub.svelte';
     import Section from '$lib/components/Section.svelte';
     import ThemeSwitch from '$lib/components/ThemeSwitch.svelte';
@@ -22,11 +23,14 @@
     </div>
 </header>
 <main>
-    <Section class="py-20 px-4 content-center max-h-[calc(100vh-4rem)]">
-        <div class="mx-auto w-fit text-center sm:text-left">
+    <Section class="relative py-20 px-4 content-center max-h-[calc(100vh-4rem)]">
+        <div class="absolute inset-x-0 top-0 h-1/2 mask-b-from-black mask-b-to-transparent">
+            <BgSquares />
+        </div>
+        <div class="relative mx-auto w-fit text-center sm:text-left">
             <h2 class="text-p uppercase font-display text-base-fg-muted">Software Engineer</h2>
             <div
-                class="text-[size:clamp(3rem,_-0.75rem_+_18.75vw,_6.75rem)] md:text-9xl leading-none mt-4 font-display font-black text-base-fg-dark dark:text-base-fg-light"
+                class="relative text-[size:clamp(3rem,_-0.75rem_+_18.75vw,_6.75rem)] md:text-9xl leading-none mt-4 font-display font-black text-base-fg-dark dark:text-base-fg-light"
             >
                 <p class="text-nowrap">Next-gen</p>
                 <p class="sm:text-right">Codecraft</p>
