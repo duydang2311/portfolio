@@ -1,6 +1,15 @@
 <div class="bg-squares"></div>
 
 <style>
+    @keyframes animate-bg-squares {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 0 4rem;
+        }
+    }
+    
     .bg-squares {
         --_border: var(--color-base-border-light);
         @variant dark {
@@ -26,5 +35,6 @@
                 transparent 4rem
             );
         background-size: 4rem 4rem;
+        animation: animate-bg-squares 1s linear infinite;
     }
 </style>
