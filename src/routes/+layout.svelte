@@ -1,7 +1,7 @@
 <script lang="ts">
     import '@fontsource/fira-sans';
     import '@fontsource/inter-tight';
-    import './+layout.css';
+    import '../app.css';
 
     import { setRuntime } from '$lib/common/runtime';
     import { createRef, watch } from '@duydang2311/svutils';

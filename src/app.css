@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-@import '$lib/stylesheets/c-button.css' layer(components);
+@import './lib/stylesheets/c-button.css' layer(components);
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -50,11 +50,7 @@
     --default-transition-timing-function: ease-in-out;
 }
 
-@utility animate-paused {
-    animation-play-state: paused;
-}
-
-@layer base {
+@layer theme {
     :root {
         @variant dark {
             --color-base: oklch(18% 0.004 29.16);
@@ -74,22 +70,22 @@
             --color-base-fg-active: oklch(86% 0.004 29.16);
 
             --color-primary: oklch(69.21% 0.1997 29.16);
+            --color-primary-hover: oklch(63.21% 0.1997 29.16);
+            --color-primary-active: oklch(65.21% 0.1997 29.16);
             --color-primary-fg: oklch(18.21% 0.02 29.16);
 
             --color-link: oklch(66.69% 0.1587 242.19);
             --color-link-fg: oklch(18.21% 0.02 29.16);
         }
+    }
+}
 
-        /* @variant max-sm {
-            --text-h1: 2.847rem;
-            --text-h2: 2.135rem;
-            --text-h3: 1.602rem;
-            --text-h4: 1.424rem;
-            --text-h5: 1.266rem;
-            --text-h6: 1.125rem;
-            --text-p: 1rem;
-        } */
+@utility animate-paused {
+    animation-play-state: paused;
+}
 
+@layer base {
+    :root {
         font-size: 16px;
         background-color: var(--color-base);
         color: var(--color-base-fg);
