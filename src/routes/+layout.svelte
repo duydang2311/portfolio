@@ -1,6 +1,6 @@
 <script lang="ts">
-    import '@fontsource/fira-sans';
     import '@fontsource/inter-tight';
+    import '@fontsource/figtree';
     import '../app.css';
 
     import { setRuntime } from '$lib/common/runtime';

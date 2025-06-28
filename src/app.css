@@ -5,7 +5,7 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
-    --font-body: 'Fira Sans', system-ui, sans-serif;
+    --font-body: Figtree, system-ui, sans-serif;
     --font-display: 'Inter Tight', system-ui, sans-serif;
 
     --color-base: oklch(98% 0.001 29.16);
@@ -42,8 +42,8 @@
     --text-h5: clamp(1.125rem, 1.0688rem + 0.2813vw, 1.4063rem);
     --text-h4: clamp(1.2656rem, 1.2023rem + 0.3164vw, 1.582rem);
     --text-h3: clamp(1.4238rem, 1.3526rem + 0.356vw, 1.7798rem);
-    --text-h2: clamp(1.6018rem, 1.5217rem + 0.4005vw, 2.0023rem);
-    --text-h1: clamp(1.802rem, 1.7119rem + 0.4505vw, 2.2525rem);
+    --text-h2: clamp(2rem, 1.6rem + 2vw, 4rem);
+    --text-h1: clamp(2.666rem, 2.1328rem + 2.666vw, 5.332rem);
 
     --default-font-family: var(--font-body);
     --default-transition-duration: 75ms;
