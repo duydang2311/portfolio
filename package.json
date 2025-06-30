@@ -16,6 +16,7 @@
         "cf-typegen": "wrangler types src/worker-configuration.d.ts"
     },
     "devDependencies": {
+        "@duydang2311/svutils": "^0.0.6",
         "@eslint/compat": "^1.2.5",
         "@eslint/js": "^9.18.0",
         "@fontsource/figtree": "^5.2.8",

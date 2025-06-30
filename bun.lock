@@ -4,6 +4,7 @@
     "": {
       "name": "portfolio",
       "devDependencies": {
+        "@duydang2311/svutils": "^0.0.6",
         "@eslint/compat": "^1.2.5",
         "@eslint/js": "^9.18.0",
         "@fontsource/figtree": "^5.2.8",
@@ -57,6 +58,8 @@
     "@cloudflare/workers-types": ["@cloudflare/workers-types@4.20250620.0", "", {}, "sha512-EVvRB/DJEm6jhdKg+A4Qm4y/ry1cIvylSgSO3/f/Bv161vldDRxaXM2YoQQWFhLOJOw0qtrHsKOD51KYxV1XCw=="],
 
     "@cspotcode/source-map-support": ["@cspotcode/source-map-support@0.8.1", "", { "dependencies": { "@jridgewell/trace-mapping": "0.3.9" } }, "sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw=="],
+
+    "@duydang2311/svutils": ["@duydang2311/svutils@0.0.6", "", { "peerDependencies": { "gsap": "^3.13.0", "svelte": "^5.0.0", "typescript": "^5" } }, "sha512-a8HG8rTg3G6F2Fjs6UWmTys63lGhh4DdUKAMCwah5z7T9i3wqLATl7tizllCWQAYoozdpn0EPPcShRV7SC0fFg=="],
 
     "@emnapi/runtime": ["@emnapi/runtime@1.4.3", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ=="],
 
