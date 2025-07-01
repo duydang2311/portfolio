@@ -6,6 +6,7 @@
     import About from './About.svelte';
     import Contact from './Contact.svelte';
     import Experience from './Experience.svelte';
+    import Hobby from './Hobby.svelte';
 </script>
 
 <header class="z-10 sticky top-0">
@@ -61,6 +62,7 @@
         <About />
         <Experience />
     </div>
+    <Hobby />
     <Contact />
 </main>
 
