@@ -1,0 +1,20 @@
+.c-link {
+    display: inline-block;
+    color: var(--color-link);
+    text-decoration: none;
+    transition-property: color, background-size;
+    transition-duration: 150ms;
+    transition-timing-function: var(--default-transition-timing-function);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-image: linear-gradient(
+        to right,
+        var(--color-link),
+        var(--color-link)
+    );
+
+    &:hover {
+        color: var(--color-link-fg);
+        background-size: 100% 100%;
+    }
+}

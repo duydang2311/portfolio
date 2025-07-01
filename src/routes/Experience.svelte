@@ -20,8 +20,7 @@
             <a
                 href={companyHref}
                 target="_blank"
-                class="inline-block group text-link hover:text-link-fg bg-gradient-to-r from-link to-link -mx-1 px-1
-                bg-no-repeat transition-[color_background-size_box-shadow] duration-150 [background-size:0%_100%] hover:[background-size:100%_100%]"
+                class="group c-link -mx-1 px-1"
             >
                 <span>
                     {company}

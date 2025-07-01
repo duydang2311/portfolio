@@ -4,6 +4,7 @@
     import Section from '$lib/components/Section.svelte';
     import ThemeSwitch from '$lib/components/ThemeSwitch.svelte';
     import About from './About.svelte';
+    import Contact from './Contact.svelte';
     import Experience from './Experience.svelte';
 </script>
 
@@ -60,6 +61,7 @@
         <About />
         <Experience />
     </div>
+    <Contact />
 </main>
 
 <style>
