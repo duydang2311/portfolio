@@ -3,11 +3,34 @@
     import GitHub from '$lib/components/icons/GitHub.svelte';
     import Section from '$lib/components/Section.svelte';
     import ThemeSwitch from '$lib/components/ThemeSwitch.svelte';
+    import { onMount } from 'svelte';
     import About from './About.svelte';
     import Contact from './Contact.svelte';
     import Experience from './Experience.svelte';
     import Footer from './Footer.svelte';
     import Hobby from './Hobby.svelte';
+    import gsap from 'gsap';
+
+    onMount(() => {
+        const tweens = (gsap.utils.toArray('.c-section') as HTMLElement[]).filter((_, i) => i > 0).map((node, i) =>
+            gsap.from(node, {
+                scrollTrigger: {
+                    trigger: node,
+                    start: '-20% 80%',
+                    end: '10% center',
+                    scrub: 0.4,
+                },
+                scale: 0.96,
+                yPercent: 20,
+                opacity: 0,
+            })
+        );
+        return () => {
+            for (const tween of tweens) {
+                tween.kill();
+            }
+        };
+    });
 </script>
 
 <header class="z-10 sticky top-0">
@@ -17,7 +40,6 @@
     <div
         class="backdrop-edge absolute inset-x-0 h-full translate-y-full bg-base-fg/5 pointer-events-none"
     ></div>
-
     <div
         class="page-header relative h-16 content-center flex justify-between gap-8 items-center container mx-auto px-4"
     >
