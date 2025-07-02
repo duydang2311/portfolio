@@ -6,6 +6,7 @@
     import About from './About.svelte';
     import Contact from './Contact.svelte';
     import Experience from './Experience.svelte';
+    import Footer from './Footer.svelte';
     import Hobby from './Hobby.svelte';
 </script>
 
@@ -65,6 +66,7 @@
     <Hobby />
     <Contact />
 </main>
+<Footer />
 
 <style>
     @keyframes shrink-page-header {
