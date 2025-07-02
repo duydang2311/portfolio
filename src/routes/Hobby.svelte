@@ -14,7 +14,7 @@
             author: 'duydang',
             trackUrl: 'https://soundcloud.com/duydang12/duy-schooldays',
             authorUrl: 'https://soundcloud.com/duydang12',
-            trackId: '629953536'
+            trackId: '629953536',
         },
         {
             title: 'duy. - black iced coffee please',
@@ -37,13 +37,13 @@
             authorUrl: 'https://soundcloud.com/duydang12',
             trackId: '549514155',
         },
-{
+        {
             title: 'DUDE! - Next Level',
             author: 'DUDE!',
             trackUrl: 'https://soundcloud.com/rioxmusic/dude-next-level',
             authorUrl: 'https://soundcloud.com/itsdude',
             trackId: '642318108',
-}
+        },
     ];
 </script>
 
