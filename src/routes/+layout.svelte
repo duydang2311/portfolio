@@ -43,4 +43,8 @@
     });
 </script>
 
+<svelte:head>
+    <title>Duy Dang</title>
+</svelte:head>
+
 {@render children()}
