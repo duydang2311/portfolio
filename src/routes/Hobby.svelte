@@ -50,7 +50,7 @@
 <Section>
     <h2 class="font-semibold">Hobby</h2>
     <p>Favourite side quest? Getting lost in music.</p>
-    <ul class="grid grid-cols-[repeat(auto-fit,minmax(32rem,1fr))] gap-4 mt-4">
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(32rem,100%),1fr))] gap-4 mt-4">
         {#each hobbies as hobby}
             <li>
                 <iframe
