@@ -5,7 +5,7 @@ import Lenis from 'lenis';
 
 if (browser) {
     gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis({ lerp: 0.8 });
+    const lenis = new Lenis({ lerp: 0.2 });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time) => {
         lenis.raf(time * 1000);
