@@ -10,21 +10,24 @@
     import Footer from './Footer.svelte';
     import Hobby from './Hobby.svelte';
     import gsap from 'gsap';
+    import Works from './Works.svelte';
 
     onMount(() => {
-        const tweens = (gsap.utils.toArray('.c-section') as HTMLElement[]).filter((_, i) => i > 0).map((node, i) =>
-            gsap.from(node, {
-                scrollTrigger: {
-                    trigger: node,
-                    start: '-20% 80%',
-                    end: '10% center',
-                    scrub: 0.4,
-                },
-                scale: 0.96,
-                yPercent: 20,
-                opacity: 0,
-            })
-        );
+        const tweens = (gsap.utils.toArray('.c-section') as HTMLElement[])
+            .filter((_, i) => i > 0)
+            .map((node, i) =>
+                gsap.from(node, {
+                    scrollTrigger: {
+                        trigger: node,
+                        start: '-200px 80%',
+                        end: '10% center',
+                        scrub: 0.4,
+                    },
+                    scale: 0.96,
+                    y: 200,
+                    opacity: 0,
+                })
+            );
         return () => {
             for (const tween of tweens) {
                 tween.kill();
@@ -83,9 +86,10 @@
     </Section>
     <div class="contents 2xl:flex 2xl:*:min-w-0 2xl:gap-16 2xl:*:flex-1">
         <About />
+        <Works />
         <Experience />
+        <Hobby />
     </div>
-    <Hobby />
     <Contact />
 </main>
 <Footer />
