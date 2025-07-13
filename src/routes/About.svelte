@@ -4,7 +4,7 @@
 
 {#snippet primary(name: string)}
     <div
-        class="rounded-full px-4 py-2 font-display bg-base-fg-light text-base border border-base-border-light content-center"
+        class="rounded-full px-4 py-2 font-display bg-base-fg-dark dark:bg-base-fg-light text-base content-center"
     >
         {name}
     </div>
@@ -12,7 +12,7 @@
 
 {#snippet secondary(name: string)}
     <div
-        class="rounded-full px-4 py-2 font-display bg-base-fg-muted text-base border border-base-border-light content-center"
+        class="rounded-full px-4 py-2 font-display bg-base-fg-muted text-base content-center"
     >
         {name}
     </div>
@@ -20,7 +20,7 @@
 
 <Section>
     <h2 class="font-semibold">About</h2>
-    <p class="mt-2">
+    <p class="mt-2 max-w-[80ch]">
         I'm an early-career software engineer, learning by doing and staying curious along the way. I
         enjoy building things from scratch, exploring modern tools, tweaking my dev environment, and
         refining how I work. There's a lot to learn, and I'm here for it.
