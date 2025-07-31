@@ -84,12 +84,10 @@
             </div>
         </div>
     </Section>
-    <div class="contents 2xl:flex 2xl:*:min-w-0 2xl:gap-16 2xl:*:flex-1">
         <About />
         <Works />
         <Experience />
         <Hobby />
-    </div>
     <Contact />
 </main>
 <Footer />
