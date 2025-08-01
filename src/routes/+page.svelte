@@ -84,10 +84,10 @@
             </div>
         </div>
     </Section>
-        <About />
-        <Works />
-        <Experience />
-        <Hobby />
+    <About />
+    <Works />
+    <Experience />
+    <Hobby />
     <Contact />
 </main>
 <Footer />
