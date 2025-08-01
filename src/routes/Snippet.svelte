@@ -42,9 +42,9 @@
 </script>
 
 <Section>
-    <h2 class="font-semibold">Snippet</h2>
+    <h2 class="font-semibold">Snippets</h2>
     <p class="mt-2 max-w-[80ch] text-pretty">
-        A sneak peek into my code snippets taken that reflects my coding style and preferences.
+        A sneak peek into my code snippets that reflects my coding style and preferences.
         <br />
         Why do I write the code in a certain way, and what do I think about it? Check out the underlined
         parts!
