@@ -25,6 +25,7 @@
                 {
                     span(node) {
                         const child = node.children[0];
+                        console.log(child);
                         if (child.type !== 'text' || signatureHelps[child.value] == null) {
                             return;
                         }
@@ -32,10 +33,7 @@
                         node.properties['data-signature-content'] = signatureHelps[child.value];
                     },
                     pre(node) {
-                        this.addClassToHast(
-                            node,
-                            'p-4 leading-6 rounded-xl border border-base-border'
-                        );
+                        this.addClassToHast(node, 'p-4 leading-6 min-w-max');
                     },
                 },
             ],
@@ -45,15 +43,19 @@
 
 <Section>
     <h2 class="font-semibold">Snippet</h2>
-    <p class="mt-2 max-w-[80ch]">
-        A sneak peek into my code snippets that reflects my coding style and preferences. Check out
-        the underlined parts for the explaination for why I write the code in a certain way, and
-        what I think about it.
+    <p class="mt-2 max-w-[80ch] text-pretty">
+        A sneak peek into my code snippets taken that reflects my coding style and preferences.
+        <br />
+        Why do I write the code in a certain way, and what do I think about it? Check out the underlined
+        parts!
     </p>
-    <div class="mt-8 font-mono text-xs">
+    <div
+        class="mt-8 font-mono text-xs grid grid-cols-[repeat(auto-fit,minmax(48rem,1fr))] gap-x-2 gap-y-4"
+    >
         {#each snippetAsHtml as promise}
             {#await promise then html}
                 <div
+                    class="max-h-148 overflow-auto h-fit border border-base-border rounded-xl"
                     {@attach (node) => {
                         const nodes = node.querySelectorAll(
                             '.signature-help'
@@ -61,9 +63,8 @@
                         const cleanups = Array.from(nodes).map((node) => {
                             const div = document.createElement('div');
                             node.classList.add('relative');
-                            Object.assign(div, {
-                                className: 'signature-popover',
-                            });
+                            div.className = 'signature-popover';
+                            div.setAttribute('data-lenis-prevent', '');
                             const content = node.getAttribute('data-signature-content');
                             invariant(
                                 content != null && typeof content === 'string',

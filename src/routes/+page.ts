@@ -1,21 +1,4 @@
-import { browser } from '$app/environment';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import Lenis from 'lenis';
 import type { PageLoad } from './$types';
-
-if (browser) {
-    // gsap.registerPlugin(ScrollTrigger);
-    // const lenis = new Lenis({ lerp: 0.2 });
-    // lenis.on('scroll', ScrollTrigger.update);
-    // gsap.ticker.add((time) => {
-    //     lenis.raf(time * 1000);
-    // });
-    // gsap.ticker.lagSmoothing(0);
-    const lenis = new Lenis({
-        autoRaf: true,
-    });
-}
 
 export const load: PageLoad = async () => {
     return {
@@ -122,6 +105,82 @@ const copyAssetsToDocumentDir = (
   })(/* optionally map error from \`unknown\` to your type here, e.g. (e) => new MyCustomError(e) */);
 };
 `.trim(),
+        },
+    },
+    {
+        lang: 'css',
+        snippet: `
+
+/*
+ * Are you a TailwindCSS user? Instead of abusing tailwind-merge, you can have the best of both worlds.
+ * Utilizing CSS layers and class priority to style components and using TailwindCSS where it shines (utility classes).
+ */
+.c-button {
+    --_text: var(--color-base-fg);
+    --_text-hover: var(--color-base-fg-hover);
+    --_text-active: var(--color-base-fg);
+    --_bg: transparent;
+    --_bg-hover: transparent;
+    --_bg-active: transparent;
+    --_border: transparent;
+
+    &:where(.c-button--filled) {
+        --_bg: var(--color-base-light);
+        --_bg-hover: var(--color-base-hover);
+        --_bg-active: var(--color-base-active);
+    }
+
+    &:where(.c-button--outlined) {
+        --_border: var(--color-base-border);
+    }
+}
+
+.c-button--primary {
+    --_text: var(--color-primary);
+    --_text-hover: var(--color-primary-hover);
+    --_text-active: var(--color-primary-active);
+    --_bg: transparent;
+    --_bg-hover: transparent;
+    --_bg-active: transparent;
+    --_border: transparent;
+
+    &:where(.c-button--filled) {
+        --_text: var(--color-primary-fg);
+        --_text-hover: var(--color-primary-fg);
+        --_text-active: var(--color-primary-fg);
+        --_bg: var(--color-primary);
+        --_bg-hover: var(--color-primary-hover);
+        --_bg-active: var(--color-primary-active);
+    }
+
+    &:where(.c-button--outlined) {
+        --_border: var(--color-primary-border);
+    }
+}
+
+.c-button--accent {
+    /* omit for brevity */
+}
+
+.c-button {
+    color: var(--_text);
+    background-color: var(--_bg);
+    border: 1px solid var(--_border);
+    /* other styles - omit for brevity */
+
+    &:where(:hover) {
+        color: var(--_text-hover);
+        background-color: var(--_bg-hover);
+    }
+
+    &:where(:active) {
+        color: var(--_text-active);
+        background-color: var(--_bg-active);
+    }
+}`.trim(),
+        signatureHelps: {
+            'c-button': '/* Define some default styles for the button */',
+            'c-button--primary': '/* Define styles for primary variant */',
         },
     },
 ];

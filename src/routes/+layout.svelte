@@ -1,5 +1,4 @@
 <script lang="ts">
-    import 'lenis/dist/lenis.css';
     import '@fontsource/inter-tight';
     import '@fontsource/figtree';
     import '@fontsource/geist-mono';
