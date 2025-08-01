@@ -1,8 +1,7 @@
 <script lang="ts">
     import Section from '$lib/components/Section.svelte';
-    import { codeToHtml, type DecorationItem } from 'shiki';
-    import { autoUpdate, computePosition, flip, offset, shift } from '@floating-ui/dom';
-    import sanitize from 'sanitize-html';
+    import { autoUpdate, computePosition, flip, shift } from '@floating-ui/dom';
+    import { codeToHtml } from 'shiki';
     import invariant from 'tiny-invariant';
 
     const {
