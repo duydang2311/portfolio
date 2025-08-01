@@ -11,6 +11,10 @@
     import Hobby from './Hobby.svelte';
     import gsap from 'gsap';
     import Works from './Works.svelte';
+    import Snippet from './Snippet.svelte';
+    import type { PageProps } from './$types';
+
+    const { data }: PageProps = $props();
 
     onMount(() => {
         const tweens = (gsap.utils.toArray('.c-section') as HTMLElement[])
@@ -88,6 +92,7 @@
     <Works />
     <Experience />
     <Hobby />
+    <Snippet snippets={data.codeSnippets} />
     <Contact />
 </main>
 <Footer />

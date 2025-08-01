@@ -8,6 +8,7 @@
 @theme {
     --font-body: Figtree, system-ui, sans-serif;
     --font-display: 'Inter Tight', system-ui, sans-serif;
+    --default-mono-font-family: 'Geist Mono';
 
     --color-base: oklch(98% 0.001 29.16);
     --color-base-dark: oklch(94% 0.001 29.16);
@@ -146,6 +147,14 @@
     @keyframes marquee {
         to {
             transform: translateX(calc(var(--_marquee-end-x, -100%) - var(--_marquee-gap, 0)));
+        }
+    }
+
+    .shiki,
+    .shiki span {
+        @variant dark {
+            color: var(--shiki-dark) !important;
+            background-color: var(--shiki-dark-bg) !important;
         }
     }
 }

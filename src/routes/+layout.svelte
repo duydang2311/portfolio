@@ -2,6 +2,7 @@
     import 'lenis/dist/lenis.css';
     import '@fontsource/inter-tight';
     import '@fontsource/figtree';
+    import '@fontsource/geist-mono';
     import '../app.css';
 
     import { setRuntime } from '$lib/common/runtime';
