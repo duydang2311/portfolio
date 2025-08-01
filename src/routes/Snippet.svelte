@@ -33,7 +33,7 @@
                         node.properties['data-signature-content'] = signatureHelps[child.value];
                     },
                     pre(node) {
-                        this.addClassToHast(node, 'p-4 leading-6 min-w-max');
+                        this.addClassToHast(node, 'p-4 leading-6 min-w-max min-h-max h-full');
                     },
                 },
             ],
@@ -50,12 +50,12 @@
         parts!
     </p>
     <div
-        class="mt-8 font-mono text-xs grid grid-cols-[repeat(auto-fit,minmax(48rem,1fr))] gap-x-2 gap-y-4"
+        class="mt-8 font-mono text-xs grid grid-cols-[repeat(auto-fit,minmax(min(48rem,100%),1fr))] gap-x-2 gap-y-4"
     >
         {#each snippetAsHtml as promise}
             {#await promise then html}
                 <div
-                    class="max-h-148 overflow-auto h-fit border border-base-border rounded-xl"
+                    class="max-h-148 min-w-0 overflow-auto border border-base-border rounded-xl"
                     {@attach (node) => {
                         const nodes = node.querySelectorAll(
                             '.signature-help'
