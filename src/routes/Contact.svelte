@@ -7,9 +7,9 @@
     import { ClipboardCheck, ClipboardIcon, ExternalLink, Mail } from 'lucide-svelte';
 </script>
 
-<Section class="content-center">
-    <h2 class="font-semibold text-center">Contact</h2>
-    <p class="text-center">
+<Section class="content-center bg-accent-container text-accent-container-fg">
+    <h2 class="font-semibold text-center text-accent-container-fg">Contact</h2>
+    <p class="text-center text-accent-container-fg">
         Open to new opportunities, feedback, or a quick chat — drop me a message.
     </p>
 
@@ -17,13 +17,13 @@
         <li>
             <a
                 href="mailto:duydang2412@gmail.com"
-                class="relative group c-link inline-flex items-center gap-4 not-hover:not-active:text-base-fg"
+                class="relative group c-link c-link--accent inline-flex items-center gap-4"
             >
                 <Mail />
                 <span>
                     duydang2412@gmail.com
                     <ExternalLink
-                        class="transition duration-150 text-link absolute -right-2 translate-x-full top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+                        class="transition duration-150 text-accent-fg absolute -right-2 translate-x-full top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
                     />
                 </span>
             </a>
@@ -32,13 +32,13 @@
             <a
                 href="https://github.com/duydang2311"
                 target="_blank"
-                class="relative group c-link inline-flex items-center gap-4 not-hover:not-active:text-base-fg"
+                class="relative group c-link c-link--accent inline-flex items-center gap-4"
             >
                 <GitHub fill="currentColor" class="size-6 !invert-0" />
                 <div>
                     duydang2311
                     <ExternalLink
-                        class="transition duration-150 text-link absolute -right-2 translate-x-full top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+                        class="transition duration-150 text-accent-fg absolute -right-2 translate-x-full top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
                     />
                 </div>
             </a>
@@ -47,13 +47,13 @@
             <a
                 href="https://soundcloud.com/duydang12"
                 target="_blank"
-                class="relative group c-link inline-flex items-center gap-4 not-hover:not-active:text-base-fg"
+                class="relative group c-link c-link--accent inline-flex items-center gap-4"
             >
                 <SoundCloud fill="currentColor" class="size-6 !invert-0" />
                 <div>
                     duydang12
                     <ExternalLink
-                        class="transition duration-150 text-link absolute -right-2 translate-x-full top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+                        class="transition duration-150 text-accent-fg absolute -right-2 translate-x-full top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
                     />
                 </div>
             </a>
@@ -63,7 +63,7 @@
                 {#snippet children(api)}
                     <button
                         {...api.getTriggerProps()}
-                        class="c-button group relative flex items-center gap-4"
+                        class="c-button c-button--accent group relative flex items-center gap-4"
                     >
                         <Discord fill="currentColor" class="size-6 !invert-0" />
                         <div>

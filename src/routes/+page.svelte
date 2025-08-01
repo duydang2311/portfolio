@@ -15,38 +15,11 @@
     import type { PageProps } from './$types';
 
     const { data }: PageProps = $props();
-
-    onMount(() => {
-        const tweens = (gsap.utils.toArray('.c-section') as HTMLElement[])
-            .filter((_, i) => i > 0)
-            .map((node, i) =>
-                gsap.from(node, {
-                    scrollTrigger: {
-                        trigger: node,
-                        start: '-200px 80%',
-                        end: '10% center',
-                        scrub: 0.4,
-                    },
-                    scale: 0.96,
-                    y: 200,
-                    opacity: 0,
-                })
-            );
-        return () => {
-            for (const tween of tweens) {
-                tween.kill();
-            }
-        };
-    });
 </script>
 
 <header class="z-10 sticky top-0">
-    <div
-        class="backdrop absolute inset-x-0 h-[200%] bg-base/80 pointer-events-none backdrop-blur-md"
-    ></div>
-    <div
-        class="backdrop-edge absolute inset-x-0 h-full translate-y-full bg-base-fg/5 pointer-events-none"
-    ></div>
+    <div class="backdrop absolute inset-x-0 h-[200%] pointer-events-none backdrop-blur-md"></div>
+    <div class="backdrop-edge absolute inset-x-0 h-full translate-y-full pointer-events-none"></div>
     <div
         class="page-header relative h-16 content-center flex justify-between gap-8 items-center container mx-auto px-4"
     >
@@ -117,7 +90,7 @@
 
     /* https://www.joshwcomeau.com/css/backdrop-filter/ */
     .backdrop {
-        background: linear-gradient(to bottom, var(--color-base) 0%, transparent 50%);
+        /*background: linear-gradient(to bottom, var(--color-base) 0%, transparent 50%);*/
         mask-image: linear-gradient(to bottom, black 0% 50%, transparent 50% 100%);
     }
 
