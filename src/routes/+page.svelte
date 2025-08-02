@@ -63,7 +63,11 @@
     <Works />
     <Experience />
     <Hobby />
-    <Snippet snippets={data.codeSnippets} highlighter={data.highlighter} />
+    {#await data.createHighlighter}
+        <Snippet snippets={data.codeSnippets} highlighter={null} />
+    {:then highlighter}
+        <Snippet snippets={data.codeSnippets} {highlighter} />
+    {/await}
     <Contact />
 </main>
 <Footer />

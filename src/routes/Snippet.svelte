@@ -8,38 +8,48 @@
         highlighter,
         snippets,
     }: {
-        highlighter: HighlighterCore;
+        highlighter: HighlighterCore | null;
         snippets: {
             lang: string;
             snippet: string;
             signatureHelps: Record<string, string>;
         }[];
     } = $props();
-    const snippetAsHtml = snippets.map(({ lang, snippet, signatureHelps }) =>
-        highlighter.codeToHtml(snippet, {
-            lang,
-            themes: {
-                light: 'rose-pine-dawn',
-                dark: 'rose-pine',
-            },
-            mergeWhitespaces: false,
-            transformers: [
-                {
-                    span(node) {
-                        const child = node.children[0];
-                        console.log(child);
-                        if (child.type !== 'text' || signatureHelps[child.value] == null) {
-                            return;
-                        }
-                        this.addClassToHast(node, 'signature-help');
-                        node.properties['data-signature-content'] = signatureHelps[child.value];
-                    },
-                    pre(node) {
-                        this.addClassToHast(node, 'p-4 leading-6 min-w-max min-h-max h-full');
-                    },
-                },
-            ],
-        })
+    const snippetAsHtml = $derived(
+        highlighter == null
+            ? []
+            : snippets.map(({ lang, snippet, signatureHelps }) =>
+                  highlighter.codeToHtml(snippet, {
+                      lang,
+                      themes: {
+                          light: 'rose-pine-dawn',
+                          dark: 'rose-pine',
+                      },
+                      mergeWhitespaces: false,
+                      transformers: [
+                          {
+                              span(node) {
+                                  const child = node.children[0];
+                                  if (
+                                      child.type !== 'text' ||
+                                      signatureHelps[child.value] == null
+                                  ) {
+                                      return;
+                                  }
+                                  this.addClassToHast(node, 'signature-help');
+                                  node.properties['data-signature-content'] =
+                                      signatureHelps[child.value];
+                              },
+                              pre(node) {
+                                  this.addClassToHast(
+                                      node,
+                                      'p-4 leading-6 min-w-max min-h-max h-full'
+                                  );
+                              },
+                          },
+                      ],
+                  })
+              )
     );
 </script>
 
@@ -54,94 +64,95 @@
     <div
         class="mt-8 font-mono text-xs grid grid-cols-[repeat(auto-fit,minmax(min(48rem,100%),1fr))] gap-x-2 gap-y-4"
     >
-        {#each snippetAsHtml as promise}
-            {#await promise then html}
-                <div
-                    class="max-h-148 min-w-0 overflow-auto border border-base-border rounded-xl"
-                    {@attach (node) => {
-                        const nodes = node.querySelectorAll(
-                            '.signature-help'
-                        ) as NodeListOf<HTMLSpanElement>;
-                        const cleanups = Array.from(nodes).map((node) => {
-                            const div = document.createElement('div');
-                            node.classList.add('relative');
-                            div.className = 'signature-popover';
-                            div.setAttribute('data-lenis-prevent', '');
-                            const content = node.getAttribute('data-signature-content');
-                            invariant(
-                                content != null && typeof content === 'string',
-                                'Expected `content` to be string'
-                            );
-                            div.innerHTML = highlighter.codeToHtml(content, {
-                                lang: 'typescript',
-                                themes: {
-                                    light: 'rose-pine-dawn',
-                                    dark: 'rose-pine',
-                                },
-                                transformers: [
-                                    {
-                                        pre(node) {
-                                            this.addClassToHast(node, 'p-4 w-max');
-                                        },
+        {#each snippetAsHtml as html}
+            <div
+                class="max-h-148 min-w-0 overflow-auto border border-base-border rounded-xl"
+                {@attach (node) => {
+                    if (highlighter == null) {
+                        return;
+                    }
+
+                    const nodes = node.querySelectorAll(
+                        '.signature-help'
+                    ) as NodeListOf<HTMLSpanElement>;
+                    const cleanups = Array.from(nodes).map((node) => {
+                        const div = document.createElement('div');
+                        node.classList.add('relative');
+                        div.className = 'signature-popover';
+                        div.setAttribute('data-lenis-prevent', '');
+                        const content = node.getAttribute('data-signature-content');
+                        invariant(
+                            content != null && typeof content === 'string',
+                            'Expected `content` to be string'
+                        );
+                        div.innerHTML = highlighter.codeToHtml(content, {
+                            lang: 'typescript',
+                            themes: {
+                                light: 'rose-pine-dawn',
+                                dark: 'rose-pine',
+                            },
+                            transformers: [
+                                {
+                                    pre(node) {
+                                        this.addClassToHast(node, 'p-4 w-max');
                                     },
-                                ],
-                            });
-                            node.insertAdjacentElement('afterend', div);
-                            const update = () => {
-                                computePosition(node, div, {
-                                    placement: 'top-start',
-                                    middleware: [flip(), shift({ padding: 8 })],
-                                }).then(({ x, y }) => {
-                                    Object.assign(div.style, {
-                                        left: `${x}px`,
-                                        top: `${y}px`,
-                                    });
-                                });
-                            };
-                            const show = () => {
-                                update();
-                                div.addEventListener('mouseleave', hideMouseLeave);
-                                div.style.display = 'block';
-                            };
-
-                            const hideMouseLeave = (e: MouseEvent) => {
-                                const sel = document.getSelection();
-                                if (sel != null && !sel.isCollapsed) {
-                                    return;
-                                }
-                                const target = e.relatedTarget as HTMLElement;
-                                console.log(target, div.contains(target));
-                                if (div.contains(target)) {
-                                    return;
-                                }
-                                div.removeEventListener('mouseleave', hideMouseLeave);
-                                div.style.display = '';
-                            };
-
-                            (
-                                [
-                                    ['mouseenter', show],
-                                    ['mouseleave', hideMouseLeave],
-                                ] as const
-                            ).forEach(([event, listener]) => {
-                                node.addEventListener(event, listener);
-                            });
-                            const cleanup = autoUpdate(node, div, update);
-                            return () => {
-                                cleanup();
-                                div.remove();
-                            };
+                                },
+                            ],
                         });
-                        return () => {
-                            for (const cleanup of cleanups) {
-                                cleanup();
-                            }
+                        node.insertAdjacentElement('afterend', div);
+                        const update = () => {
+                            computePosition(node, div, {
+                                placement: 'top-start',
+                                middleware: [flip(), shift({ padding: 8 })],
+                            }).then(({ x, y }) => {
+                                Object.assign(div.style, {
+                                    left: `${x}px`,
+                                    top: `${y}px`,
+                                });
+                            });
                         };
-                    }}
-                >
-                    {@html html}
-                </div>
-            {/await}
+                        const show = () => {
+                            update();
+                            div.addEventListener('mouseleave', hideMouseLeave);
+                            div.style.display = 'block';
+                        };
+
+                        const hideMouseLeave = (e: MouseEvent) => {
+                            const sel = document.getSelection();
+                            if (sel != null && !sel.isCollapsed) {
+                                return;
+                            }
+                            const target = e.relatedTarget as HTMLElement;
+                            if (div.contains(target)) {
+                                return;
+                            }
+                            div.removeEventListener('mouseleave', hideMouseLeave);
+                            div.style.display = '';
+                        };
+
+                        (
+                            [
+                                ['mouseenter', show],
+                                ['mouseleave', hideMouseLeave],
+                            ] as const
+                        ).forEach(([event, listener]) => {
+                            node.addEventListener(event, listener);
+                        });
+                        const cleanup = autoUpdate(node, div, update);
+                        return () => {
+                            cleanup();
+                            div.remove();
+                        };
+                    });
+                    return () => {
+                        for (const cleanup of cleanups) {
+                            cleanup();
+                        }
+                    };
+                }}
+            >
+                {@html html}
+            </div>
         {/each}
     </div>
 </Section>
