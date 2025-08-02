@@ -1,12 +1,14 @@
 <script lang="ts">
     import Section from '$lib/components/Section.svelte';
     import { autoUpdate, computePosition, flip, shift } from '@floating-ui/dom';
-    import { codeToHtml } from 'shiki';
+    import type { HighlighterCore } from 'shiki/core';
     import invariant from 'tiny-invariant';
 
     const {
+        highlighter,
         snippets,
     }: {
+        highlighter: HighlighterCore;
         snippets: {
             lang: string;
             snippet: string;
@@ -14,7 +16,7 @@
         }[];
     } = $props();
     const snippetAsHtml = snippets.map(({ lang, snippet, signatureHelps }) =>
-        codeToHtml(snippet, {
+        highlighter.codeToHtml(snippet, {
             lang,
             themes: {
                 light: 'rose-pine-dawn',
@@ -70,7 +72,7 @@
                                 content != null && typeof content === 'string',
                                 'Expected `content` to be string'
                             );
-                            codeToHtml(content, {
+                            div.innerHTML = highlighter.codeToHtml(content, {
                                 lang: 'typescript',
                                 themes: {
                                     light: 'rose-pine-dawn',
@@ -83,10 +85,7 @@
                                         },
                                     },
                                 ],
-                            }).then((a) => {
-                                div.innerHTML = a;
                             });
-                            const span = document.createElement('span');
                             node.insertAdjacentElement('afterend', div);
                             const update = () => {
                                 computePosition(node, div, {

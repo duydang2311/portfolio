@@ -3,16 +3,14 @@
     import GitHub from '$lib/components/icons/GitHub.svelte';
     import Section from '$lib/components/Section.svelte';
     import ThemeSwitch from '$lib/components/ThemeSwitch.svelte';
-    import { onMount } from 'svelte';
+    import type { PageProps } from './$types';
     import About from './About.svelte';
     import Contact from './Contact.svelte';
     import Experience from './Experience.svelte';
     import Footer from './Footer.svelte';
     import Hobby from './Hobby.svelte';
-    import gsap from 'gsap';
-    import Works from './Works.svelte';
     import Snippet from './Snippet.svelte';
-    import type { PageProps } from './$types';
+    import Works from './Works.svelte';
 
     const { data }: PageProps = $props();
 </script>
@@ -65,7 +63,7 @@
     <Works />
     <Experience />
     <Hobby />
-    <Snippet snippets={data.codeSnippets} />
+    <Snippet snippets={data.codeSnippets} highlighter={data.highlighter} />
     <Contact />
 </main>
 <Footer />

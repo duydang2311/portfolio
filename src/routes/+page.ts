@@ -1,12 +1,24 @@
+import { createHighlighterCore } from 'shiki/core';
+import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async () => {
+    const highlighter = await createHighlighterCore({
+        themes: [import('@shikijs/themes/rose-pine'), import('@shikijs/themes/rose-pine-dawn')],
+        langs: [import('@shikijs/langs/typescript'), import('@shikijs/langs/css')],
+        engine: createOnigurumaEngine(import('shiki/wasm')),
+    });
     return {
+        highlighter,
         codeSnippets,
     };
 };
 
-const codeSnippets = [
+const codeSnippets: {
+  lang: string;
+  snippet: string;
+  signatureHelps: Record<string, string>;
+}[] = [
     {
         lang: 'typescript',
         snippet: `
