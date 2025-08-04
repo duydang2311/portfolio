@@ -1,6 +1,8 @@
-import { createHighlighterCore } from 'shiki/core';
+import { createHighlighterCore, type HighlighterCore } from 'shiki/core';
 import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
 import type { PageLoad } from './$types';
+
+const timeout = Symbol('timeout');
 
 export const load: PageLoad = async () => {
     const createHighlighter = createHighlighterCore({
@@ -8,16 +10,22 @@ export const load: PageLoad = async () => {
         langs: [import('@shikijs/langs/typescript'), import('@shikijs/langs/css')],
         engine: createOnigurumaEngine(import('shiki/wasm')),
     });
-    return {
+    const raced = Promise.race([
         createHighlighter,
+        new Promise((resolve) => setTimeout(resolve, 200, timeout)),
+    ] as const);
+    const result = await raced;
+    return {
+        createHighlighter:
+            result === timeout ? createHighlighter : (result as Promise<HighlighterCore>),
         codeSnippets,
     };
 };
 
 const codeSnippets: {
-  lang: string;
-  snippet: string;
-  signatureHelps: Record<string, string>;
+    lang: string;
+    snippet: string;
+    signatureHelps: Record<string, string>;
 }[] = [
     {
         lang: 'typescript',

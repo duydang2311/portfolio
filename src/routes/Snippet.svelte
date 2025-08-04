@@ -18,8 +18,8 @@
     const snippetAsHtml = $derived(
         highlighter == null
             ? []
-            : snippets.map(({ lang, snippet, signatureHelps }) =>
-                  highlighter.codeToHtml(snippet, {
+            : snippets.map(({ lang, snippet, signatureHelps }) => {
+                  return highlighter.codeToHtml(snippet, {
                       lang,
                       themes: {
                           light: 'rose-pine-dawn',
@@ -48,8 +48,8 @@
                               },
                           },
                       ],
-                  })
-              )
+                  });
+              })
     );
 </script>
 
