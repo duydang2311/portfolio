@@ -31,6 +31,12 @@
             <BgSquares />
         </div>
         <div class="relative mx-auto w-fit text-center sm:text-left">
+            <div class="text-xs mb-20 bg-link/10">
+                BTW! I'm working on a new experience for my little portfolio website. Check it out:
+                <a href="https://feat-innovate.portfolio-d10.pages.dev/" class="c-link">
+                    https://feat-innovate.portfolio-d10.pages.dev/
+                </a>
+            </div>
             <h2 class="text-p uppercase font-display text-base-fg-muted">Software Engineer</h2>
             <div
                 class="relative text-[size:clamp(3rem,_-0.75rem_+_18.75vw,_6.75rem)] md:text-9xl leading-none mt-4 font-display font-black text-base-fg-dark dark:text-base-fg-light"
