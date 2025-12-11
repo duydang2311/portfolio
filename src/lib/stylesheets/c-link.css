@@ -1,0 +1,26 @@
+.c-link {
+    --_text: var(--color-link);
+    --_text-hover: var(--color-link-fg);
+}
+
+.c-link--accent {
+    --_text: var(--color-accent);
+    --_text-hover: var(--color-accent-fg);
+}
+
+.c-link {
+    display: inline-block;
+    color: var(--_text);
+    text-decoration: none;
+    transition-property: color, background-size;
+    transition-duration: 150ms;
+    transition-timing-function: var(--default-transition-timing-function);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-image: linear-gradient(to right, var(--_text), var(--_text));
+
+    &:hover {
+        color: var(--_text-hover);
+        background-size: 100% 100%;
+    }
+}
