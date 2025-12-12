@@ -76,7 +76,7 @@
                 inset: 0;
                 background-image: repeating-linear-gradient(
                     90deg,
-                    var(--color-base-fg) 0 1px,
+                    color-mix(in oklch, var(--color-base-fg) 40%, transparent) 0 1px,
                     transparent 1px 2px
                 );
             }
@@ -161,8 +161,28 @@
 	font-size: inherit;
 }
 
-.prose {
-    :where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
-        border-radius: 0;
+@layer base {
+    .prose {
+        :where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+            border-radius: 0;
+        }
+    }
+
+    a {
+        position: relative;
+        &:where(:hover) {
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                inset: 0;
+                background-image: repeating-linear-gradient(
+                    90deg,
+                    color-mix(in oklch, var(--color-base-fg) 40%, transparent) 0 1px,
+                    transparent 1px 2px
+                );
+            }
+        }
     }
 }
+
