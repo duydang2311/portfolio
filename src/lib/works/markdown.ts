@@ -1,6 +1,11 @@
-import type { MarkdownHighlighter } from '$lib/markdown/highlighter';
-import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
+import bash from 'highlight.js/lib/languages/bash';
+import csharp from 'highlight.js/lib/languages/csharp';
+import javascript from 'highlight.js/lib/languages/javascript';
+import typescript from 'highlight.js/lib/languages/typescript';
+import xml from 'highlight.js/lib/languages/xml';
+import svelte from 'highlight.svelte';
 import rehypeFormat from 'rehype-format';
+import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
@@ -9,26 +14,23 @@ import { unified } from 'unified';
 import type { Parent } from 'unist';
 import { EXIT, visit } from 'unist-util-visit';
 
-export interface ParseMarkdownToHtmlOptions {
-    highlighter?: MarkdownHighlighter;
-}
-
-export function parseMarkdownToHtml(
-    markdown: string,
-    { highlighter = undefined }: ParseMarkdownToHtmlOptions
-) {
+export function parseMarkdownToHtml(markdown: string) {
     const instance = unified()
         .use(remarkParse)
         .use(remarkGfm)
         .use(remarkRehype)
         .use(rehypeGallery)
+        .use(rehypeHighlight, {
+            languages: {
+                javascript,
+                typescript,
+                csharp,
+                svelte,
+                xml,
+                bash,
+            },
+        })
         .use(rehypeFormat);
-    if (highlighter) {
-        instance.use(rehypeShikiFromHighlighter, highlighter, {
-            inline: 'tailing-curly-colon',
-            theme: 'solarized-dark',
-        });
-    }
     return instance.use(rehypeStringify).process(markdown).then(String);
 }
 

@@ -148,6 +148,6 @@
         animation:
             typewriter 0.8s forwards steps(var(--_chars)),
             typewriter-border 0.8s,
-            intro-out 0.08s 1s step-end 2 forwards;
+            intro-out 0.08s 1.1s step-end 2 forwards;
     }
 </style>
