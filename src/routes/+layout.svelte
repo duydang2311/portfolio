@@ -3,8 +3,6 @@
     import '../app.css';
 
     import { goto, onNavigate } from '$app/navigation';
-    import Nav from './_utils/Nav.svelte';
-    import Footer from './_utils/Footer.svelte';
     import {
         addCommandHandler,
         cmdClearHandler,
@@ -14,7 +12,8 @@
     } from '$lib/shell/cmds';
     import { addLog } from '$lib/shell/logs';
     import { logs } from '$lib/shell/states.svelte';
-    import { navigating } from '$app/state';
+    import Footer from './_utils/Footer.svelte';
+    import Nav from './_utils/Nav.svelte';
 
     const { children } = $props();
     let transitionEl = $state.raw<HTMLDivElement>();
@@ -76,7 +75,7 @@
     <div class="px-8 text-sm">
         <Nav />
     </div>
-    <div class="px-8 flex-1 flex flex-col overflow-hidden gap-4">
+    <div class="px-4 lg:px-8 flex-1 flex flex-col overflow-hidden gap-4">
         <div class="relative overflow-hidden flex-1 flex flex-col">
             {@render children()}
             <div
@@ -95,9 +94,10 @@
         }
     }
 
-    @keyframes typewriter-blink {
-        50% {
+    @keyframes typewriter-border {
+        from {
             border-color: transparent;
+            transform: scaleX(0.5);
         }
     }
 
@@ -125,9 +125,18 @@
         }
     }
 
+    @keyframes intro-visibility {
+        to {
+            visibility: unset;
+        }
+    }
+
     .animate-intro {
         opacity: 0;
-        animation: intro 0.05s 1.35s step-start 2 forwards;
+        visibility: hidden;
+        animation:
+            intro 0.05s 1.05s step-start 2 forwards,
+            intro-visibility 0s 1s forwards;
     }
 
     .animate-typewriter {
@@ -137,8 +146,8 @@
         border-color: var(--color-base-fg);
         border-right: 0.5rem solid;
         animation:
-            typewriter 0.75s forwards steps(var(--_chars)),
-            typewriter-blink 0.5s step-end infinite alternate,
-            intro-out 0.08s 1.25s step-end 2 forwards;
+            typewriter 0.8s forwards steps(var(--_chars)),
+            typewriter-border 0.8s,
+            intro-out 0.08s 1s step-end 2 forwards;
     }
 </style>
