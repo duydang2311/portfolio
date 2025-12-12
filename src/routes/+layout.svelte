@@ -14,6 +14,7 @@
     } from '$lib/shell/cmds';
     import { addLog } from '$lib/shell/logs';
     import { logs } from '$lib/shell/states.svelte';
+    import { navigating } from '$app/state';
 
     const { children } = $props();
     let transitionEl = $state.raw<HTMLDivElement>();
@@ -64,7 +65,14 @@
     }}
 />
 
-<div class="h-dvh flex flex-col py-4 gap-4">
+<div
+    style:--_chars={'booting your OS... '.length}
+    style:--_width={'booting your OS... '.length + 'ch'}
+    class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-typewriter leading-none"
+>
+    booting your OS...
+</div>
+<div class="h-dvh flex flex-col py-4 gap-4 animate-intro">
     <div class="px-8 text-sm">
         <Nav />
     </div>
@@ -79,3 +87,58 @@
         <Footer />
     </div>
 </div>
+
+<style>
+    @keyframes typewriter {
+        from {
+            width: 0;
+        }
+    }
+
+    @keyframes typewriter-blink {
+        50% {
+            border-color: transparent;
+        }
+    }
+
+    @keyframes intro-out {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes intro {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .animate-intro {
+        opacity: 0;
+        animation: intro 0.05s 1.35s step-start 2 forwards;
+    }
+
+    .animate-typewriter {
+        width: var(--_width);
+        overflow: hidden;
+        white-space: nowrap;
+        border-color: var(--color-base-fg);
+        border-right: 0.5rem solid;
+        animation:
+            typewriter 0.75s forwards steps(var(--_chars)),
+            typewriter-blink 0.5s step-end infinite alternate,
+            intro-out 0.08s 1.25s step-end 2 forwards;
+    }
+</style>
