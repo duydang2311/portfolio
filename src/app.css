@@ -122,52 +122,46 @@
 }
 
 @utility prose {
-	--tw-prose-body: var(--color-base-fg);
-	--tw-prose-headings: var(--color-base-fg);
-	--tw-prose-lead: var(--color-pink-700);
-	--tw-prose-links: var(--color-info);
-	--tw-prose-bold: var(--color-base-fg);
-	--tw-prose-counters: var(--color-base-fg-muted);
-	--tw-prose-bullets: var(--color-base-fg-muted);
-	--tw-prose-hr: var(--color-base-border);
-	--tw-prose-quotes: var(--color-base-fg-muted);
-	--tw-prose-quote-borders: var(--color-base-border);
-	--tw-prose-captions: var(--color-pink-700);
-	--tw-prose-code: var(--color-base-fg);
-	--tw-prose-pre-code: var(--color-base-fg);
-	--tw-prose-pre-bg: var(--color-base-weak);
-	--tw-prose-th-borders: var(--color-base-border);
-	--tw-prose-td-borders: var(--color-base-border);
+    --tw-prose-body: var(--color-base-fg);
+    --tw-prose-headings: var(--color-base-fg);
+    --tw-prose-lead: var(--color-pink-700);
+    --tw-prose-links: var(--color-info);
+    --tw-prose-bold: var(--color-base-fg);
+    --tw-prose-counters: var(--color-base-fg-muted);
+    --tw-prose-bullets: var(--color-base-fg-muted);
+    --tw-prose-hr: var(--color-base-border);
+    --tw-prose-quotes: var(--color-base-fg-muted);
+    --tw-prose-quote-borders: var(--color-base-border);
+    --tw-prose-captions: var(--color-pink-700);
+    --tw-prose-code: var(--color-base-fg);
+    --tw-prose-pre-code: var(--color-base-fg);
+    --tw-prose-pre-bg: var(--color-base-weak);
+    --tw-prose-th-borders: var(--color-base-border);
+    --tw-prose-td-borders: var(--color-base-border);
     --tw-prose-quote-borders: var(--color-base-border);
 
-	--tw-prose-invert-body: var(--tw-prose-body);
-	--tw-prose-invert-headings: var(--tw-prose-headings);
-	--tw-prose-invert-lead: var(--tw-prose-lead);
-	--tw-prose-invert-links: var(--tw-prose-links);
-	--tw-prose-invert-bold: var(--tw-prose-bold);
-	--tw-prose-invert-counters: var(--tw-prose-counters);
-	--tw-prose-invert-bullets: var(--tw-prose-bullets);
-	--tw-prose-invert-hr: var(--tw-prose-hr);
-	--tw-prose-invert-quotes: var(--tw-prose-quotes);
-	--tw-prose-invert-quote-borders: var(--tw-prose-quote-borders);
-	--tw-prose-invert-captions: var(--tw-prose-captions);
-	--tw-prose-invert-code: var(--tw-prose-code);
-	--tw-prose-invert-pre-code: var(--tw-prose-pre-code);
-	--tw-prose-invert-pre-bg: var(--tw-prose-pre-bg);
-	--tw-prose-invert-th-borders: var(--tw-prose-th-borders);
-	--tw-prose-invert-td-borders: var(--tw-prose-td-borders);
+    --tw-prose-invert-body: var(--tw-prose-body);
+    --tw-prose-invert-headings: var(--tw-prose-headings);
+    --tw-prose-invert-lead: var(--tw-prose-lead);
+    --tw-prose-invert-links: var(--tw-prose-links);
+    --tw-prose-invert-bold: var(--tw-prose-bold);
+    --tw-prose-invert-counters: var(--tw-prose-counters);
+    --tw-prose-invert-bullets: var(--tw-prose-bullets);
+    --tw-prose-invert-hr: var(--tw-prose-hr);
+    --tw-prose-invert-quotes: var(--tw-prose-quotes);
+    --tw-prose-invert-quote-borders: var(--tw-prose-quote-borders);
+    --tw-prose-invert-captions: var(--tw-prose-captions);
+    --tw-prose-invert-code: var(--tw-prose-code);
+    --tw-prose-invert-pre-code: var(--tw-prose-pre-code);
+    --tw-prose-invert-pre-bg: var(--tw-prose-pre-bg);
+    --tw-prose-invert-th-borders: var(--tw-prose-th-borders);
+    --tw-prose-invert-td-borders: var(--tw-prose-td-borders);
 
-	line-height: inherit;
-	font-size: inherit;
+    line-height: inherit;
+    font-size: inherit;
 }
 
 @layer base {
-    .prose {
-        :where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
-            border-radius: 0;
-        }
-    }
-
     a {
         position: relative;
         &:where(:hover) {
@@ -186,3 +180,12 @@
     }
 }
 
+.prose {
+    :where(pre):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+        border-radius: 0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #586e75; /* solarized dark */
+    }
+}
