@@ -1,43 +1,35 @@
+import type { MarkdownHighlighter } from '$lib/markdown/highlighter';
 import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
 import rehypeFormat from 'rehype-format';
 import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import { createHighlighterCore } from 'shiki/core';
-import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
-import wasm from 'shiki/onig.wasm?init';
 import { unified } from 'unified';
 import type { Parent } from 'unist';
 import { EXIT, visit } from 'unist-util-visit';
 
-const highlighter = await createHighlighterCore({
-    themes: [import('@shikijs/themes/solarized-dark')],
-    langs: [
-        import('@shikijs/langs/javascript'),
-        import('@shikijs/langs/typescript'),
-        import('@shikijs/langs/csharp'),
-        import('@shikijs/langs/svelte'),
-        import('@shikijs/langs/sh'),
-        import('@shikijs/langs/xml'),
-    ],
-    engine: createOnigurumaEngine(wasm),
-});
+export interface ParseMarkdownToHtmlOptions {
+    highlighter?: MarkdownHighlighter;
+}
 
-export function parseMarkdownToHtml(markdown: string) {
-    return unified()
+export function parseMarkdownToHtml(
+    markdown: string,
+    { highlighter = undefined }: ParseMarkdownToHtmlOptions
+) {
+    const instance = unified()
         .use(remarkParse)
         .use(remarkGfm)
         .use(remarkRehype)
         .use(rehypeGallery)
-        .use(rehypeFormat)
-        .use(rehypeShikiFromHighlighter, highlighter, {
+        .use(rehypeFormat);
+    if (highlighter) {
+        instance.use(rehypeShikiFromHighlighter, highlighter, {
             inline: 'tailing-curly-colon',
             theme: 'solarized-dark',
-        })
-        .use(rehypeStringify)
-        .process(markdown)
-        .then(String);
+        });
+    }
+    return instance.use(rehypeStringify).process(markdown).then(String);
 }
 
 function rehypeGallery() {

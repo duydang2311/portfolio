@@ -1,9 +1,10 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { Work } from '$lib/works/types';
+import { parseMarkdownToHtml } from '~/lib/works/markdown';
+import { createHighlighter, type MarkdownHighlighter } from '~/lib/markdown/highlighter';
 
-export const prerender = false;
-export const ssr = false;
+let highlighter: MarkdownHighlighter | undefined;
 
 export const load: PageServerLoad = async (e) => {
     const response = await e.fetch(`/works.json?name=${e.params.work}`, { method: 'GET' });
@@ -11,16 +12,18 @@ export const load: PageServerLoad = async (e) => {
         return error(404);
     }
 
+    highlighter ??= await createHighlighter();
     const work = await response.json<Work>();
+    const markdown = await e
+        .fetch(
+            `https://raw.githubusercontent.com/${work.author}/${work.repo}/refs/heads/main/README.md`,
+            { method: 'GET' }
+        )
+        .then((a) => a.text());
     return {
         work: {
             ...work,
-            markdown: await e
-                .fetch(
-                    `https://raw.githubusercontent.com/${work.author}/${work.repo}/refs/heads/main/README.md`,
-                    { method: 'GET' }
-                )
-                .then((a) => a.text()),
+            htmlString: await parseMarkdownToHtml(markdown, { highlighter }),
         },
     };
 };
