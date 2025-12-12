@@ -26,9 +26,9 @@
 <main class="max-h-full flex-1 flex flex-col">
     <h1 class="text-2xl font-medium">02 Works</h1>
     <p class="text-sm">A collection of projects that showcase my approach to problem-solving.</p>
-    <div class="flex-1 mt-4 flex overflow-hidden">
+    <div class="flex-1 mt-4 overflow-hidden flex flex-col lg:flex-row">
         <ul
-            class="overflow-y-auto overflow-x-hidden border-r-0 min-w-max border border-b-2 border-base-border"
+            class="flex overflow-auto max-lg:*:flex-1 max-lg:*:text-nowrap lg:block text-center lg:text-left overflow-y-auto lg:border-r-0 border lg:border-b-2 border-base-border"
         >
             {#each data.works as work (work.repo)}
                 <li>
@@ -43,7 +43,9 @@
                 </li>
             {/each}
         </ul>
-        <div class="relative overflow-hidden flex-1 border border-base-border border-b-2">
+        <div
+            class="relative overflow-hidden flex-1 border border-base-border border-b-2 max-lg:border-t-0"
+        >
             <article class="overflow-auto p-4 h-full">
                 {@render children()}
             </article>
