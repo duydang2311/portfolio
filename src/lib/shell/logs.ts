@@ -1,4 +1,3 @@
-import { logs } from './states.svelte';
 import type { LogCommand, LogResult, LogText, LogSnippet, LogItem } from './types';
 
 let counter = 0;

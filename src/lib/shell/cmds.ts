@@ -29,18 +29,15 @@ function onCommandAdded(addLog: AddLog) {
         invariant(log.text, 'log text must not be null');
 
         const [cmd, param] = log.text.split(' ');
-        for (const handler of commandHandlers) {
-            if (handler(cmd, param)) {
-                return;
-            }
+        if (!commandHandlers.some((handler) => handler(cmd, param))) {
+            addLog({
+                type: 'result',
+                snippet: 'CMD_UNKNOWN',
+                props: {
+                    command: log.text,
+                },
+            });
         }
-        addLog({
-            type: 'result',
-            snippet: 'CMD_UNKNOWN',
-            props: {
-                command: log.text,
-            },
-        });
     };
 }
 
@@ -60,13 +57,13 @@ export function cmdHelpHandler(addLog: AddLog) {
             type: 'result',
             snippet: 'CMD_HELP',
         });
-    })
+    });
 }
 
 export function cmdClearHandler(logs: LogItem[]) {
     return cmdHandler('clear', () => {
         logs.splice(0);
-    })
+    });
 }
 
 export function cmdWhoAmIHandler(addLog: AddLog) {
@@ -75,7 +72,7 @@ export function cmdWhoAmIHandler(addLog: AddLog) {
             type: 'result',
             snippet: 'CMD_WHO_AM_I',
         });
-    })
+    });
 }
 
 export function cmdPfpHandler(addLog: AddLog) {
@@ -84,5 +81,5 @@ export function cmdPfpHandler(addLog: AddLog) {
             type: 'result',
             snippet: 'CMD_PFP',
         });
-    })
+    });
 }

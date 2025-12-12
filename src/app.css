@@ -3,7 +3,7 @@
 @import './lib/stylesheets/c-button.css' layer(components);
 @import './lib/stylesheets/c-link.css' layer(components);
 
-@plugin "@tailwindcss/typography";
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
