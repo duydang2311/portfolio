@@ -226,10 +226,10 @@
 }
 
 .hljs-attribute,
-.hljs-attr,
 .hljs-variable,
 .hljs-template-variable,
 .hljs-class .hljs-title,
+.hljs-built_in,
 .hljs-type {
     color: #b58900; /* yellow */
 }
@@ -245,7 +245,6 @@
     color: #cb4b16; /* orange */
 }
 
-.hljs-built_in,
 .hljs-deletion {
     color: #dc322f; /* red/magenta */
 }
