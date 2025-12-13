@@ -30,12 +30,12 @@
         <ul
             class="flex overflow-auto max-lg:*:flex-1 max-lg:*:text-nowrap lg:block text-center lg:text-left overflow-y-auto lg:border-r-0 border lg:border-b-2 border-base-border"
         >
-            {#each data.works as work (work.repo)}
+            {#each data.works as work (work.name)}
                 <li>
                     <a
                         data-sveltekit-replacestate
-                        href="/works/{work.repo}"
-                        data-active={segment === work.repo ? '' : undefined}
+                        href="/works/{work.name}"
+                        data-active={segment === work.name ? '' : undefined}
                         class="c-clickable px-4 data-active:animate-highlight data-active:bg-base-fg data-active:text-base-strong"
                     >
                         {work.name}

@@ -11,15 +11,18 @@ import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import { unified } from 'unified';
-import type { Parent } from 'unist';
 import { EXIT, visit } from 'unist-util-visit';
 
 export function parseMarkdownToHtml(markdown: string) {
     const instance = unified()
         .use(remarkParse)
+        .use(remarkGalleryContainer)
         .use(remarkGfm)
-        .use(remarkRehype)
-        .use(rehypeGallery)
+        .use(remarkRehype, {
+            handlers: {
+                galleryContainer: galleryContainerHandler,
+            },
+        })
         .use(rehypeHighlight, {
             languages: {
                 javascript,
@@ -34,22 +37,79 @@ export function parseMarkdownToHtml(markdown: string) {
     return instance.use(rehypeStringify).process(markdown).then(String);
 }
 
-function rehypeGallery() {
-    return (tree: any) => {
-        visit(tree as Parent, 'element', (node: any) => {
-            if (node.tagName === 'p') {
-                if (node.children.some((a: any) => a.type === 'text' && a.value === ':gallery:')) {
-                    const className = 'c-work-gallery-container';
-                    node.tagName = 'div';
-                    node.children = [];
-                    if (!node.properties.class) {
-                        node.properties.class = className;
-                    } else {
-                        node.properties.class = `${node.properties.class} ${className}`;
-                    }
-                    return EXIT;
-                }
+function remarkGalleryContainer() {
+    return (tree) => {
+        visit(tree, 'paragraph', (node, index, parent) => {
+            if (
+                parent === tree &&
+                node.children.some((a) => a.type === 'text' && a.value === ':::gallery')
+            ) {
+                tree.children[index] = { type: 'galleryContainer' };
+                return EXIT;
             }
         });
+    };
+}
+
+function remarkGalleryContainerOld() {
+    return (tree) => {
+        let start = -1;
+        const size = tree.children.length;
+        for (let i = 0; i !== size; ++i) {
+            const node = tree.children[i];
+            if (
+                node.type === 'paragraph' &&
+                node.children.some((a) => a.type === 'text' && a.value === ':::gallery')
+            ) {
+                start = i;
+                break;
+            }
+        }
+        const listNode = tree.children[start + 1];
+        const images = [];
+        if (listNode.type === 'list') {
+            visit(listNode, 'image', (node) => {
+                images.push({
+                    title: node.title,
+                    url: node.url,
+                    alt: node.alt,
+                });
+            });
+        }
+        tree.children.splice(start, 2, {
+            type: 'galleryContainer',
+            data: {
+                images,
+            },
+        });
+    };
+}
+
+function galleryContainerHandler() {
+    return {
+        type: 'element',
+        tagName: 'div',
+        properties: {
+            className: 'c-gallery-container',
+        },
+    };
+}
+
+function galleryContainerHandlerOld(_state, node) {
+    return {
+        type: 'element',
+        tagName: 'div',
+        properties: {
+            className: 'c-gallery-container',
+        },
+        children: node.data.images.map((a) => ({
+            type: 'element',
+            tagName: 'img',
+            properties: {
+                src: a.url,
+                alt: a.alt,
+                title: a.title,
+            },
+        })),
     };
 }

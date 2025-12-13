@@ -2,18 +2,12 @@
 
 A task management platform designed for public collaboration.
 
-:gallery:
+:::gallery
 
 ## Tech Stack
 
 ### API (`/api`)
 The core backend service, providing robust APIs for data management and business logic. It follows a hybrid of Clean Architecture and Vertical Slice Architecture principles.
-
-```js
-console.log(() => {});
-```
-
-`console.log(() => {}){:js}`
 
 - **Language:** C#.
 - **Framework:** .NET 9, ASP.NET Core.

@@ -1,6 +1,16 @@
-export interface Work {
+export interface WorkMetadata {
+    name: string;
+}
+
+export interface WorkSourceGit {
     type: 'git';
     author: string;
     repo: string;
-    name: string;
 }
+
+export interface WorkSourceMarkdown {
+    type: 'markdown';
+    filename: string;
+}
+
+export type Work = WorkMetadata & (WorkSourceGit | WorkSourceMarkdown);

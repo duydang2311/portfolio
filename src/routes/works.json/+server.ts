@@ -8,10 +8,9 @@ const works: Work[] = [
         name: 'portfolio',
     },
     {
-        type: 'git',
-        author: 'duydang2311',
-        repo: 'fullest-web',
+        type: 'markdown',
         name: 'fullest-web',
+        filename: 'fullest-web',
     },
     {
         type: 'git',
@@ -42,7 +41,7 @@ const works: Work[] = [
 export const GET = (e) => {
     const name = e.url.searchParams.get('name');
     if (name) {
-        const work = works.find((a) => a.repo === name);
+        const work = works.find((a) => a.name === name);
         if (!work) {
             return new Response(null, { status: 404 });
         }
