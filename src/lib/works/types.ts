@@ -10,7 +10,6 @@ export interface WorkSourceGit {
 
 export interface WorkSourceMarkdown {
     type: 'markdown';
-    filename: string;
 }
 
 export type Work = WorkMetadata & (WorkSourceGit | WorkSourceMarkdown);

@@ -1,0 +1,30 @@
+{
+    "01_landing": {
+        "title": "Landing page",
+        "alt": "Landing page"
+    },
+    "02_tasks": {
+        "title": "Task list page",
+        "alt": "Task list page"
+    },
+    "03_board": {
+        "title": "Kanban board page",
+        "alt": "Kanban board page"
+    },
+    "04_checklist": {
+        "title": "Task checklist",
+        "alt": "Generating checklist for a task"
+    },
+    "05_notification": {
+        "title": "In-app notifications",
+        "alt": "In-app notifications"
+    },
+    "06_search": {
+        "title": "Local search",
+        "alt": "Local search"
+    },
+    "07_global_search": {
+        "title": "Global search",
+        "alt": "Global search"
+    }
+}

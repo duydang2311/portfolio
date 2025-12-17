@@ -2,21 +2,20 @@ import type { Work } from '$lib/works/types.js';
 
 const works: Work[] = [
     {
-        type: 'git',
-        author: 'duydang2311',
-        repo: 'portfolio',
+        type: 'markdown',
         name: 'portfolio',
     },
     {
         type: 'markdown',
         name: 'fullest-web',
-        filename: 'fullest-web',
     },
     {
-        type: 'git',
-        author: 'duydang2311',
-        repo: 'askkit',
+        type: 'markdown',
         name: 'askkit',
+    },
+    {
+        type: 'markdown',
+        name: 'konekt',
     },
     {
         type: 'git',

@@ -1,0 +1,18 @@
+{
+    "01_home": {
+        "title": "Homepage",
+        "alt": "Home page"
+    },
+    "02_works": {
+        "title": "Works",
+        "alt": "Works page"
+    },
+    "03_about": {
+        "title": "About",
+        "alt": "About page"
+    },
+    "04_contact": {
+        "title": "Contact",
+        "alt": "Contact page"
+    }
+}

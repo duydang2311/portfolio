@@ -10,7 +10,7 @@ const workPosts = Object.fromEntries(
 );
 
 const workImages = Object.entries(
-    import.meta.glob('~/data/works/*/images/*.png', {
+    import.meta.glob('~/data/works/*/images/*', {
         query: '?url',
         eager: true,
         import: 'default',

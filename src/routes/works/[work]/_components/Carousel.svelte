@@ -1,7 +1,7 @@
 <script lang="ts">
     import EmblaCarousel, { type EmblaCarouselType } from 'embla-carousel';
-    import { flushSync, tick, untrack } from 'svelte';
-    import { on } from 'svelte/events';
+    import { flushSync, untrack } from 'svelte';
+    import Viewer from '~/lib/components/Viewer.svelte';
     import ChevronLeft from '~icons/lucide/chevron-left';
     import ChevronRight from '~icons/lucide/chevron-right';
 
@@ -22,28 +22,6 @@
     }>();
 </script>
 
-{#if fullscreenImage}
-    <div class="fixed inset-0 bg-black/60 z-10"></div>
-    <div
-        class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
-        {@attach (node) => {
-            return on(window, 'click', (e) => {
-                if (!node.contains(e.target)) {
-                    fullscreenImage = undefined;
-                }
-            });
-        }}
-    >
-        <img
-            src={fullscreenImage.src}
-            alt={fullscreenImage.alt}
-            class="max-h-[80dvh] h-full not-prose"
-        />
-        <div class="bg-base px-2">
-            {fullscreenImage.title}
-        </div>
-    </div>
-{/if}
 <section class="w-fit bg-base-weak border border-base-border p-2 lg:p-4">
     <h2
         class="font-bold text-p overlay-barcode inline uppercase tracking-wider"
@@ -82,7 +60,7 @@
         }}
     >
         <div class="embla__container flex items-start -ml-4">
-            {#each images as image, i}
+            {#each images as image, i (image.src)}
                 <button
                     type="button"
                     tabindex="-1"
@@ -165,3 +143,12 @@
         </div>
     {/if}
 </section>
+
+{#if fullscreenImage}
+    <Viewer
+        src={fullscreenImage.src}
+        onClickOutside={() => {
+            fullscreenImage = undefined;
+        }}
+    />
+{/if}
