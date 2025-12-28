@@ -99,6 +99,38 @@
             }
         }
     }
+
+    .c-card {
+        position: relative;
+        background-color: var(--color-base);
+        border: 1px solid var(--color-base-border);
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: var(--color-base-fg);
+            transform: translate3d(0.2rem, 0.2rem, 0);
+            z-index: -2;
+        }
+
+        &:where(.c-card--clickable):hover {
+            color: var(--color-base-strong);
+            background-color: transparent;
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: var(--color-base);
+                z-index: -1;
+                inset: 0;
+                background-image: repeating-linear-gradient(
+                    90deg,
+                    color-mix(in oklch, var(--color-base-fg) 40%, transparent) 0 1px,
+                    transparent 1px 2px
+                );
+            }
+        }
+    }
 }
 
 @keyframes page-transition {
