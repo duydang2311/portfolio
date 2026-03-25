@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-surface: oklch(99% 0.004 142);
+	--color-surface-subtle: oklch(98% 0.006 142);
+	--color-surface-emph: oklch(96% 0.01 142);
+	--color-surface-border: oklch(94% 0.004 142);
+
+	--color-fg: oklch(33% 0.01 142);
+	--color-fg-subtle: oklch(40% 0.01 142);
+	--color-fg-emph: oklch(26% 0.01 142);
+	--color-fg-muted: oklch(60% 0.01 142);
+
+	--color-base: oklch(96% 0.004 142);
+	--color-base-subtle: oklch(94.5% 0.004 142);
+	--color-base-emph: oklch(93% 0.01 142);
+	--color-base-border: oklch(91% 0.004 142);
+
+	--color-primary: oklch(97% 0.04 142);
+	--color-primary-subtle: oklch(95.5% 0.06 142);
+	--color-primary-emph: oklch(94% 0.08 142);
+	--color-primary-border: oklch(92% 0.06 142);
+	--color-primary-fg: oklch(46.6% 0.15 142);
+
+	--font-sans: 'Inter Variable', system-ui, sans-serif;
+	--font-display: 'Pixelify Sans Variable', system-ui, sans-serif;
+	--font-mono: 'Geist Mono Variable', system-ui, sans-serif;
+	--default-font-family: var(--font-sans);
+}
+
+@layer base {
+	:root {
+		font-size: 14px;
+		line-height: 1.5;
+		color-scheme: light dark;
+		color: var(--color-fg);
+		background: var(--color-surface);
+		font-synthesis: none;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
