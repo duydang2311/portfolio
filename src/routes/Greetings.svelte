@@ -32,11 +32,11 @@
 {/snippet}
 
 {#snippet cs()}
-	{@render code('Console.WriteLine(', '"hi... i\'m duy."', ');')}
+	{@render code('Console.WriteLine(', '"duy xin chào."', ');')}
 {/snippet}
 
 {#snippet rust()}
-	{@render code('println!(', '"hi... i\'m duy."', ');')}
+	{@render code('println!(', '"duy xin chào."', ');')}
 {/snippet}
 
 {#snippet js()}

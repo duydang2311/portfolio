@@ -31,7 +31,7 @@
 				<Hero />
 			</div>
 		</div>
-		<div class="max-h-full flex-1 overflow-auto">
+		<div class="max-h-screen flex-1 overflow-auto">
 			<!-- <header class="border-b border-b-surface-border">
 				<nav>
 					<ul class="flex divide-x divide-surface-border *:flex-1">
@@ -45,10 +45,9 @@
 					</ul>
 				</nav>
 			</header> -->
-			<main class="h-full flex-1 overflow-hidden">
-				<!-- grid-cols-[repeat(auto-fit,minmax(36rem,1fr))] -->
+			<main class="h-full">
 				<div
-					class="grid h-full grid-cols-[repeat(auto-fit,minmax(40rem,1fr))] divide-x divide-surface-border overflow-auto *:min-w-148"
+					class="grid max-h-full grid-cols-[repeat(auto-fit,minmax(40rem,1fr))] divide-x divide-surface-border *:min-w-148"
 				>
 					<AboutMe />
 					<AboutMe />

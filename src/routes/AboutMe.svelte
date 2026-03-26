@@ -2,11 +2,11 @@
 	import Greetings from './Greetings.svelte';
 </script>
 
-<section>
-	<div class="p-4">
+<section class="py-4">
+	<div class="px-4">
 		<Greetings />
 	</div>
-	<div class="w-full">
+	<div class="mt-4 w-full">
 		<div class="px-4">
 			<p class="font-display text-lg font-semibold text-fg-emph">1. About Me</p>
 			<hr class="border-surface-border" />
@@ -22,7 +22,7 @@
 		</div>
 		<div class="mt-4 px-4">
 			<p class="text-xs tracking-wide text-fg-muted uppercase">Tech Stacks</p>
-			<div class="mt-2 grid grid-flow-row-dense grid-cols-3 gap-1 *:rounded-sm">
+			<div class="mt-2 grid grid-flow-row-dense grid-cols-4 gap-2 *:rounded-sm">
 				<div class="col-span-2 border border-base-border p-4">
 					<div>
 						<h2 class="font-display font-medium text-fg-emph">Back-end</h2>
@@ -58,14 +58,15 @@
 						</div>
 					</div>
 				</div>
-				<div class="row-span-2 border border-base-border p-4">
+				<div class="col-span-2 row-span-1 border border-base-border p-4">
 					<div>
 						<h2 class="font-display font-medium text-fg-emph">Front-end</h2>
 						<p class="text-sm text-fg-muted">
 							I work across both Svelte and React ecosystems, but regardless of the framework, I
 							have an interest in building my components on top of unstyled UI libraries.
+							Customization is key!
 						</p>
-						<div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] gap-4">
+						<div class="mt-4 flex flex-col gap-4">
 							<div>
 								<p class="text-sm text-fg-muted">Platforms</p>
 								<div class="mt-1 flex flex-col gap-1">
@@ -93,14 +94,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="relative col-span-3 row-span-1 border border-base-border p-4">
+				<div class="relative col-span-2 row-span-2 border border-base-border p-4">
 					<div>
 						<h2 class="font-display font-medium text-fg-emph">Desktop</h2>
 						<p class="text-sm text-fg-muted">
-							I lean toward Avalonia UI for stable, lightweight, modern desktop app, while keeping
-							Rust for its immediate-mode and immature ecosystems.
+							I lean toward Avalonia UI for a stable, lightweight, modern desktop app, while keeping
+							Rust for its immediate-mode and immature but rapidly growing ecosystems.
 						</p>
-						<div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] gap-4">
+						<div class="mt-4 flex flex-wrap gap-4 *:flex-1">
 							<div>
 								<p class="text-sm text-fg-muted">Platforms</p>
 								<div class="mt-1 flex flex-col gap-1">
@@ -128,7 +129,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-span-3 border border-base-border p-4">
+				<div class="col-span-4 border border-base-border p-4">
 					<div>
 						<h2 class="font-display font-medium text-fg-emph">Infrastructure</h2>
 						<p class="text-sm text-fg-muted">
@@ -171,11 +172,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-span-2 border border-base-border p-4">
+				<div class="col-span-2 row-span-2 border border-base-border p-4">
 					<div>
 						<h2 class="font-display font-medium text-fg-emph">Specialized</h2>
 						<p class="text-sm text-fg-muted">
-							A collection of knowledge I gained from solving specific problems.
+							Some knowledge I gained from solving specific and less common problems.
 						</p>
 						<div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-1">
 							{#each ['.NET Source Generators', '.NET Dynamic Expression', 'C/C# Interop (FFI)', 'C/Rust Interop (FFI)', 'Functional Programming'] as tech}
