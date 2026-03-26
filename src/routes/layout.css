@@ -7,11 +7,11 @@
 	--color-surface-border: oklch(94% 0.004 142);
 
 	--color-fg: oklch(33% 0.01 142);
-	--color-fg-subtle: oklch(40% 0.01 142);
-	--color-fg-emph: oklch(26% 0.01 142);
+	--color-fg-subtle: oklch(45% 0.01 142);
+	--color-fg-emph: oklch(22% 0.01 142);
 	--color-fg-muted: oklch(60% 0.01 142);
 
-	--color-base: oklch(97% 0.004 142);
+	--color-base: oklch(96% 0.004 142);
 	--color-base-subtle: oklch(94.5% 0.004 142);
 	--color-base-emph: oklch(93% 0.01 142);
 	--color-base-border: oklch(91% 0.004 142);

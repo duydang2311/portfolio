@@ -1,11 +1,17 @@
 <script lang="ts">
 	import AboutMe from './AboutMe.svelte';
+	import Greetings from './Greetings.svelte';
 	import Hero from './Hero.svelte';
+	import Works from './Works.svelte';
 </script>
 
 <div class="flex h-screen flex-col">
-	<div class="flex h-full divide-x divide-surface-border">
-		<div class="relative flex min-w-96 flex-col bg-surface-subtle">
+	<div
+		class="flex h-full flex-col divide-y divide-surface-border overflow-auto lg:flex-row lg:divide-x"
+	>
+		<div
+			class="relative top-0 flex flex-row-reverse justify-between bg-surface-subtle lg:sticky lg:flex-col lg:justify-start"
+		>
 			<svg xmlns="http://www.w3.org/2000/svg" class="absolute top-0 left-0 size-full"
 				><defs
 					><pattern
@@ -24,14 +30,14 @@
 					></defs
 				><rect width="800%" height="800%" fill="url(#a)" transform="translate(0 -15)" /></svg
 			>
-			<div class="relative px-4 py-1">
-				<p class="font-display text-fg-muted">/home/duydang</p>
+			<div class="relative ml-auto min-w-76 self-end p-8 lg:p-4">
+				<Greetings />
 			</div>
-			<div class="relative flex-1 content-center px-8">
+			<div class="relative flex-1 content-center p-8">
 				<Hero />
 			</div>
 		</div>
-		<div class="max-h-screen flex-1 overflow-auto">
+		<div class="max-h-screen flex-1">
 			<!-- <header class="border-b border-b-surface-border">
 				<nav>
 					<ul class="flex divide-x divide-surface-border *:flex-1">
@@ -45,12 +51,12 @@
 					</ul>
 				</nav>
 			</header> -->
-			<main class="h-full">
+			<main>
 				<div
-					class="grid max-h-full grid-cols-[repeat(auto-fit,minmax(40rem,1fr))] divide-x divide-surface-border *:min-w-148"
+					class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,40rem),1fr))] gap-px bg-surface-border *:min-w-0 *:bg-surface"
 				>
 					<AboutMe />
-					<AboutMe />
+					<Works />
 				</div>
 			</main>
 		</div>

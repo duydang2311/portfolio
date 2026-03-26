@@ -32,19 +32,19 @@
 {/snippet}
 
 {#snippet cs()}
-	{@render code('Console.WriteLine(', '"duy xin chào."', ');')}
+	{@render code('Console.WriteLine(', '"xin chào"', ');')}
 {/snippet}
 
 {#snippet rust()}
-	{@render code('println!(', '"duy xin chào."', ');')}
+	{@render code('println!(', '"xin chào"', ');')}
 {/snippet}
 
 {#snippet js()}
-	{@render code('console.log(', '"hi... i\'m duy."', ');')}
+	{@render code('console.log(', '"hi there!"', ');')}
 {/snippet}
 
 {#snippet go()}
-	{@render code('fmt.Println(', '"hi... i\'m duy."', ')')}
+	{@render code('fmt.Println(', '"hi there!"', ')')}
 {/snippet}
 
 <div class="relative">
@@ -54,7 +54,7 @@
 		</span>
 		{#key index}
 			<div
-				class="absolute top-0 left-0"
+				class="absolute top-0 right-0"
 				in:motion={(node, animate) => {
 					return animate(
 						Array.from(node.children) as HTMLElement[],

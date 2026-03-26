@@ -1,14 +1,7 @@
-<script lang="ts">
-	import Greetings from './Greetings.svelte';
-</script>
-
-<section class="py-4">
-	<div class="px-4">
-		<Greetings />
-	</div>
-	<div class="mt-4 w-full">
+<section class="py-6">
+	<div class="w-full">
 		<div class="px-4">
-			<p class="font-display text-lg font-semibold text-fg-emph">1. About Me</p>
+			<p class="font-display text-xl font-semibold text-fg-emph">1. About Me</p>
 			<hr class="border-surface-border" />
 		</div>
 		<div class="mt-2 px-4">
@@ -20,12 +13,14 @@
 				</p>
 			</div>
 		</div>
-		<div class="mt-4 px-4">
-			<p class="text-xs tracking-wide text-fg-muted uppercase">Tech Stacks</p>
-			<div class="mt-2 grid grid-flow-row-dense grid-cols-4 gap-2 *:rounded-sm">
-				<div class="col-span-2 border border-base-border p-4">
+		<div class="@container mt-4">
+			<p class="px-4 text-xs tracking-wide text-fg-muted uppercase">Tech Stacks</p>
+			<div
+				class="mt-2 grid grid-flow-row-dense grid-cols-2 @[60rem]:grid-cols-4 *:outline *:outline-base-border gap-px"
+			>
+				<div class="p-4 @[60rem]:col-span-2">
 					<div>
-						<h2 class="font-display font-medium text-fg-emph">Back-end</h2>
+						<p class="font-display text-lg font-medium text-fg-emph">Back-end</p>
 						<p class="text-sm text-fg-muted">
 							I enjoy building back-ends using .NET where performance matters and Node.js for
 							smaller, agile services.
@@ -58,9 +53,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-span-2 row-span-1 border border-base-border p-4">
+				<div class="row-span-1 p-4 @[60rem]:col-span-2">
 					<div>
-						<h2 class="font-display font-medium text-fg-emph">Front-end</h2>
+						<p class="font-display text-lg font-medium text-fg-emph">Front-end</p>
 						<p class="text-sm text-fg-muted">
 							I work across both Svelte and React ecosystems, but regardless of the framework, I
 							have an interest in building my components on top of unstyled UI libraries.
@@ -94,9 +89,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="relative col-span-2 row-span-2 border border-base-border p-4">
+				<div class="relative p-4 @[60rem]:col-span-2 @[60rem]:row-span-2">
 					<div>
-						<h2 class="font-display font-medium text-fg-emph">Desktop</h2>
+						<p class="font-display text-lg font-medium text-fg-emph">Desktop</p>
 						<p class="text-sm text-fg-muted">
 							I lean toward Avalonia UI for a stable, lightweight, modern desktop app, while keeping
 							Rust for its immediate-mode and immature but rapidly growing ecosystems.
@@ -129,9 +124,22 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-span-4 border border-base-border p-4">
+				<div class="p-4 @[60rem]:col-span-2 @[60rem]:row-span-2">
 					<div>
-						<h2 class="font-display font-medium text-fg-emph">Infrastructure</h2>
+						<p class="font-display text-lg font-medium text-fg-emph">Specialized</p>
+						<p class="text-sm text-fg-muted">
+							Some knowledge I gained from solving specific and less common problems.
+						</p>
+						<div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-1">
+							{#each ['.NET Source Generators', '.NET Dynamic Expression', 'C/C# Interop (FFI)', 'C/Rust Interop (FFI)', 'Functional Programming'] as tech}
+								<div class="rounded bg-base px-4 py-1 text-nowrap">{tech}</div>
+							{/each}
+						</div>
+					</div>
+				</div>
+				<div class="col-span-2 p-4 @[60rem]:col-span-4">
+					<div>
+						<p class="font-display text-lg font-medium text-fg-emph">Infrastructure</p>
 						<p class="text-sm text-fg-muted">
 							These days, I like Docker for containerization, Cloudflare for its robust cloud
 							services, and mise/just for development workflow.
@@ -169,19 +177,6 @@
 									{/each}
 								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-span-2 row-span-2 border border-base-border p-4">
-					<div>
-						<h2 class="font-display font-medium text-fg-emph">Specialized</h2>
-						<p class="text-sm text-fg-muted">
-							Some knowledge I gained from solving specific and less common problems.
-						</p>
-						<div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-1">
-							{#each ['.NET Source Generators', '.NET Dynamic Expression', 'C/C# Interop (FFI)', 'C/Rust Interop (FFI)', 'Functional Programming'] as tech}
-								<div class="rounded bg-base px-4 py-1 text-nowrap">{tech}</div>
-							{/each}
 						</div>
 					</div>
 				</div>
