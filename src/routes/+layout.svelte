@@ -8,8 +8,4 @@
 	const { children } = $props();
 </script>
 
-<svelte:head>
-	<title>duyda's portfolio</title>
-</svelte:head>
-
 {@render children()}
