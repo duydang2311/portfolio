@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @theme {
 	--color-surface: oklch(99% 0.004 142);
 	--color-surface-subtle: oklch(98% 0.006 142);
@@ -32,6 +34,31 @@
 }
 
 @layer base {
+	:root {
+		@variant dark {
+			--color-surface: oklch(17% 0.004 148);
+			--color-surface-subtle: oklch(20% 0.006 148);
+			--color-surface-emph: oklch(23% 0.01 148);
+			--color-surface-border: oklch(25% 0.004 148);
+
+			--color-fg: oklch(82% 0.01 148);
+			--color-fg-subtle: oklch(72% 0.01 148);
+			--color-fg-emph: oklch(96% 0.01 148);
+			--color-fg-muted: oklch(60% 0.01 148);
+
+			--color-base: oklch(23% 0.004 148);
+			--color-base-subtle: oklch(25% 0.004 148);
+			--color-base-emph: oklch(27% 0.01 148);
+			--color-base-border: oklch(29% 0.004 148);
+
+			--color-primary: oklch(24% 0.04 148);
+			--color-primary-subtle: oklch(27% 0.06 148);
+			--color-primary-emph: oklch(30% 0.08 148);
+			--color-primary-border: oklch(30% 0.04 148);
+			--color-primary-fg: oklch(63.5% 0.175 148);
+		}
+	}
+
 	:root {
 		font-size: 14px;
 		line-height: 1.5;
