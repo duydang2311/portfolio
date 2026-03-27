@@ -53,7 +53,7 @@
 			</header> -->
 			<main>
 				<div
-					class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,40rem),1fr))] gap-px bg-surface-border *:min-w-0 *:bg-surface"
+					class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,40rem),1fr))] gap-px bg-surface-border *:min-w-0 *:bg-surface pr-px"
 				>
 					<AboutMe />
 					<Works />

@@ -21,7 +21,12 @@
 		<div class="px-4">
 			<h2 class="font-display text-lg font-semibold text-fg-emph">2. Works</h2>
 		</div>
-		<div class="mt-0 grid gap-px *:outline *:outline-base-border @[52rem]:grid-cols-2">
+		<div class="mt-4 grid gap-px *:outline *:outline-base-border @[52rem]:grid-cols-2">
+			<div
+				class="col-span-full bg-surface-subtle px-4 py-1 text-xs font-semibold text-fg-muted uppercase"
+			>
+				Application
+			</div>
 			{@render item(
 				'sorairo',
 				'A minimal, local, cross-platform music player built with Avalonia and miniaudio.',
@@ -51,6 +56,51 @@
 					'sveltekit'
 				]
 			)}
+			{@render item(
+				'portfolio',
+				'A white-paper, pixelated style portfolio website, built just for me.',
+				['sveltekit', 'ssr', 'cloudflare-workers', 'zagjs']
+			)}
+			{@render item(
+				'konekt',
+				'A comprehensive and traditional web application for task management with list view, kanban view, and timeline view.',
+				[
+					'aspnetcore',
+					'fast-endpoints',
+					'signalr/websocket',
+					'efcore',
+					'wolverine',
+					'vertical-slice-architecture',
+					'sveltekit',
+					'effect',
+					'tailwindcss',
+					'melt-ui',
+					'cloudflare-workers'
+				]
+			)}
+			<div
+				class="col-span-full bg-surface-subtle px-4 py-1 text-xs font-semibold text-fg-muted uppercase"
+			>
+				Library
+			</div>
+			{@render item(
+				'AltV.Community.MValueAdapters.Generators',
+				'A roslyn source generator for MValue adapter implementation in alt:V.',
+				['csharp', 'altv', 'roslyn-generator', 'coreclr-module']
+			)}
+			{@render item('attempt', 'A functional type for error handling in JavaScript/TypeScript.', [
+				'typescript',
+				'javascript',
+				'functional',
+				'functional-programming',
+				'pipe',
+				'error-handling',
+				'try',
+				'try-catch',
+				'attempt',
+				'result-pattern'
+			])}
+			{@render item('svelte utils', 'A collection of Svelte utilities.', ['svelte'])}
 		</div>
 	</div>
 </section>

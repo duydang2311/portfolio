@@ -54,7 +54,7 @@
 		</span>
 		{#key index}
 			<div
-				class="absolute top-0 right-0"
+				class="absolute top-0 right-0 lg:left-0"
 				in:motion={(node, animate) => {
 					return animate(
 						Array.from(node.children) as HTMLElement[],
