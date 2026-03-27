@@ -19,11 +19,11 @@
 <section class="@container h-full py-6">
 	<div class="w-full">
 		<div class="px-4">
-			<h2 class="font-display text-lg font-semibold text-fg-emph">2. Works</h2>
+			<h2 class="font-display text-xl font-semibold text-fg-emph">2. Works</h2>
 		</div>
 		<div class="mt-4 grid gap-px *:outline *:outline-base-border @[52rem]:grid-cols-2">
 			<div
-				class="col-span-full bg-surface-subtle px-4 py-1 text-xs font-semibold text-fg-muted uppercase"
+				class="col-span-full bg-surface-subtle px-4 py-2 text-xs font-semibold text-fg-muted uppercase"
 			>
 				Application
 			</div>
@@ -79,7 +79,7 @@
 				]
 			)}
 			<div
-				class="col-span-full bg-surface-subtle px-4 py-1 text-xs font-semibold text-fg-muted uppercase"
+				class="col-span-full bg-surface-subtle px-4 py-2 text-xs font-semibold text-fg-muted uppercase"
 			>
 				Library
 			</div>
