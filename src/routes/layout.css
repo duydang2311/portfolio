@@ -102,13 +102,13 @@
 
 ::view-transition-new(root) {
 	mask: url('../lib/assets/images/view-transition.gif') center / 0 no-repeat;
-	animation: scale 1s;
+	animation: scale 1.5s;
 	animation-fill-mode: both;
 }
 
 ::view-transition-old(root),
 [data-theme='dark']::view-transition-old(root) {
-	animation: scale 1s;
+	animation: scale 1.5s;
 	animation-fill-mode: both;
 }
 
