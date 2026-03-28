@@ -1,22 +1,13 @@
 <script lang="ts">
+	import { pageInView } from '$lib/utils/dom';
 	import { motion } from '$lib/utils/transition.svelte';
 	import { stagger } from 'motion';
-	import { onMount } from 'svelte';
 	import { circIn } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
 	const snippets = [cs, js, rust, go];
 	let index = $state.raw(0);
 	const snippet = $derived(snippets[index]);
-
-	onMount(() => {
-		const interval = setInterval(() => {
-			index = (index + 1) % snippets.length;
-		}, 4000);
-		return () => {
-			clearTimeout(interval);
-		};
-	});
 </script>
 
 {#snippet code(prefix: string, value: string, suffix: string)}
@@ -48,7 +39,19 @@
 {/snippet}
 
 <div class="relative">
-	<div class="font-display text-fg-muted">
+	<div
+		class="font-display text-fg-muted"
+		{@attach (node) => {
+			return pageInView(node, () => {
+				const interval = setInterval(() => {
+					index = (index + 1) % snippets.length;
+				}, 4000);
+				return () => {
+					clearTimeout(interval);
+				};
+			});
+		}}
+	>
 		<span class="font-inherit invisible inline-block w-0 text-inherit" aria-hidden="true">
 			&nbsp;
 		</span>

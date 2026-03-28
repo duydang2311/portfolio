@@ -10,7 +10,6 @@
 	let actualTheme = $state.raw(untrack(() => getActualTheme(requestedTheme)));
 
 	function setActualTheme(theme: 'light' | 'dark') {
-		console.log(actualTheme, theme);
 		if (actualTheme === theme) {
 			actualTheme = theme;
 			document.documentElement.dataset.theme = theme;

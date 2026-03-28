@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ArrowTopRight } from '$lib/components/icons';
-	import { onMount } from 'svelte';
+	import { pageInView } from '$lib/utils/dom';
 	import { circIn, circOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
@@ -12,25 +12,28 @@
 	];
 	let index = $state.raw(0);
 	const subtitle = $derived(subtitles[index]);
-
-	onMount(() => {
-		const interval = setInterval(() => {
-			index = (index + 1) % subtitles.length;
-		}, 2000);
-		return () => {
-			clearTimeout(interval);
-		};
-	});
 </script>
 
 <div class="relative">
 	<!-- <div class="absolute inset-x-0 top-0 -translate-y-1/2 scale-125 opacity-10">
 		<DitheringPfp />
-	</div> -->	
+	</div> -->
 	<div class="relative">
 		<div class="text-xs tracking-wide text-fg-muted uppercase">Available for hire</div>
 		<div class="font-display text-6xl tracking-tight text-primary-fg">duydang</div>
-		<div class="relative mt-1 text-sm">
+		<div
+			class="relative mt-1 text-sm"
+			{@attach (node) => {
+				return pageInView(node, () => {
+					const interval = setInterval(() => {
+						index = (index + 1) % subtitles.length;
+					}, 2000);
+					return () => {
+						clearTimeout(interval);
+					};
+				});
+			}}
+		>
 			<span class="font-inherit invisible inline-block w-0 text-inherit" aria-hidden="true">
 				&nbsp;
 			</span>
