@@ -71,3 +71,61 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 }
+
+@utility absolute-center {
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+::view-transition-group(root) {
+	--expo-in: linear(
+		0 0%,
+		0.0085 31.26%,
+		0.0167 40.94%,
+		0.0289 48.86%,
+		0.0471 55.92%,
+		0.0717 61.99%,
+		0.1038 67.32%,
+		0.1443 72.07%,
+		0.1989 76.7%,
+		0.2659 80.89%,
+		0.3465 84.71%,
+		0.4419 88.22%,
+		0.554 91.48%,
+		0.6835 94.51%,
+		0.8316 97.34%,
+		1 100%
+	);
+	animation-timing-function: var(--expo-in);
+}
+
+::view-transition-new(root) {
+	mask: url('../lib/assets/images/view-transition.gif') center / 0 no-repeat;
+	animation: scale 1s;
+	animation-fill-mode: both;
+}
+
+::view-transition-old(root),
+[data-theme='dark']::view-transition-old(root) {
+	animation: scale 1s;
+	animation-fill-mode: both;
+}
+
+@keyframes scale {
+	0% {
+		mask-size: 0;
+	}
+	30% {
+		mask-size: 24vmax;
+	}
+	80% {
+		mask-size: 25vmax;
+	}
+	90% {
+		mask-size: 20vmax;
+	}
+	100% {
+		mask-size: 2000vmax;
+	}
+}

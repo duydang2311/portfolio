@@ -2,6 +2,7 @@
 	import AboutMe from './AboutMe.svelte';
 	import Greetings from './Greetings.svelte';
 	import Hero from './Hero.svelte';
+	import SwitchThemeButton from './SwitchThemeButton.svelte';
 	import Works from './Works.svelte';
 </script>
 
@@ -30,30 +31,22 @@
 					></defs
 				><rect width="800%" height="800%" fill="url(#a)" transform="translate(0 -15)" /></svg
 			>
-			<div class="relative ml-auto min-w-76 self-end p-8 lg:p-4">
-				<Greetings />
+			<div class="flex flex-col items-end justify-between lg:items-start">
+				<header class="relative px-6 py-4 lg:px-4 lg:py-2">
+					<SwitchThemeButton />
+				</header>
+				<div class="relative ml-auto min-w-76 self-end px-6 pb-4 lg:px-4">
+					<Greetings />
+				</div>
 			</div>
-			<div class="relative flex-1 content-center p-8">
+			<div class="relative flex-1 content-center px-6 py-4">
 				<Hero />
 			</div>
 		</div>
 		<div class="max-h-screen flex-1">
-			<!-- <header class="border-b border-b-surface-border">
-				<nav>
-					<ul class="flex divide-x divide-surface-border *:flex-1">
-						{#each ['Home', 'Works'] as item}
-							<li>
-								<a href="#" class="block px-4 py-1 text-center text-sm hover:bg-base-subtle">
-									{item}
-								</a>
-							</li>
-						{/each}
-					</ul>
-				</nav>
-			</header> -->
 			<main>
 				<div
-					class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,40rem),1fr))] gap-px bg-surface-border *:min-w-0 *:bg-surface pr-px"
+					class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,40rem),1fr))] gap-px bg-surface-border pr-px *:min-w-0 *:bg-surface"
 				>
 					<AboutMe />
 					<Works />
