@@ -1,7 +1,7 @@
 <script lang="ts"></script>
 
 {#snippet item(title: string, desc: string, tags: string[])}
-	<button class="flex flex-col justify-between gap-4 p-4 text-left hover:bg-surface-subtle">
+	<button class="flex flex-col justify-between gap-4 p-4 text-left hover:bg-surface-subtle hover:outline-base-border hover:z-1">
 		<div>
 			<p class="font-display text-lg font-medium text-fg-emph">{title}</p>
 			<p class="mt-1 text-sm">
@@ -17,13 +17,13 @@
 {/snippet}
 
 <section class="@container h-full py-6">
-	<div class="w-full">
-		<div class="px-4">
+	<div class="w-full px-4 lg:px-6">
+		<div>
 			<h2 class="font-display text-xl font-semibold text-fg-emph">2. Works</h2>
 		</div>
-		<div class="mt-4 grid gap-px *:outline *:outline-base-border @[52rem]:grid-cols-2">
+		<div class="mt-4 grid gap-px @[52rem]:grid-cols-2 *:outline *:outline-surface-border">
 			<div
-				class="col-span-full bg-surface-subtle px-4 py-2 text-xs font-semibold text-fg-muted uppercase"
+				class="col-span-full bg-surface-subtle px-4 py-2 text-xs font-medium text-fg-muted uppercase"
 			>
 				Application
 			</div>
@@ -79,7 +79,7 @@
 				]
 			)}
 			<div
-				class="col-span-full bg-surface-subtle px-4 py-2 text-xs font-semibold text-fg-muted uppercase"
+				class="col-span-full bg-surface-subtle px-4 py-2 text-xs font-medium text-fg-muted uppercase"
 			>
 				Library
 			</div>

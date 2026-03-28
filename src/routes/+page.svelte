@@ -35,7 +35,7 @@
 				<header class="relative px-6 py-4 lg:px-4 lg:py-2">
 					<SwitchThemeButton />
 				</header>
-				<div class="relative ml-auto min-w-76 self-end px-6 pb-4 lg:px-4">
+				<div class="relative text-nowrap pr-6 pb-4 lg:px-4">
 					<Greetings />
 				</div>
 			</div>
@@ -46,7 +46,7 @@
 		<div class="max-h-screen flex-1">
 			<main>
 				<div
-					class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,40rem),1fr))] gap-px bg-surface-border pr-px *:min-w-0 *:bg-surface"
+					class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,40rem),1fr))] gap-px *:min-w-0 *:outline *:outline-surface-border"
 				>
 					<AboutMe />
 					<Works />
