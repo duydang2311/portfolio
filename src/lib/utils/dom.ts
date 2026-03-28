@@ -8,9 +8,6 @@ export function pageInView(
 	let stop: void | VoidFunction;
 	let cleanup: void | VoidFunction;
 	let visible = !document.hidden;
-	if (visible) {
-		startWatching();
-	}
 
 	function handleVisibilityChange() {
 		visible = !document.hidden;
@@ -43,16 +40,14 @@ export function pageInView(
 			stop = void 0;
 		}
 	}
+
+	if (visible) {
+		startWatching();
+	}
+
 	document.addEventListener('visibilitychange', handleVisibilityChange);
 	return () => {
 		document.removeEventListener('visibilitychange', handleVisibilityChange);
-		if (cleanup) {
-			cleanup();
-			cleanup = void 0;
-		}
-		if (stop) {
-			stop();
-			stop = void 0;
-		}
+		stopWatching();
 	};
 }
