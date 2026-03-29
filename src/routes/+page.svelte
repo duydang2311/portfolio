@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AboutMe from './AboutMe.svelte';
+	import ChangeColorButton from './ChangeColorButton.svelte';
 	import Greetings from './Greetings.svelte';
 	import Hero from './Hero.svelte';
 	import SwitchThemeButton from './SwitchThemeButton.svelte';
@@ -32,10 +33,11 @@
 				><rect width="800%" height="800%" fill="url(#a)" transform="translate(0 -15)" /></svg
 			>
 			<div class="flex flex-col items-end justify-between lg:items-start">
-				<header class="relative px-6 py-4 lg:px-4 lg:py-2">
+				<header class="relative flex gap-2 px-6 py-4 lg:px-4 lg:py-2">
 					<SwitchThemeButton />
+					<ChangeColorButton />
 				</header>
-				<div class="relative text-nowrap pr-6 pb-4 lg:px-4">
+				<div class="relative pr-6 pb-4 text-nowrap lg:px-4">
 					<Greetings />
 				</div>
 			</div>
