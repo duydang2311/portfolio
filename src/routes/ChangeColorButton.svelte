@@ -47,7 +47,7 @@
 --color-surface-emph: oklch(23% 0.01 ${hue});
 --color-surface-border: oklch(25% 0.004 ${hue});
 
---color-fg: oklch(82% 0.01 ${hue});
+--color-fg: oklch(86% 0.01 ${hue});
 --color-fg-subtle: oklch(72% 0.01 ${hue});
 --color-fg-emph: oklch(96% 0.01 ${hue});
 --color-fg-muted: oklch(60% 0.01 ${hue});
