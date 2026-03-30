@@ -1,3 +1,4 @@
+import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
@@ -16,7 +17,8 @@ export function mdToHtml() {
 				const processor = unified()
 					.use(remarkParse)
 					.use(remarkGfm)
-					.use(remarkRehype)
+					.use(remarkRehype, { allowDangerousHtml: true })
+					.use(rehypeRaw)
 					.use(rehypeStringify);
 				const html = String(await processor.process(code));
 				return {
