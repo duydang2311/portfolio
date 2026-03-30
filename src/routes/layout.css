@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -69,6 +70,22 @@
 		text-rendering: optimizeLegibility;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+		overflow: auto;
+	}
+
+	::-webkit-scrollbar {
+		width: --spacing(2);
+		height: --spacing(2);
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: var(--color-surface);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: var(--color-fg-emph);
+		border: 2px solid var(--color-surface);
+		border-radius: calc(1px * infinity);
 	}
 }
 
@@ -114,5 +131,92 @@
 	100% {
 		mask-position: 50% 75%;
 		mask-size: 800vmin;
+	}
+}
+
+@utility prose {
+	--tw-prose-body: var(--color-fg);
+	--tw-prose-headings: var(--color-fg-emph);
+	--tw-prose-lead: var(--color-pink-700);
+	--tw-prose-links: var(--color-info);
+	--tw-prose-bold: var(--color-fg);
+	--tw-prose-counters: var(--color-fg-muted);
+	--tw-prose-bullets: var(--color-base-border);
+	--tw-prose-hr: var(--color-surface-border);
+	--tw-prose-quotes: var(--color-fg-muted);
+	--tw-prose-quote-borders: var(--color-surface-border);
+	--tw-prose-captions: var(--color-pink-700);
+	--tw-prose-code: var(--color-fg);
+	--tw-prose-pre-code: var(--color-fg);
+	--tw-prose-pre-bg: var(--color-base-weak);
+	--tw-prose-th-borders: var(--color-surface-border);
+	--tw-prose-td-borders: var(--color-surface-border);
+	--tw-prose-quote-borders: var(--color-surface-border);
+
+	--tw-prose-invert-body: var(--tw-prose-body);
+	--tw-prose-invert-headings: var(--tw-prose-headings);
+	--tw-prose-invert-lead: var(--tw-prose-lead);
+	--tw-prose-invert-links: var(--tw-prose-links);
+	--tw-prose-invert-bold: var(--tw-prose-bold);
+	--tw-prose-invert-counters: var(--tw-prose-counters);
+	--tw-prose-invert-bullets: var(--tw-prose-bullets);
+	--tw-prose-invert-hr: var(--tw-prose-hr);
+	--tw-prose-invert-quotes: var(--tw-prose-quotes);
+	--tw-prose-invert-quote-borders: var(--tw-prose-quote-borders);
+	--tw-prose-invert-captions: var(--tw-prose-captions);
+	--tw-prose-invert-code: var(--tw-prose-code);
+	--tw-prose-invert-pre-code: var(--tw-prose-pre-code);
+	--tw-prose-invert-pre-bg: var(--tw-prose-pre-bg);
+	--tw-prose-invert-th-borders: var(--tw-prose-th-borders);
+	--tw-prose-invert-td-borders: var(--tw-prose-td-borders);
+
+	line-height: inherit;
+	font-size: inherit;
+	max-width: none;
+}
+
+.prose {
+	:where(& :is(h1, h2, h3, h4)) {
+		font-family: var(--font-display);
+	}
+
+	& th {
+		font-family: var(--font-display);
+		color: var(--color-fg-muted);
+	}
+
+	:where(& img) {
+		max-height: 42rem;
+		/* border: 1px solid var(--color-base-border); */
+		border-radius: var(--radius-xl);
+		@apply shadow;
+	}
+
+	:where(& input[type='checkbox']) {
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		position: relative;
+		width: 1em;
+		height: 1em;
+		border-radius: var(--radius-xs);
+		background-color: var(--color-base);
+
+		:where(&:checked) {
+			background-color: var(--color-primary-emph);
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: 4px;
+				top: 0px;
+				width: 6px;
+				height: 12px;
+				border-width: 0 3px 3px 0;
+				transform: rotate(45deg);
+				border-color: var(--color-primary-fg);
+				border-style: solid;
+			}
+		}
 	}
 }

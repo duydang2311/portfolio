@@ -1,0 +1,35 @@
+# sorairo
+
+A minimal, local, cross-platform music player built with Avalonia and miniaudio.
+
+![Sorairo](https://objects.duyda.tech/portfolio/sorairo-demo.gif "Sorairo app demo")
+
+## Roadmap
+
+I've pulled the first usable cross-platform version recently. And there are lots of work to be done still.
+
+- [x] Responsive GUI with Avalonia
+- [x] Cross-platform playback with miniaudio
+- [x] File metadata read (ATL.NET)
+- [ ] File metadata write utilities (ATL.NET)
+- [x] Playback modes: shuffle, repeat.
+- [ ] Adding sources from YouTube (yt-dlp on-demand)
+- [ ] Basic audio visualization
+- [ ] Discord RPC option
+- [ ] Drag and drop songs
+- [ ] Audio normalization (embedded rsgain)
+- [ ] Release packaging (Velopack)
+- [x] Light & dark mode
+
+## Performance
+
+Ran on my win-x64 with the following results:
+
+| Metric                   | Value   |
+|:-------------------------|:--------|
+| Startup time             | ~1s     |
+| Memory usage (startup)   | ~35 MB  |
+| Memory usage (20 songs)  | ~43 MB  |
+| Memory usage (playback)  | ~50 MB  |
+| CPU usage (idle)         | ~0%    |
+| CPU usage (playback)     | ~0.5%  |

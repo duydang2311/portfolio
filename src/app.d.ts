@@ -11,7 +11,12 @@ declare global {
 			theme: 'light' | 'dark' | 'system';
 		}
 		// interface PageData {}
-		// interface PageState {}
+		interface PageState {
+			shallowWorkPageProps?: {
+				title: string;
+				data: unknown;
+			};
+		}
 		// interface Platform {}
 	}
 }

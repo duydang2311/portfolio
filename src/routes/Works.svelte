@@ -1,7 +1,32 @@
-<script lang="ts"></script>
+<script lang="ts">
+	import { goto, preloadData, pushState } from '$app/navigation';
+	import WorkPageDialog from './WorkPageDialog.svelte';
+</script>
 
 {#snippet item(title: string, desc: string, tags: string[])}
-	<button class="flex flex-col justify-between gap-4 p-4 text-left hover:bg-surface-subtle hover:outline-base-border hover:z-1">
+	<a
+		href="/w/{title}"
+		class="flex flex-col justify-between gap-4 p-4 text-left hover:z-1 hover:bg-surface-subtle hover:outline-base-border"
+		onclick={async (e) => {
+			if (innerWidth < 640 || e.shiftKey || e.metaKey || e.ctrlKey) {
+				return;
+			}
+
+			e.preventDefault();
+			const { href } = e.currentTarget;
+			const result = await preloadData(href);
+			if (result.type === 'loaded' && result.status === 200) {
+				pushState(href, {
+					shallowWorkPageProps: {
+						title,
+						data: result.data
+					}
+				});
+			} else {
+				await goto(href);
+			}
+		}}
+	>
 		<div>
 			<p class="font-display text-lg font-medium text-fg-emph">{title}</p>
 			<p class="mt-1 text-sm">
@@ -13,15 +38,16 @@
 				<div class="rounded-xs bg-base px-2 py-1 text-sm text-fg-subtle">{tag}</div>
 			{/each}
 		</div>
-	</button>
+	</a>
 {/snippet}
 
 <section class="@container h-full py-6">
+	<WorkPageDialog />
 	<div class="w-full px-4 lg:px-6">
 		<div>
 			<h2 class="font-display text-xl font-semibold text-fg-emph">2. Works</h2>
 		</div>
-		<div class="mt-4 grid gap-px @[52rem]:grid-cols-2 *:outline *:outline-surface-border">
+		<div class="isolate mt-4 grid gap-px *:outline *:outline-surface-border @[52rem]:grid-cols-2">
 			<div
 				class="col-span-full bg-surface-subtle px-4 py-2 text-xs font-medium text-fg-muted uppercase"
 			>

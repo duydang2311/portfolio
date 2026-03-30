@@ -1,3 +1,4 @@
+import * as dialog from '@zag-js/dialog';
 import * as popover from '@zag-js/popover';
 import * as slider from '@zag-js/slider';
 import { normalizeProps, useMachine } from '@zag-js/svelte';
@@ -15,6 +16,16 @@ export function createPopover(props: Partial<popover.Props> | (() => Partial<pop
 export function createSlider(props: Partial<slider.Props> | (() => Partial<slider.Props>)) {
 	const service = useMachine(slider.machine, props);
 	const api = $derived(slider.connect(service, normalizeProps));
+	return {
+		get api() {
+			return api;
+		}
+	};
+}
+
+export function createDialog(props: Partial<dialog.Props> | (() => Partial<dialog.Props>)) {
+	const service = useMachine(dialog.machine, props);
+	const api = $derived(dialog.connect(service, normalizeProps));
 	return {
 		get api() {
 			return api;

@@ -7,12 +7,12 @@
 	import Works from './Works.svelte';
 </script>
 
-<div class="flex h-screen flex-col">
+<div class="flex flex-col">
 	<div
-		class="flex h-full flex-col divide-y divide-surface-border overflow-auto lg:flex-row lg:divide-x"
+		class="flex h-full flex-col divide-y divide-surface-border lg:flex-row lg:divide-x"
 	>
 		<div
-			class="relative top-0 flex flex-row-reverse justify-between bg-surface-subtle lg:sticky lg:flex-col lg:justify-start"
+			class="lg:h-screen relative top-0 flex flex-row-reverse justify-between bg-surface-subtle lg:sticky lg:flex-col lg:justify-start"
 		>
 			<svg xmlns="http://www.w3.org/2000/svg" class="absolute top-0 left-0 size-full"
 				><defs
@@ -45,7 +45,7 @@
 				<Hero />
 			</div>
 		</div>
-		<div class="max-h-screen flex-1">
+		<div class="flex-1">
 			<main>
 				<div
 					class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,40rem),1fr))] gap-px *:min-w-0 *:outline *:outline-surface-border"
