@@ -13,7 +13,6 @@
 			return page.state.shallowWorkPageProps != null;
 		},
 		onOpenChange: (details) => {
-			console.log('onOpenChange', details);
 			if (!details.open) {
 				history.back();
 			}
