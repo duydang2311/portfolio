@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { goto, preloadData, pushState } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import WorkPageDialog from './WorkPageDialog.svelte';
 </script>
 
 {#snippet item(title: string, desc: string, tags: string[])}
 	<a
-		href="/w/{title}"
+		href={resolve('/w/[work]', { work: title.replace(/\s/g, '-') })}
 		class="flex flex-col justify-between gap-4 p-4 text-left hover:z-1 hover:bg-surface-subtle hover:outline-base-border"
 		onclick={async (e) => {
 			if (innerWidth < 640 || e.shiftKey || e.metaKey || e.ctrlKey) {
@@ -13,7 +14,7 @@
 			}
 
 			e.preventDefault();
-			const { href } = e.currentTarget;
+			const href = resolve('/w/[work]', { work: title.replace(/\s/g, '-') });
 			const result = await preloadData(href);
 			if (result.type === 'loaded' && result.status === 200) {
 				pushState(href, {
@@ -34,7 +35,7 @@
 			</p>
 		</div>
 		<div class="flex flex-wrap gap-x-2 gap-y-1">
-			{#each tags as tag}
+			{#each tags as tag (tag)}
 				<div class="rounded-xs bg-base px-2 py-1 text-sm text-fg-subtle">{tag}</div>
 			{/each}
 		</div>

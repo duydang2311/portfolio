@@ -32,6 +32,7 @@
 
 @theme inline {
 	--default-font-family: var(--font-sans);
+	--default-mono-font-family: var(--font-mono);
 }
 
 @layer base {
@@ -61,7 +62,7 @@
 	}
 
 	:root {
-		font-size: 16px;
+		font-size: 14px;
 		line-height: 1.5;
 		color-scheme: light dark;
 		color: var(--color-fg);
@@ -148,7 +149,7 @@
 	--tw-prose-captions: var(--color-pink-700);
 	--tw-prose-code: var(--color-fg);
 	--tw-prose-pre-code: var(--color-fg);
-	--tw-prose-pre-bg: var(--color-base-weak);
+	--tw-prose-pre-bg: var(--color-base);
 	--tw-prose-th-borders: var(--color-surface-border);
 	--tw-prose-td-borders: var(--color-surface-border);
 	--tw-prose-quote-borders: var(--color-surface-border);
@@ -176,6 +177,10 @@
 }
 
 .prose {
+	:where(& :is(code, pre)) {
+		font-family: var(--font-mono);
+	}
+
 	:where(& :is(h1, h2, h3, h4)) {
 		font-family: var(--font-display);
 	}

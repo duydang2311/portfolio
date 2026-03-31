@@ -22,7 +22,7 @@ export function mdToHtml() {
 					.use(rehypeStringify);
 				const html = String(await processor.process(code));
 				return {
-					code: `export default \`${html}\`;`,
+					code: `export default ${JSON.stringify(html)};`,
 					map: null
 				};
 			}
