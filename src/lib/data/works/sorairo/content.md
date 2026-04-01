@@ -1,8 +1,18 @@
+---
+github_repo: https://github.com/duydang2311/portfolio
+medias:
+  - src: https://objects.duyda.tech/portfolio/sorairo-demo-video.mp4
+  - src: https://objects.duyda.tech/portfolio/sorairo-light.png
+  - src: https://objects.duyda.tech/portfolio/sorairo-dark.png
+  - src: https://objects.duyda.tech/portfolio/sorairo-compact.png
+  - src: https://objects.duyda.tech/portfolio/sorairo-mini.png
+---
+
 # sorairo
 
 A minimal, local, cross-platform music player built with Avalonia and miniaudio.
 
-<video src="https://objects.duyda.tech/portfolio/sorairo-demo-video.mp4" muted controls></video>
+<div data-part="media--container"></div>
 
 ## Approaches
 

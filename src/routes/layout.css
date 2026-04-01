@@ -5,8 +5,8 @@
 
 @theme {
 	--color-surface: oklch(99% 0.004 142);
-	--color-surface-subtle: oklch(98% 0.006 142);
-	--color-surface-emph: oklch(96% 0.01 142);
+	--color-surface-subtle: oklch(97.5% 0.006 142);
+	--color-surface-emph: oklch(96% 0.008 142);
 	--color-surface-border: oklch(94% 0.004 142);
 
 	--color-fg: oklch(33% 0.01 142);
@@ -75,17 +75,13 @@
 	}
 
 	::-webkit-scrollbar {
-		width: --spacing(2);
-		height: --spacing(2);
-	}
-
-	::-webkit-scrollbar-track {
-		background-color: var(--color-surface);
+		width: --spacing(3);
+		height: --spacing(3);
 	}
 
 	::-webkit-scrollbar-thumb {
-		background-color: var(--color-fg-emph);
-		border: 2px solid var(--color-surface);
+		background-color: var(--color-fg);
+		border: --spacing(1) solid var(--color-surface);
 		border-radius: calc(1px * infinity);
 	}
 }
@@ -177,32 +173,32 @@
 }
 
 .prose {
-	:where(& :is(code, pre)) {
+	:where(& :is(code, pre)):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
 		font-family: var(--font-mono);
 	}
 
-	:where(& :is(h1, h2, h3, h4)) {
+	:where(& :is(h1, h2, h3, h4)):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
 		font-family: var(--font-display);
 	}
 
-	:where(& :is(h3, h4, h5, h6)) {
+	:where(& :is(h3, h4, h5, h6)):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
 		font-size: var(--text-lg);
 	}
 
-	& th {
+	:where(& th):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
 		font-family: var(--font-display);
 		color: var(--color-fg-subtle);
 		font-weight: 400;
 	}
 
-	:where(& img, & video) {
+	:where(& img, & video):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
 		max-height: 42rem;
 		/* border: 1px solid var(--color-base-border); */
 		border-radius: var(--radius-xl);
 		@apply shadow;
 	}
 
-	:where(& input[type='checkbox']) {
+	:where(& input[type='checkbox']):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
 		appearance: none;
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -218,8 +214,8 @@
 			&::after {
 				content: '';
 				position: absolute;
-				left: 5px;
-				top: 1px;
+				left: 4px;
+				top: 0px;
 				width: 6px;
 				height: 12px;
 				border-width: 0 3px 3px 0;

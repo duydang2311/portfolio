@@ -30,15 +30,14 @@
 	<div
 		use:portal
 		{...dialog.api.getPositionerProps()}
-		class="fixed top-0 left-0 flex h-screen w-screen items-center justify-center px-6"
+		class="fixed top-0 left-0 h-screen w-screen content-center items-center justify-center px-6"
 		transition:scale={{ start: 0.98, duration: 300, easing: circInOut }}
 	>
-		<div
-			{...dialog.api.getContentProps()}
-			class="max-w-full rounded-lg border border-base-border bg-surface p-1 focus:outline-none"
-		>
-			<div class="h-[80vh] w-5xl max-w-full overflow-auto px-6 py-4">
-				<WorkPage data={page.state.shallowWorkPageProps.data} />
+		<div {...dialog.api.getContentProps()} class="focus:outline-none">
+			<div class="mx-auto w-5xl max-w-full rounded-lg border border-base-border bg-surface">
+				<div class="h-[80vh] overflow-auto">
+					<WorkPage data={page.state.shallowWorkPageProps.data} />
+				</div>
 			</div>
 		</div>
 	</div>
