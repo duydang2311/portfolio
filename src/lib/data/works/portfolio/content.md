@@ -1,6 +1,15 @@
+---
+github_repo: https://github.com/duydang2311/portfolio
+medias:
+  - src: https://objects.duyda.tech/portfolio/portfolio/01_dark.png
+  - src: https://objects.duyda.tech/portfolio/portfolio/02_light.png
+---
+
 # portfolio
 
 A white-paper, pixelated style portfolio website, built just for me.
+
+<div data-part="media--container"></div>
 
 ## Tech Stack
 

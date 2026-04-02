@@ -1,8 +1,26 @@
+---
+github_repo: https://github.com/duydang2311/plan-backend
+medias:
+  - src: https://objects.duyda.tech/portfolio/konekt/01_landing.png
+  - src: https://objects.duyda.tech/portfolio/konekt/01_landing_dark.png
+  - src: https://objects.duyda.tech/portfolio/konekt/01_landing_light.png
+  - src: https://objects.duyda.tech/portfolio/konekt/02_tasks.png
+  - src: https://objects.duyda.tech/portfolio/konekt/02_tasks_dark.png
+  - src: https://objects.duyda.tech/portfolio/konekt/02_tasks_light.png
+  - src: https://objects.duyda.tech/portfolio/konekt/03_board.png
+  - src: https://objects.duyda.tech/portfolio/konekt/03_board_dark.png
+  - src: https://objects.duyda.tech/portfolio/konekt/03_board_light.png
+  - src: https://objects.duyda.tech/portfolio/konekt/04_checklist.gif
+  - src: https://objects.duyda.tech/portfolio/konekt/05_notification.png
+  - src: https://objects.duyda.tech/portfolio/konekt/06_search.png
+  - src: https://objects.duyda.tech/portfolio/konekt/07_global_search.png
+---
+
 # konekt
 
 A comprehensive and traditional web application for task management with list view, kanban view, and timeline view.
 
-<div id="work-gallery"></div>
+<div data-part="media--container"></div>
 
 ## Tech Stack
 

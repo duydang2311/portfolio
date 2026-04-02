@@ -33,11 +33,12 @@
 		class="fixed top-0 left-0 h-screen w-screen content-center items-center justify-center px-6"
 		transition:scale={{ start: 0.98, duration: 300, easing: circInOut }}
 	>
-		<div {...dialog.api.getContentProps()} class="focus:outline-none">
-			<div class="mx-auto w-5xl max-w-full rounded-lg border border-base-border bg-surface">
-				<div class="h-[80vh] overflow-auto">
-					<WorkPage data={page.state.shallowWorkPageProps.data} />
-				</div>
+		<div
+			{...dialog.api.getContentProps()}
+			class="mx-auto w-5xl max-w-full border-2 border-base-border dark:bg-surface-border bg-surface focus:outline-none"
+		>
+			<div class="h-[80vh] overflow-auto">
+				<WorkPage data={page.state.shallowWorkPageProps.data} />
 			</div>
 		</div>
 	</div>

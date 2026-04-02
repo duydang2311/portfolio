@@ -1,8 +1,14 @@
+---
+github_repo: https://github.com/duydang2311/askkit
+medias:
+  - src: https://objects.duyda.tech/portfolio/askkit/01_overview.gif
+---
+
 # askkit
 
 A unified, local desktop AI chatbot that lives in your system tray, ready to launch instantly whenever you need assistance.
 
-![explorer_KlCpP77Oqr](https://github.com/user-attachments/assets/fd5481b2-ae8e-4969-b07f-3ef0c9bfa15c)
+<div data-part="media--container"></div>
 
 ## Approaches
 

@@ -26,7 +26,7 @@ My goal was to build a cross-platform music player app that is highly customizab
 | fltk-rs     | Rust     | ❌      | Best performance (~8mb RAM, ~0% CPU in my POC version with `fltk-rs`). However, it is hard and troublesome to do layout properly, achieve a modern UI look and a reactive style codebase.                                                                                                                                                             |
 | Avalonia UI | C#       | ✅      | The sweet spot. It is retained, cross-platform, and performant enough that resizing doesn't cause flickering. The app currently stays at 30-70MB memory footprint and ~0.8% idle CPU. And it's future-proofing for my visualizer feature in the future where I need to do low-level rendering. I find it pretty impressive for what it is capable of. |
 
-### Playback Engine: miniaudio
+### Playback Engine
 
 For the audio playback, I chose miniaudio, a robust cross-platform library in C that supports `.mp3`, `.ogg`, `.wav` at the cost of just a header file. To use it in C#, I'm using an existing C# library that provides bindings to the functions in C.
 

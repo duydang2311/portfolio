@@ -29,7 +29,7 @@
 		}}
 	>
 		<div>
-			<p class="font-display text-lg font-medium text-fg-emph">{title}</p>
+			<p class="font-display text-lg font-medium text-fg-emph wrap-anywhere">{title}</p>
 			<p class="mt-1 text-sm">
 				{desc}
 			</p>
