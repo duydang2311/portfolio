@@ -13,19 +13,17 @@
 				</p>
 			</div>
 		</div>
-		<div class="@container mt-6">
-			<p class="text-xs tracking-wide text-fg-muted uppercase">Tech Stacks</p>
-			<div
-				class="mt-1 grid grid-flow-row-dense grid-cols-2 gap-px border-y border-transparent *:outline *:outline-surface-border @[60rem]:grid-cols-4"
-			>
-				<div class="p-4 @[60rem]:col-span-2">
+		<div class="@container mt-2">
+			<p class="translate-y-3 translate-x-3 bg-surface w-fit text-xs tracking-wide text-fg-muted uppercase">Tech Stacks</p>
+			<div class="mt-1 grid grid-flow-row-dense gap-px *:outline *:outline-surface-border">
+				<div class="p-4 @[44rem]:col-span-2">
 					<div>
 						<p class="font-display text-lg font-medium text-fg-emph">Back-end</p>
 						<p class="text-sm text-fg-muted">
 							I enjoy building back-ends using .NET where performance matters and Node.js for
 							smaller, agile services.
 						</p>
-						<div class="mt-2 grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-4 *:flex-1">
+						<div class="mt-2 flex flex-wrap gap-4 *:grow">
 							<div>
 								<p class="text-sm text-fg-muted">Platforms</p>
 								<div class="mt-1 flex flex-col gap-1">
@@ -53,7 +51,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row-span-1 p-4 @[60rem]:col-span-2">
+				<div class="p-4 @[44rem]:col-span-2">
 					<div>
 						<p class="font-display text-lg font-medium text-fg-emph">Front-end</p>
 						<p class="text-sm text-fg-muted">
@@ -61,7 +59,7 @@
 							have an interest in building my components on top of unstyled UI libraries.
 							Customization is key!
 						</p>
-						<div class="mt-4 flex flex-col gap-4">
+						<div class="mt-4 flex flex-row flex-wrap gap-4 *:grow">
 							<div>
 								<p class="text-sm text-fg-muted">Platforms</p>
 								<div class="mt-1 flex flex-col gap-1">
@@ -89,14 +87,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="relative p-4 @[60rem]:col-span-2 @[60rem]:row-span-2">
+				<div class="relative p-4">
 					<div>
 						<p class="font-display text-lg font-medium text-fg-emph">Desktop</p>
 						<p class="text-sm text-fg-muted">
 							I lean toward Avalonia UI for a stable, lightweight, modern desktop app, while keeping
 							Rust for its immediate-mode and immature but rapidly growing ecosystems.
 						</p>
-						<div class="mt-4 flex flex-wrap gap-4 *:flex-1">
+						<div class="mt-4 flex flex-wrap gap-4 *:grow">
 							<div>
 								<p class="text-sm text-fg-muted">Platforms</p>
 								<div class="mt-1 flex flex-col gap-1">
@@ -124,27 +122,27 @@
 						</div>
 					</div>
 				</div>
-				<div class="p-4 @[60rem]:col-span-2 @[60rem]:row-span-2">
+				<div class="p-4 @[44rem]:col-span-2">
 					<div>
 						<p class="font-display text-lg font-medium text-fg-emph">Specialized</p>
 						<p class="text-sm text-fg-muted">
 							Some knowledge I gained from solving specific and less common problems.
 						</p>
-						<div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-1">
+						<div class="mt-4 flex flex-wrap gap-1 *:grow">
 							{#each ['.NET Source Generators', '.NET Dynamic Expression', 'C/C# Interop (FFI)', 'C/Rust Interop (FFI)', 'Functional Programming'] as tech (tech)}
 								<div class="rounded bg-base px-4 py-1">{tech}</div>
 							{/each}
 						</div>
 					</div>
 				</div>
-				<div class="col-span-2 p-4 @[60rem]:col-span-4">
+				<div class="p-4">
 					<div>
 						<p class="font-display text-lg font-medium text-fg-emph">Infrastructure</p>
 						<p class="text-sm text-fg-muted">
 							These days, I like Docker for containerization, Cloudflare for its robust cloud
 							services, and mise/just for development workflow.
 						</p>
-						<div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-4">
+						<div class="mt-4 flex flex-wrap gap-4 *:grow">
 							<div>
 								<p class="text-sm text-fg-muted">Data</p>
 								<div class="mt-1 flex flex-col gap-1">
