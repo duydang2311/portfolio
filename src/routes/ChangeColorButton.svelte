@@ -4,6 +4,7 @@
 	import { portal } from '@zag-js/svelte';
 
 	let styleEl: HTMLStyleElement | null = null;
+	let portalEl = $state.raw<HTMLDivElement>();
 	const id = $props.id();
 	const popover = createPopover({ id: `popover--${id}` });
 	const slider = createSlider({
@@ -89,7 +90,7 @@
 	>
 		<ColorWheel class="mx-auto size-5" />
 	</button>
-	<div use:portal={{ disabled: !popover.api.portalled }} {...popover.api.getPositionerProps()}>
+	<div use:portal={{ disabled: !popover.api.portalled, container: portalEl }} {...popover.api.getPositionerProps()} class="z-100 isolate">
 		<div
 			{...popover.api.getContentProps()}
 			class="rounded-md border border-base-border bg-surface px-4 py-2 shadow-sm"
@@ -117,7 +118,7 @@
 							style="background: linear-gradient(to right, oklch(46.6% 0.15 0) 0%, oklch(46.6% 0.15 60) 17%, oklch(46.6% 0.15 120) 33%, oklch(46.6% 0.15 180) 50%, oklch(46.6% 0.15 240) 67%, oklch(46.6% 0.15 300) 83%, oklch(46.6% 0.15 360) 100%);"
 						></div>
 					</div>
-					{#each slider.api.value as _, index}
+					{#each slider.api.value as _, index (index)}
 						{@const thumbProps = { ...slider.api.getThumbProps({ index }) }}
 						<div
 							{...thumbProps}
@@ -131,4 +132,5 @@
 			</div>
 		</div>
 	</div>
+	<div class="fixed z-10" bind:this={portalEl}></div>
 </div>
