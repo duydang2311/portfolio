@@ -2,9 +2,9 @@
 	import { createPopover, createSlider } from '$lib/components/builders.svelte';
 	import { ColorWheel } from '$lib/components/icons';
 	import { portal } from '@zag-js/svelte';
+	import Cookies from 'js-cookie';
 
 	let styleEl: HTMLStyleElement | null = null;
-	let portalEl = $state.raw<HTMLDivElement>();
 	const id = $props.id();
 	const popover = createPopover({ id: `popover--${id}` });
 	const slider = createSlider({
@@ -13,6 +13,7 @@
 		min: 0,
 		max: 360,
 		onValueChange(details) {
+			styleEl ??= document.getElementById('app-dynamic-theme') as HTMLStyleElement | null;
 			if (styleEl == null) {
 				styleEl = document.createElement('style');
 				document.head.appendChild(styleEl);
@@ -65,6 +66,7 @@
 --color-primary-fg: oklch(63.5% 0.175 ${hue});
 }
 	`;
+			Cookies.set('hue', hue.toString(), { path: '/', expires: 365 });
 		}
 	});
 	const currentHue = $derived(slider.api.value[0]);
@@ -90,7 +92,11 @@
 	>
 		<ColorWheel class="mx-auto size-5" />
 	</button>
-	<div use:portal={{ disabled: !popover.api.portalled, container: portalEl }} {...popover.api.getPositionerProps()} class="z-100 isolate">
+	<div
+		use:portal={{ disabled: !popover.api.portalled }}
+		{...popover.api.getPositionerProps()}
+		class="isolate z-100"
+	>
 		<div
 			{...popover.api.getContentProps()}
 			class="rounded-md border border-base-border bg-surface px-4 py-2 shadow-sm"
@@ -100,7 +106,7 @@
 					<label {...slider.api.getLabelProps()} class="text-sm font-medium text-fg-subtle">
 						Hue tweaker
 					</label>
-					<p class="text-fg-muted text-sm">Try a new refreshing look for the site.</p>
+					<p class="text-sm text-fg-muted">Try a new refreshing look for the site.</p>
 				</div>
 				<div class="mt-2 grid grid-cols-3 gap-1">
 					{@render item(0)}
@@ -132,5 +138,4 @@
 			</div>
 		</div>
 	</div>
-	<div class="fixed z-10" bind:this={portalEl}></div>
 </div>

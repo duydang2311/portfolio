@@ -6,7 +6,10 @@ export const handle = async ({ event, resolve }) => {
 	event.locals.theme = theme;
 	if (theme === 'dark' || theme === 'system') {
 		return resolve(event, {
-			transformPageChunk: ({ html }) => html.replace('data-theme=""', `data-theme="${theme}"`)
+			transformPageChunk: ({ html }) =>
+				html
+					.replace('data-theme=""', `data-theme="${theme}"`)
+					.replaceAll('{{hue}}', event.cookies.get('hue') ?? '142')
 		});
 	}
 	return resolve(event);

@@ -2,8 +2,10 @@
 	import { browser } from '$app/environment';
 	import { Computer, Moon, Sun } from '$lib/components/icons';
 	import { usePageData } from '$lib/utils/kit';
-	import { untrack } from 'svelte';
+	import { onMount, untrack } from 'svelte';
+	import invariant from 'tiny-invariant';
 	import { type PageData } from './$types';
+	import Cookies from 'js-cookie';
 
 	const data = usePageData<PageData>();
 	let requestedTheme = $state.raw(data.theme);
@@ -38,7 +40,7 @@
 	function toggleTheme() {
 		requestedTheme =
 			requestedTheme === 'light' ? 'dark' : requestedTheme === 'dark' ? 'system' : 'light';
-		document.cookie = `theme=${requestedTheme}; path=/; max-age=31536000; SameSite=Lax; Secure`;
+		Cookies.set('theme', requestedTheme, { path: '/', expires: 365 });
 	}
 
 	$effect(() => {
