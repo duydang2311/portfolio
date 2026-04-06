@@ -1,19 +1,22 @@
 <script lang="ts">
-	import { ArrowTopRight, Check, Clipboard, Discord, GitHub, Gmail } from '$lib/components/icons';
+	import {
+		ArrowTopRight,
+		Check,
+		Clipboard,
+		Discord,
+		GitHub,
+		Gmail,
+		SoundCloud
+	} from '$lib/components/icons';
 
 	let clipboardTimeout = $state.raw(0);
 </script>
 
 <section class="py-6">
-	<div class="w-full px-4 lg:px-6">
-		<div>
+	<div class="w-full">
+		<div class="px-4 text-pretty lg:px-6">
 			<p class="font-display text-xl font-semibold text-fg-emph">3. Contact</p>
-			<hr class="border-surface-border" />
-		</div>
-		<div class="mt-4">
-			<div class="text-pretty">
-				<p>I'm always open to new opportunities, feedback, or a quick chat.</p>
-			</div>
+			<p class="mt-1">I'm always open to new opportunities, feedback, or a quick chat.</p>
 		</div>
 		<div
 			class="mt-4 grid grid-cols-[repeat(auto-fill,minmax(min(16rem,100%),1fr))] gap-px *:h-48 *:basis-72 *:outline *:outline-surface-border *:hover:z-1"
@@ -22,7 +25,7 @@
 				href="mailto:duyda.himself@gmail.com"
 				aria-label="duydang2311 github user"
 				target="_blank"
-				class="c-card c-card--clickable flex flex-col justify-between p-4"
+				class="c-card c-card--clickable flex flex-col justify-between p-4 lg:p-6"
 			>
 				<Gmail class="size-10 fill-current" />
 				<div class="flex items-center justify-between gap-4">
@@ -34,7 +37,7 @@
 				href="https://github.com/duydang2311"
 				aria-label="duydang2311 github user"
 				target="_blank"
-				class="c-card c-card--clickable flex flex-col justify-between p-4"
+				class="c-card c-card--clickable flex flex-col justify-between p-4 lg:p-6"
 			>
 				<GitHub class="size-10 fill-current" />
 				<div class="mt-16 flex items-center justify-between gap-4">
@@ -44,7 +47,7 @@
 			</a>
 			<button
 				type="button"
-				class="c-card c-card--clickable flex flex-col justify-between p-4 text-left"
+				class="c-card c-card--clickable flex flex-col justify-between p-4 text-left lg:p-6"
 				onclick={() => {
 					navigator.clipboard.writeText('duydang');
 					if (clipboardTimeout !== 0) {
@@ -68,6 +71,18 @@
 					{/if}
 				</div>
 			</button>
+			<a
+				href="https://soundcloud.com/duydang12"
+				aria-label="duydang soundcloud user"
+				target="_blank"
+				class="c-card c-card--clickable flex flex-col justify-between p-4 lg:p-6"
+			>
+				<SoundCloud class="size-10 fill-current" />
+				<div class="mt-16 flex items-center justify-between gap-4">
+					<span>duydang12</span>
+					<ArrowTopRight class="shrink-0" />
+				</div>
+			</a>
 		</div>
 	</div>
 </section>

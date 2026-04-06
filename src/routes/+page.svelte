@@ -11,7 +11,7 @@
 <div class="flex flex-col">
 	<div class="flex h-full flex-col divide-y divide-surface-border lg:flex-row lg:divide-x">
 		<div
-			class="z-10 relative top-0 left-0 flex flex-row-reverse justify-between bg-surface-subtle lg:sticky lg:h-screen lg:flex-col lg:justify-start"
+			class="relative top-0 left-0 flex flex-4 flex-row-reverse justify-between bg-surface-subtle lg:sticky lg:h-screen lg:flex-col lg:justify-start"
 		>
 			<svg xmlns="http://www.w3.org/2000/svg" class="absolute top-0 left-0 size-full max-w-full"
 				><defs
@@ -44,11 +44,16 @@
 				<Hero />
 			</div>
 		</div>
-		<div class="flex-1">
+		<div class="flex-6">
 			<main>
-				<div
+				<!-- <div
 					class="flex flex-col gap-px *:outline *:outline-surface-border lg:flex-row lg:*:grow lg:*:shrink-0 lg:*:basis-3xl"
 				>
+					<AboutMe />
+					<Works />
+					<Contact />
+				</div> -->
+				<div>
 					<AboutMe />
 					<Works />
 					<Contact />

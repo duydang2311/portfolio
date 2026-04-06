@@ -7,7 +7,7 @@
 {#snippet item(title: string, desc: string, tags: string[])}
 	<a
 		href={resolve('/w/[work]', { work: title.replace(/\s/g, '-') })}
-		class="flex flex-col justify-between gap-4 p-4 text-left hover:z-1 hover:bg-surface-subtle hover:outline-base-border"
+		class="flex flex-col justify-between gap-4 p-4 text-left hover:z-1 hover:bg-surface-subtle hover:outline-base-border lg:p-6"
 		onclick={async (e) => {
 			if (innerWidth < 640 || e.shiftKey || e.metaKey || e.ctrlKey) {
 				return;
@@ -29,7 +29,7 @@
 		}}
 	>
 		<div>
-			<p class="font-display text-lg font-medium text-fg-emph wrap-anywhere">{title}</p>
+			<p class="font-display text-lg font-medium wrap-anywhere text-fg-emph">{title}</p>
 			<p class="mt-1 text-sm">
 				{desc}
 			</p>
@@ -44,13 +44,13 @@
 
 <section class="@container py-6">
 	<WorkPageDialog />
-	<div class="w-full px-4 lg:px-6">
-		<div>
+	<div class="w-full">
+		<div class="px-4 lg:px-6">
 			<h2 class="font-display text-xl font-semibold text-fg-emph">2. Works</h2>
 		</div>
 		<div class="isolate mt-4 grid gap-px *:outline *:outline-surface-border @[52rem]:grid-cols-2">
 			<div
-				class="col-span-full bg-surface-subtle px-4 py-2 text-xs font-medium text-fg-muted uppercase"
+				class="col-span-full bg-surface-subtle px-4 py-2 text-xs font-medium text-fg-muted uppercase lg:px-6"
 			>
 				Application
 			</div>
@@ -106,7 +106,7 @@
 				]
 			)}
 			<div
-				class="col-span-full bg-surface-subtle px-4 py-2 text-xs font-medium text-fg-muted uppercase"
+				class="col-span-full bg-surface-subtle px-4 lg:px-6 py-2 text-xs font-medium text-fg-muted uppercase"
 			>
 				Library
 			</div>

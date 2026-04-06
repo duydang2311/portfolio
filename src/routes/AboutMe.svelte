@@ -1,22 +1,21 @@
 <section class="py-6">
-	<div class="w-full px-4 lg:px-6">
-		<div>
+	<div class="w-full">
+		<div class="px-4 lg:px-6">
 			<p class="font-display text-xl font-semibold text-fg-emph">1. About Me</p>
-			<hr class="border-surface-border" />
-		</div>
-		<div class="mt-4">
-			<div class="text-pretty">
-				<p>
-					I'm an early-career software engineer and a fan of learning through hands-on experience. I
-					build functional apps for web and desktop, occasionally contributing to open-source works
-					that are powering them.
-				</p>
-			</div>
+			<p class="mt-1">
+				I'm an early-career software engineer and a fan of learning through hands-on experience. I
+				build functional apps for web and desktop, occasionally contributing to open-source works
+				that are powering them.
+			</p>
 		</div>
 		<div class="@container mt-2">
-			<p class="translate-y-3 translate-x-3 bg-surface w-fit text-xs tracking-wide text-fg-muted uppercase">Tech Stacks</p>
+			<p
+				class="w-fit translate-x-6 translate-y-3 bg-surface text-xs tracking-wide text-fg-muted uppercase"
+			>
+				Tech Stacks
+			</p>
 			<div class="mt-1 grid grid-flow-row-dense gap-px *:outline *:outline-surface-border">
-				<div class="p-4 @[44rem]:col-span-2">
+				<div class="p-4 lg:px-8 @[44rem]:col-span-2 @[68rem]:col-span-1">
 					<div>
 						<p class="font-display text-lg font-medium text-fg-emph">Back-end</p>
 						<p class="text-sm text-fg-muted">
@@ -51,7 +50,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="p-4 @[44rem]:col-span-2">
+				<div class="p-4 lg:px-8 @[44rem]:col-span-2 @[68rem]:col-span-1">
 					<div>
 						<p class="font-display text-lg font-medium text-fg-emph">Front-end</p>
 						<p class="text-sm text-fg-muted">
@@ -87,7 +86,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="relative p-4">
+				<div class="relative p-4 lg:px-8 @[44rem]:col-span-2 @[68rem]:col-span-1">
 					<div>
 						<p class="font-display text-lg font-medium text-fg-emph">Desktop</p>
 						<p class="text-sm text-fg-muted">
@@ -122,7 +121,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="p-4 @[44rem]:col-span-2">
+				<div class="p-4 lg:px-8 @[44rem]:col-span-2">
 					<div>
 						<p class="font-display text-lg font-medium text-fg-emph">Specialized</p>
 						<p class="text-sm text-fg-muted">
@@ -135,7 +134,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="p-4">
+				<div class="p-4 lg:px-8 @[44rem]:col-span-2 @[68rem]:col-span-1">
 					<div>
 						<p class="font-display text-lg font-medium text-fg-emph">Infrastructure</p>
 						<p class="text-sm text-fg-muted">
