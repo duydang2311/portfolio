@@ -64,7 +64,7 @@
 			<div class="-ml-2 flex h-full touch-pan-y touch-pinch-zoom items-center">
 				{#each medias as media (media.src)}
 					<div class="embla--slide">
-						{#if media.src.endsWith('mp4')}
+						{#if media.src.endsWith('mp4') || media.src.endsWith('mov')}
 							<video
 								src={media.src}
 								controls
@@ -132,7 +132,7 @@
 							embla.scrollTo(i);
 						}}
 					>
-						{#if media.src.endsWith('mp4')}
+						{#if media.src.endsWith('mp4') || media.src.endsWith('mov')}
 							<video src={media.src} muted class="embla-thumb--slide--content"></video>
 						{:else}
 							<img src={media.src} alt="" class="embla-thumb--slide--content" />
