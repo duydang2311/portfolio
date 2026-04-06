@@ -15,7 +15,7 @@
 		<div
 			class="lg:h-screen relative top-0 left-0 flex flex-row-reverse justify-between bg-surface-subtle lg:sticky lg:flex-col lg:justify-start"
 		>
-			<svg xmlns="http://www.w3.org/2000/svg" class="absolute top-0 left-0 size-full"
+			<svg xmlns="http://www.w3.org/2000/svg" class="absolute top-0 left-0 size-full max-w-full"
 				><defs
 					><pattern
 						id="a"

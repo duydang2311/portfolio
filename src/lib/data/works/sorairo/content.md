@@ -2,6 +2,7 @@
 github_repo: https://github.com/duydang2311/portfolio
 medias:
   - src: https://objects.duyda.tech/portfolio/sorairo-demo-video.mp4
+  - src: https://objects.duyda.tech/portfolio/sorairo/sorairo-macos.mov
   - src: https://objects.duyda.tech/portfolio/sorairo-light.png
   - src: https://objects.duyda.tech/portfolio/sorairo-dark.png
   - src: https://objects.duyda.tech/portfolio/sorairo-compact.png
