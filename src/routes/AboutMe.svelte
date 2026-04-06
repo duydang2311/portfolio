@@ -29,7 +29,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Platforms</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['.NET', 'Node.js', 'Cloudflare Workers'] as tech}
+									{#each ['.NET', 'Node.js', 'Cloudflare Workers'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -37,7 +37,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Frameworks</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['FastEndpoints', 'Minimal APIs', 'SvelteKit'] as tech}
+									{#each ['FastEndpoints', 'Minimal APIs', 'SvelteKit'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -45,7 +45,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Data</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['Entity Framework', 'Drizzle ORM'] as tech}
+									{#each ['Entity Framework', 'Drizzle ORM'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -65,7 +65,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Platforms</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['Browser (JS/TS)'] as tech}
+									{#each ['Browser (JS/TS)'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -73,7 +73,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Libraries/Frameworks</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['Svelte', 'React', 'Tailwind CSS'] as tech}
+									{#each ['Svelte', 'React', 'Tailwind CSS'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -81,7 +81,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Tooling</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['Vite', 'Turborepo', 'tsup'] as tech}
+									{#each ['Vite', 'Turborepo', 'tsup'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -100,7 +100,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Platforms</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['.NET', 'Rust'] as tech}
+									{#each ['.NET', 'Rust'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -108,7 +108,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Architectures & Patterns</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['MVVM', 'Vertical Slice', 'Reactive'] as tech}
+									{#each ['MVVM', 'Vertical Slice', 'Reactive'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -116,7 +116,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Frameworks</p>
 								<div class="flex flex-col gap-1">
-									{#each ['Avalonia UI', 'Tauri', 'egui', 'fltk-rs', 'Windows Forms', '.NET MAUI'] as tech}
+									{#each ['Avalonia UI', 'Tauri', 'egui', 'fltk-rs', 'Windows Forms', '.NET MAUI'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -131,7 +131,7 @@
 							Some knowledge I gained from solving specific and less common problems.
 						</p>
 						<div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-1">
-							{#each ['.NET Source Generators', '.NET Dynamic Expression', 'C/C# Interop (FFI)', 'C/Rust Interop (FFI)', 'Functional Programming'] as tech}
+							{#each ['.NET Source Generators', '.NET Dynamic Expression', 'C/C# Interop (FFI)', 'C/Rust Interop (FFI)', 'Functional Programming'] as tech (tech)}
 								<div class="rounded bg-base px-4 py-1">{tech}</div>
 							{/each}
 						</div>
@@ -148,7 +148,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Data</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['PostgreSQL', 'SQLite', 'MongoDB'] as tech}
+									{#each ['PostgreSQL', 'SQLite', 'MongoDB'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -156,7 +156,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Messaging</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['NATS.io', 'SignalR', 'WebSockets', 'gRPC'] as tech}
+									{#each ['NATS.io', 'SignalR', 'WebSockets'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -164,7 +164,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">DevOps</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['Podman/Docker', 'Cloudflare', 'Supabase', 'Vercel'] as tech}
+									{#each ['Podman/Docker', 'Cloudflare', 'Supabase', 'Vercel'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>
@@ -172,7 +172,7 @@
 							<div>
 								<p class="text-sm text-fg-muted">Tooling</p>
 								<div class="mt-1 flex flex-col gap-1">
-									{#each ['mise', 'just'] as tech}
+									{#each ['mise', 'just'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
 								</div>

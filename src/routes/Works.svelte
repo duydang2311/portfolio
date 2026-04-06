@@ -42,7 +42,7 @@
 	</a>
 {/snippet}
 
-<section class="@container h-full py-6">
+<section class="@container py-6">
 	<WorkPageDialog />
 	<div class="w-full px-4 lg:px-6">
 		<div>

@@ -1,0 +1,15 @@
+.c-card--outlined {
+	border: 1px solid var(--color-surface-border);
+}
+
+.c-card--clickable {
+    &:where(:hover) {
+        background-color: var(--color-surface-subtle);
+    }
+    &:where(:active) {
+        background-color: var(--color-surface-emph);
+    }
+}
+
+.c-card--shiny {
+}

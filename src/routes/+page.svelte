@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AboutMe from './AboutMe.svelte';
 	import ChangeColorButton from './ChangeColorButton.svelte';
+	import Contact from './Contact.svelte';
 	import Greetings from './Greetings.svelte';
 	import Hero from './Hero.svelte';
 	import SwitchThemeButton from './SwitchThemeButton.svelte';
@@ -12,7 +13,7 @@
 		class="flex h-full flex-col divide-y divide-surface-border lg:flex-row lg:divide-x"
 	>
 		<div
-			class="lg:h-screen relative top-0 flex flex-row-reverse justify-between bg-surface-subtle lg:sticky lg:flex-col lg:justify-start"
+			class="lg:h-screen relative top-0 left-0 flex flex-row-reverse justify-between bg-surface-subtle lg:sticky lg:flex-col lg:justify-start"
 		>
 			<svg xmlns="http://www.w3.org/2000/svg" class="absolute top-0 left-0 size-full"
 				><defs
@@ -45,13 +46,14 @@
 				<Hero />
 			</div>
 		</div>
-		<div class="flex-1">
+		<div class="flex-1 -z-1">
 			<main>
 				<div
-					class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,40rem),1fr))] gap-px *:min-w-0 *:outline *:outline-surface-border"
+					class="flex flex-col lg:flex-row lg:*:shrink-0 lg:*:basis-156 gap-px *:outline *:outline-surface-border"
 				>
 					<AboutMe />
 					<Works />
+					<Contact />
 				</div>
 			</main>
 		</div>
