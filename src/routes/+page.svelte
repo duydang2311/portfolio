@@ -47,7 +47,7 @@
 		<div class="flex-1">
 			<main>
 				<div
-					class="flex flex-col gap-px *:outline *:outline-surface-border lg:flex-row lg:*:shrink-0 lg:*:basis-156"
+					class="flex flex-col gap-px *:outline *:outline-surface-border lg:flex-row lg:*:grow lg:*:shrink-0 lg:*:basis-156"
 				>
 					<AboutMe />
 					<Works />
