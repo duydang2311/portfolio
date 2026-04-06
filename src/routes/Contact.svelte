@@ -12,7 +12,7 @@
 		</div>
 		<div class="mt-4">
 			<div class="text-pretty">
-				<p>Open to new opportunities, feedback, or a quick chat.</p>
+				<p>I'm always open to new opportunities, feedback, or a quick chat.</p>
 			</div>
 		</div>
 		<div
