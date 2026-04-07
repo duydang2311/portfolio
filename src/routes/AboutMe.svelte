@@ -22,7 +22,7 @@
 							I enjoy building back-ends using .NET where performance matters and Node.js for
 							smaller, agile services.
 						</p>
-						<div class="mt-2 flex flex-wrap gap-4 *:grow">
+						<div class="mt-2 flex flex-wrap gap-1 *:grow">
 							<div>
 								<p class="text-sm text-fg-muted">Platforms</p>
 								<div class="mt-1 flex flex-col gap-1">
@@ -58,7 +58,7 @@
 							have an interest in building my components on top of unstyled UI libraries.
 							Customization is key!
 						</p>
-						<div class="mt-4 flex flex-row flex-wrap gap-4 *:grow">
+						<div class="mt-4 flex flex-row flex-wrap gap-1 *:grow">
 							<div>
 								<p class="text-sm text-fg-muted">Platforms</p>
 								<div class="mt-1 flex flex-col gap-1">
@@ -93,7 +93,7 @@
 							I lean toward Avalonia UI for a stable, lightweight, modern desktop app, while keeping
 							Rust for its immediate-mode and immature but rapidly growing ecosystems.
 						</p>
-						<div class="mt-4 flex flex-wrap gap-4 *:grow">
+						<div class="mt-4 flex flex-wrap gap-1 *:grow">
 							<div>
 								<p class="text-sm text-fg-muted">Platforms</p>
 								<div class="mt-1 flex flex-col gap-1">
@@ -112,7 +112,7 @@
 							</div>
 							<div>
 								<p class="text-sm text-fg-muted">Frameworks</p>
-								<div class="flex flex-col gap-1">
+								<div class="mt-1 flex flex-col gap-1">
 									{#each ['Avalonia UI', 'Tauri', 'egui', 'fltk-rs', 'Windows Forms', '.NET MAUI'] as tech (tech)}
 										<div class="rounded bg-base px-4 py-1">{tech}</div>
 									{/each}
@@ -141,7 +141,7 @@
 							These days, I like Docker for containerization, Cloudflare for its robust cloud
 							services, and mise/just for development workflow.
 						</p>
-						<div class="mt-4 flex flex-wrap gap-4 *:grow">
+						<div class="mt-4 flex flex-wrap gap-1 *:grow">
 							<div>
 								<p class="text-sm text-fg-muted">Data</p>
 								<div class="mt-1 flex flex-col gap-1">
