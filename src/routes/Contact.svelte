@@ -19,7 +19,7 @@
 			<p class="mt-1">I'm always open to new opportunities, feedback, or a quick chat.</p>
 		</div>
 		<div
-			class="mt-4 grid grid-cols-[repeat(auto-fill,minmax(min(16rem,100%),1fr))] gap-px *:h-48 *:basis-72 *:outline *:outline-surface-border *:hover:z-1"
+			class="mt-4 flex flex-wrap gap-px *:h-48 *:flex-1 *:outline *:outline-surface-border *:hover:z-1"
 		>
 			<a
 				href="mailto:duyda.himself@gmail.com"
@@ -28,7 +28,7 @@
 				class="c-card c-card--clickable flex flex-col justify-between p-4 lg:p-6"
 			>
 				<Gmail class="size-10 fill-current" />
-				<div class="flex items-center justify-between gap-4">
+				<div class="flex items-center justify-between gap-8">
 					<span>duyda.himself@gmail.com</span>
 					<ArrowTopRight class="shrink-0" />
 				</div>
@@ -40,7 +40,7 @@
 				class="c-card c-card--clickable flex flex-col justify-between p-4 lg:p-6"
 			>
 				<GitHub class="size-10 fill-current" />
-				<div class="mt-16 flex items-center justify-between gap-4">
+				<div class="mt-16 flex items-center justify-between gap-8">
 					<span>duydang2311</span>
 					<ArrowTopRight class="shrink-0" />
 				</div>
@@ -59,9 +59,9 @@
 				}}
 			>
 				<Discord class="size-10 fill-current" />
-				<div class="flex items-end justify-between gap-4">
+				<div class="flex items-end justify-between gap-8">
 					<div>
-						<p class="text-base-fg-muted text-xs">UID: 287955978215882752</p>
+						<p class="text-fg-muted text-xs text-nowrap">UID: 287955978215882752</p>
 						<p>duydang</p>
 					</div>
 					{#if clipboardTimeout === 0}
@@ -78,7 +78,7 @@
 				class="c-card c-card--clickable flex flex-col justify-between p-4 lg:p-6"
 			>
 				<SoundCloud class="size-10 fill-current" />
-				<div class="mt-16 flex items-center justify-between gap-4">
+				<div class="mt-16 flex items-center justify-between gap-8">
 					<span>duydang12</span>
 					<ArrowTopRight class="shrink-0" />
 				</div>
