@@ -106,7 +106,7 @@
 				]
 			)}
 			<div
-				class="col-span-full bg-surface-subtle px-4 lg:px-6 py-2 text-xs font-medium text-fg-muted uppercase"
+				class="col-span-full bg-surface-subtle px-4 py-2 text-xs font-medium text-fg-muted uppercase lg:px-6"
 			>
 				Library
 			</div>
