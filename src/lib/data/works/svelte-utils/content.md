@@ -1,61 +1,71 @@
 # svelte utils
 
-This library provides a set of helpful functions to streamline common tasks in your Svelte projects.
+A collection of utility functions designed to simplify common patterns in Svelte applications.
 
-## What's Inside?
+## Installation
+
+```bash
+bun install @duydang2311/svutils
+```
+
+## API
 
 ### `createRef`
 
-`createRef` creates a reactive "boxed state" where the value is stored in its `.current` property. Use it for local mutations, optimistic UI updates, async state (comes with an extra loading flag), or to avoid `$bindable`.
+Creates a boxed state where the state is stored in a `.current` property. Useful for local mutations, optimistic UI updates, async data handling, and avoiding `$bindable`.
 
 ```svelte
 <script lang="ts">
-  import { createRef } from '@duydang2311/svutils';
+	import { createRef } from '@duydang2311/svutils';
 
-  // Ref<number>
-  const counterRef = createRef(0);
+	// Ref<number>
+	const counterRef = createRef(0);
 
-  // AsyncRef<SomeData>
-  const fetchDataRef = createRef(async () => {
-    const response = await fetch('/api/data');
-    return response.json() as Promise<SomeData>;
-  });
+	// AsyncRef<SomeData>
+	const fetchDataRef = createRef(async () => {
+		const response = await fetch('/api/data');
+		return response.json() as Promise<SomeData>;
+	});
 </script>
 
 <div>
-  Counter: {counterRef.current}
+	Counter: {counterRef.current}
 </div>
-<button on:click={() => { ++counterRef.current; }}>Increment</button>
+<button
+	on:click={() => {
+		++counterRef.current;
+	}}>Increment</button
+>
 
 {#if fetchDataRef.loading}
-  <p>Loading data...</p>
+	<p>Loading data...</p>
 {:else}
-  <p>Data: {fetchDataRef.current}</p>
+	<p>Data: {fetchDataRef.current}</p>
 {/if}
 ```
 
 ### `watch`
 
-Basically the `$effect` rune but with explicit dependency tracking.
+An explicit alternative to `$effect` with dependency tracking. Supports cleanup functions for side effects.
 
 ```svelte
 <script>
-  import { watch } from '@duydang2311/svutils';
+	import { watch } from '@duydang2311/svutils';
 
-  let value = $state(0);
+	let value = $state(0);
 
-  watch(() => value)(() => {
-    console.log('Do something when value changed');
-    return () => {
-      console.log('Clean up');
-    }
-  });
+	watch(() => value)(() => {
+		console.log('Do something when value changed');
+		return () => {
+			console.log('Clean up');
+		};
+	});
 </script>
 ```
 
 ### `createGSAPTransition`
 
-Integrate GSAP animations seamlessly into your Svelte transitions `transition:`, `in:`, and `out:`.
+Bridges GSAP animations with Svelte’s `transition:`, `in:`, and `out:` directives.
 
 First, ensure you have GSAP installed:
 
@@ -67,39 +77,31 @@ Then, use it in your Svelte components:
 
 ```svelte
 <script>
-  import { createGSAPTransition } from '@duydang2311/svutils';
-  import gsap from 'gsap';
+	import { createGSAPTransition } from '@duydang2311/svutils';
+	import gsap from 'gsap';
 
-  // Create a Svelte transition compatible GSAP instance. Should only be created once throughout your application.
-  const tsap = createGSAPTransition(gsap);
+	// Create a Svelte transition compatible GSAP instance. Should only be created once throughout your application.
+	const tsap = createGSAPTransition(gsap);
 
-  let show = true;
+	let show = true;
 </script>
 
 <button on:click={() => (show = !show)}>Toggle</button>
 
 {#if show}
-  <div
-    in:tsap={(node, gsap) => gsap.from(node, { autoAlpha: 0, y: -50, duration: 0.5 })}
-    out:tsap={(node, gsap) => gsap.to(node, { autoAlpha: 0, y: 50, duration: 0.5 })}
-  >
-    Hello GSAP Transition!
-  </div>
+	<div
+		in:tsap={(node, gsap) => gsap.from(node, { autoAlpha: 0, y: -50, duration: 0.5 })}
+		out:tsap={(node, gsap) => gsap.to(node, { autoAlpha: 0, y: 50, duration: 0.5 })}
+	>
+		Hello GSAP Transition!
+	</div>
 {/if}
 ```
 
-## Get Started
-
-To start using these utilities, install the package:
-
-```bash
-bun install @duydang2311/svutils
-```
-
-Then, import the desired functions into your Svelte components.
-
 ## Contributing
 
-If you have ideas for new utilities, improvements, or bug fixes, feel free to open an issue or submit a pull request.
+Feel free to open an issue or submit a pull request if you have ideas for new utilities, improvements or fixes!
 
-Happy coding!
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
