@@ -11,26 +11,46 @@
 <div class="flex flex-col">
 	<div class="flex h-full flex-col divide-y divide-surface-border lg:flex-row lg:divide-x">
 		<div
-			class="relative top-0 left-0 flex flex-4 flex-row-reverse justify-between bg-surface-subtle lg:sticky lg:h-screen lg:flex-col lg:justify-start"
+			class="relative top-0 left-0 flex flex-4 flex-row-reverse justify-between bg-surface-subtle lg:sticky lg:h-screen lg:flex-col lg:justify-start overflow-hidden"
 		>
-			<svg xmlns="http://www.w3.org/2000/svg" class="absolute top-0 left-0 size-full max-w-full"
-				><defs
-					><pattern
-						id="a"
-						width="30"
-						height="30"
-						patternTransform="scale(2)"
-						patternUnits="userSpaceOnUse"
-						><path
-							fill="none"
-							stroke="var(--color-fg)"
-							opacity="0.02"
-							stroke-width="1"
-							d="M0 22.5h30v15H0zm15-15h30v15H15m-30-15h30v15h-30zm15-15h30v15H0z"
-						/></pattern
-					></defs
-				><rect width="800%" height="800%" fill="url(#a)" transform="translate(0 -15)" /></svg
-			>
+			<div class="parallax absolute top-0 left-0 size-full h-[200%] max-w-full">
+				<svg xmlns="http://www.w3.org/2000/svg" class="size-full"
+					><defs
+						><pattern
+							id="a"
+							width="30"
+							height="30"
+							patternTransform="scale(2)"
+							patternUnits="userSpaceOnUse"
+							><path
+								fill="none"
+								stroke="var(--color-fg)"
+								opacity="0.04"
+								stroke-width="1"
+								d="M0 22.5h30v15H0zm15-15h30v15H15m-30-15h30v15h-30zm15-15h30v15H0z"
+							/></pattern
+						></defs
+					><rect width="800%" height="800%" fill="url(#a)" transform="translate(0 -15)" /></svg
+				>
+				<svg xmlns="http://www.w3.org/2000/svg" class="size-full"
+					><defs
+						><pattern
+							id="b"
+							width="30"
+							height="30"
+							patternTransform="scale(2)"
+							patternUnits="userSpaceOnUse"
+							><path
+								fill="none"
+								stroke="var(--color-fg)"
+								opacity="0.04"
+								stroke-width="1"
+								d="M0 22.5h30v15H0zm15-15h30v15H15m-30-15h30v15h-30zm15-15h30v15H0z"
+							/></pattern
+						></defs
+					><rect width="800%" height="800%" fill="url(#b)" transform="translate(0 -15)" /></svg
+				>
+			</div>
 			<div class="flex flex-col items-end justify-between lg:items-start">
 				<header class="relative flex gap-2 px-6 py-4 lg:px-4 lg:py-2">
 					<SwitchThemeButton />
@@ -62,3 +82,19 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.parallax {
+		animation: moveY linear both;
+		animation-timeline: scroll(y root);
+	}
+
+	@keyframes moveY {
+		from {
+			transform: translateY(0);
+		}
+		to {
+			transform: translateY(-15vh);
+		}
+	}
+</style>
