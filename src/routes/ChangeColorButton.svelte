@@ -1,15 +1,17 @@
 <script lang="ts">
 	import { createPopover, createSlider } from '$lib/components/builders.svelte';
 	import { ColorWheel } from '$lib/components/icons';
+	import { useRuntime } from '$lib/runtime';
 	import { portal } from '@zag-js/svelte';
 	import Cookies from 'js-cookie';
 
 	let styleEl: HTMLStyleElement | null = null;
+	const runtime = useRuntime();
 	const id = $props.id();
 	const popover = createPopover({ id: `popover--${id}` });
 	const slider = createSlider({
 		id: `slider--${id}`,
-		defaultValue: [142],
+		defaultValue: [runtime.hue],
 		min: 0,
 		max: 360,
 		onValueChange(details) {
@@ -66,6 +68,7 @@
 --color-primary-fg: oklch(63.5% 0.175 ${hue});
 }
 	`;
+			runtime.hue = hue;
 			Cookies.set('hue', hue.toString(), { path: '/', expires: 365 });
 		}
 	});
@@ -124,6 +127,7 @@
 							style="background: linear-gradient(to right, oklch(46.6% 0.15 0) 0%, oklch(46.6% 0.15 60) 17%, oklch(46.6% 0.15 120) 33%, oklch(46.6% 0.15 180) 50%, oklch(46.6% 0.15 240) 67%, oklch(46.6% 0.15 300) 83%, oklch(46.6% 0.15 360) 100%);"
 						></div>
 					</div>
+					<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 					{#each slider.api.value as _, index (index)}
 						{@const thumbProps = { ...slider.api.getThumbProps({ index }) }}
 						<div

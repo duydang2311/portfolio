@@ -12,5 +12,7 @@ export const handle = async ({ event, resolve }) => {
 					.replaceAll('{{hue}}', event.cookies.get('hue') ?? '142')
 		});
 	}
-	return resolve(event);
+	return resolve(event, {
+		transformPageChunk: ({ html }) => html.replaceAll('{{hue}}', event.cookies.get('hue') ?? '142')
+	});
 };

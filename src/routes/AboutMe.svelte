@@ -1,4 +1,6 @@
-<script lang="ts"></script>
+<script lang="ts">
+	import GitHubContributionsGraph from './GitHubContributionsGraph.svelte';
+</script>
 
 {#snippet primaryTech(text: string)}
 	<div class="font-medium text-nowrap">{text}</div>
@@ -17,6 +19,9 @@
 				build functional apps for web and desktop, occasionally contributing to open-source works
 				that are powering them.
 			</p>
+			<div class="py-8">
+				<GitHubContributionsGraph />
+			</div>
 		</div>
 		<div class="@container mt-6">
 			<div class="grid grid-flow-row-dense gap-px *:outline *:outline-surface-border">
@@ -104,7 +109,8 @@
 						Desktop
 					</span>
 					<p class="text-sm text-fg-muted">
-						I use Avalonia UI for a stable, lightweight, cross-platform, modern desktop app, and Rust for exploring its immature but rapidly growing ecosystem.
+						I use Avalonia UI for a stable, lightweight, cross-platform, modern desktop app, and
+						Rust for exploring its immature but rapidly growing ecosystem.
 					</p>
 					<div class="mt-4 flex flex-wrap gap-8 *:flex-1 *:basis-48">
 						<div>
