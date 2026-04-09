@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { getGitHubContribution } from '$lib/remote/github.remote';
 	import { useRuntime } from '$lib/runtime';
-	import { sineInOut } from 'svelte/easing';
-	import { fly } from 'svelte/transition';
 	import invariant from 'tiny-invariant';
 
 	const runtime = useRuntime();
@@ -14,7 +12,6 @@
 	</div>
 {:then contribution}
 	<div
-		transition:fly={{ y: 4, easing: sineInOut }}
 		class="mx-auto flex max-w-5xl flex-col gap-x-8 gap-y-2 xl:flex-row"
 	>
 		<div class="flex flex-col">
