@@ -75,17 +75,19 @@
 	const currentHue = $derived(slider.api.value[0]);
 </script>
 
-{#snippet item(hue: number)}
+{#snippet item(hue: number, label: string)}
 	<button
 		type="button"
 		data-selected={currentHue === hue ? '' : undefined}
-		class="h-10 rounded-sm border border-transparent opacity-20 transition duration-75 hover:opacity-60 data-selected:opacity-100 data-selected:ring data-selected:ring-primary-fg data-selected:ring-offset-1 data-selected:ring-offset-surface"
+		class="relative h-10 rounded-sm border border-transparent opacity-40 transition duration-75 hover:opacity-60 data-selected:opacity-100 data-selected:ring data-selected:ring-primary-fg data-selected:ring-offset-1 data-selected:ring-offset-surface"
 		style="background-color: oklch(46.6% 0.15 {hue});"
 		onclick={() => {
 			slider.api.setValue([hue]);
 		}}
 		aria-label="Set hue to {hue}"
-	></button>
+	>
+		<span class="text-xs text-surface absolute absolute-center">{label}</span>
+	</button>
 {/snippet}
 
 <div>
@@ -112,12 +114,12 @@
 					<p class="text-sm text-fg-muted">Try a new refreshing look for the site.</p>
 				</div>
 				<div class="mt-2 grid grid-cols-3 gap-1">
-					{@render item(0)}
-					{@render item(60)}
-					{@render item(120)}
-					{@render item(180)}
-					{@render item(240)}
-					{@render item(300)}
+					{@render item(0, 'blush')}
+					{@render item(60, 'cozy')}
+					{@render item(120, 'moss')}
+					{@render item(180, 'tide')}
+					{@render item(240, 'sky')}
+					{@render item(300, 'haze')}
 				</div>
 				<div {...slider.api.getControlProps()} class="relative mt-2 flex-1">
 					<div {...slider.api.getTrackProps()}>
