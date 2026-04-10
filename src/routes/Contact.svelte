@@ -27,7 +27,7 @@
 				target="_blank"
 				class="c-card c-card--clickable flex flex-col justify-between p-4 lg:p-6"
 			>
-				<Gmail class="size-10 fill-current" />
+				<Gmail class="size-10 fill-[#EA4335]" />
 				<div class="flex items-center justify-between gap-8">
 					<span>duyda.himself@gmail.com</span>
 					<ArrowTopRight class="shrink-0" />
@@ -58,10 +58,10 @@
 					}, 3000) as unknown as number;
 				}}
 			>
-				<Discord class="size-10 fill-current" />
+				<Discord class="size-10 fill-[#5865F2]" />
 				<div class="flex items-end justify-between gap-8">
 					<div>
-						<p class="text-fg-muted text-xs text-nowrap">UID: 287955978215882752</p>
+						<p class="text-xs text-nowrap text-fg-muted">UID: 287955978215882752</p>
 						<p>duydang</p>
 					</div>
 					{#if clipboardTimeout === 0}
@@ -77,7 +77,7 @@
 				target="_blank"
 				class="c-card c-card--clickable flex flex-col justify-between p-4 lg:p-6"
 			>
-				<SoundCloud class="size-10 fill-current" />
+				<SoundCloud class="size-10 fill-[#FF5500]" />
 				<div class="mt-16 flex items-center justify-between gap-8">
 					<span>duydang12</span>
 					<ArrowTopRight class="shrink-0" />
