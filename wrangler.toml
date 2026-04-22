@@ -10,4 +10,4 @@ directory = ".svelte-kit/cloudflare"
 
 [[routes]]
 custom_domain = true
-pattern = "portfolio.duyda.tech"
+pattern = "portfolio.duyda.com"
