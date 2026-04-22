@@ -1,7 +1,7 @@
 ---
 github_repo: https://github.com/duydang2311/fullest-web
 medias:
-  - src: https://objects.duyda.tech/portfolio/fullest-web/fullest-web-task-list.png
+  - src: https://objects.duyda.com/portfolio/fullest-web/fullest-web-task-list.png
 ---
 
 # fullest-web

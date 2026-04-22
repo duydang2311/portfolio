@@ -1,8 +1,8 @@
 ---
 github_repo: https://github.com/duydang2311/portfolio
 medias:
-  - src: https://objects.duyda.tech/portfolio/portfolio/01_dark.png
-  - src: https://objects.duyda.tech/portfolio/portfolio/02_light.png
+  - src: https://objects.duyda.com/portfolio/portfolio/01_dark.png
+  - src: https://objects.duyda.com/portfolio/portfolio/02_light.png
 ---
 
 # portfolio

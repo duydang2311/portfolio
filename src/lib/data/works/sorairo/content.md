@@ -1,12 +1,12 @@
 ---
 github_repo: https://github.com/duydang2311/portfolio
 medias:
-  - src: https://objects.duyda.tech/portfolio/sorairo-demo-video.mp4
-  - src: https://objects.duyda.tech/portfolio/sorairo/sorairo-macos.mov
-  - src: https://objects.duyda.tech/portfolio/sorairo-light.png
-  - src: https://objects.duyda.tech/portfolio/sorairo-dark.png
-  - src: https://objects.duyda.tech/portfolio/sorairo-compact.png
-  - src: https://objects.duyda.tech/portfolio/sorairo-mini.png
+  - src: https://objects.duyda.com/portfolio/sorairo-demo-video.mp4
+  - src: https://objects.duyda.com/portfolio/sorairo/sorairo-macos.mov
+  - src: https://objects.duyda.com/portfolio/sorairo-light.png
+  - src: https://objects.duyda.com/portfolio/sorairo-dark.png
+  - src: https://objects.duyda.com/portfolio/sorairo-compact.png
+  - src: https://objects.duyda.com/portfolio/sorairo-mini.png
 ---
 
 # sorairo

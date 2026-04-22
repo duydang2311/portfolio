@@ -1,7 +1,7 @@
 ---
 github_repo: https://github.com/duydang2311/askkit
 medias:
-  - src: https://objects.duyda.tech/portfolio/askkit/01_overview.gif
+  - src: https://objects.duyda.com/portfolio/askkit/01_overview.gif
 ---
 
 # askkit
