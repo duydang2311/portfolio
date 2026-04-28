@@ -59,7 +59,7 @@
 		{#if options?.githubUrl}
 			<a
 				href={options.githubUrl}
-				class="part--github absolute right-4 bottom-4 rounded-full transition duration-200 hover:scale-120 fill-fg hover:fill-primary-fg hover:ring hover:ring-primary-fg/40 hover:ring-offset-1 hover:ring-offset-surface"
+				class="part--github absolute right-4 bottom-4 rounded-full fill-fg transition duration-200 hover:scale-120 hover:fill-primary-fg hover:ring hover:ring-primary-fg/40 hover:ring-offset-1 hover:ring-offset-surface"
 				target="_blank"
 			>
 				<GitHub />
@@ -155,6 +155,32 @@
 					'tailwindcss',
 					'melt-ui',
 					'cloudflare-workers'
+				],
+				{ githubUrl: 'https://github.com/duydang2311/plan-backend' }
+			)}
+			{@render item(
+				'human',
+				'An HR management web app for managing employees, departments, jobs, leave requests, etc... through a Remix-powered dashboard.',
+				[
+					'remix',
+					'react',
+					'typescript',
+					'tailwindcss',
+					'express',
+					'ssr',
+					'cookie-session',
+					'jwt-auth',
+					'i18next',
+					'react-aria',
+					'headless-ui',
+					'heroicons',
+					'tiptap',
+					'tanstack-table',
+					'zod',
+					'conform',
+					'neverthrow',
+					'hr-management',
+					'dashboard',
 				],
 				{ githubUrl: 'https://github.com/duydang2311/plan-backend' }
 			)}
